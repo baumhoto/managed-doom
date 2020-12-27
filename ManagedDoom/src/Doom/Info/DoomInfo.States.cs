@@ -26,7 +26,7 @@ namespace ManagedDoom
 
         public static readonly MobjStateDef[] States = new MobjStateDef[]
         {
-            new MobjStateDef(0, Sprite.PUF2, 0, -1, null, null, MobjState.Null, 0, 0), // State.Null
+            new MobjStateDef(0, Sprite.PLAY, 0, -1, null, null, MobjState.Null, 0, 0), // State.Null
             //* new MobjStateDef(1, Sprite.SHTG, 4, 0, pa.Light0, null, MobjState.Null, 0, 0), // State.Lightdone
             // new MobjStateDef(2, Sprite.PUNG, 0, 1, pa.WeaponReady, null, MobjState.Punch, 0, 0), // State.Punch
             // new MobjStateDef(3, Sprite.PUNG, 0, 1, pa.Lower, null, MobjState.Punchdown, 0, 0), // State.Punchdown
@@ -200,7 +200,7 @@ namespace ManagedDoom
             new MobjStateDef(22, Sprite.PLAY, 20, 5, null, null, MobjState.PlayXdie8, 0, 0), // State.PlayXdie7
             new MobjStateDef(23, Sprite.PLAY, 21, 5, null, null, MobjState.PlayXdie9, 0, 0), // State.PlayXdie8
             new MobjStateDef(24, Sprite.PLAY, 22, -1, null, null, MobjState.Null, 0, 0), // State.PlayXdie9
-            // new MobjStateDef(174, Sprite.POSS, 0, 10, null, ma.Look, MobjState.PossStnd2, 0, 0), // State.PossStnd
+            //* new MobjStateDef(174, Sprite.POSS, 0, 10, null, ma.Look, MobjState.PossStnd2, 0, 0), // State.PossStnd
             // new MobjStateDef(175, Sprite.POSS, 1, 10, null, ma.Look, MobjState.PossStnd, 0, 0), // State.PossStnd2
             // new MobjStateDef(176, Sprite.POSS, 0, 4, null, ma.Chase, MobjState.PossRun2, 0, 0), // State.PossRun1
             // new MobjStateDef(177, Sprite.POSS, 0, 4, null, ma.Chase, MobjState.PossRun3, 0, 0), // State.PossRun2

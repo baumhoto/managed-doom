@@ -83,7 +83,7 @@ namespace ManagedDoom
                 columns);
         }
 
-
+        //* Test load raw graphics
         public static Patch FromDataRaw(string name, byte[] data)
         {
             var width = 320;
@@ -114,6 +114,7 @@ namespace ManagedDoom
 
         public static Patch FromWad(Wad wad, string name)
         {
+            //* test for fullscreen graphics
             if (name == "TITLE") {
                 return FromDataRaw(name, wad.ReadLump(name));
             }
@@ -146,6 +147,7 @@ namespace ManagedDoom
             }
         }
 
+        //* Test load raw graphics
         private static void PadDataRaw(ref byte[] data, int width)
         {
             var need = 0;
