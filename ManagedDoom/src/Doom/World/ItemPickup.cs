@@ -440,17 +440,17 @@ namespace ManagedDoom
                 //     }
                 //     return;
 
-                // case Sprite.YKEY:
-                //     if (!player.Cards[(int)CardType.YellowCard])
-                //     {
-                //         player.SendMessage(DoomInfo.Strings.GOTYELWCARD);
-                //     }
-                //     GiveCard(player, CardType.YellowCard);
-                //     if (!world.Options.NetGame)
-                //     {
-                //         break;
-                //     }
-                //     return;
+                case Sprite.YKEY:
+                    if (!player.Cards[(int)CardType.YellowCard])
+                    {
+                        player.SendMessage(DoomInfo.Strings.GOTYELWCARD);
+                    }
+                    GiveCard(player, CardType.YellowCard);
+                    if (!world.Options.NetGame)
+                    {
+                        break;
+                    }
+                    return;
 
                 // case Sprite.RKEY:
                 //     if (!player.Cards[(int)CardType.RedCard])

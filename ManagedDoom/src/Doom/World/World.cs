@@ -16,6 +16,7 @@
 
 
 using System;
+using System.Linq;
 
 namespace ManagedDoom
 {
@@ -192,13 +193,19 @@ namespace ManagedDoom
 
         private void LoadThings()
         {
+            //* WIP array containing the things that have been added to gamecode and can be spawned
+            var addTypeIds = new int[]{ 
+                1, // Player 
+                80 // Yellow Key
+                };
+
             for (var i = 0; i < map.Things.Length; i++)
             {
                 var mt = map.Things[i];
 
                 var spawn = true;
 
-                // Do not spawn cool, new monsters if not commercial.
+                //Do not spawn cool, new monsters if not commercial.
                 if (options.GameMode != GameMode.Commercial)
                 {
                     switch (mt.Type)
@@ -217,19 +224,17 @@ namespace ManagedDoom
                             break;
                     }
                 }
-                //* only spawn player for now
-                if(mt.Type != 1)
-                {
-                    spawn = false;
-                }
 
                 if (!spawn)
                 {
                     break;
                 }
 
-
-                thingAllocation.SpawnMapThing(mt);
+                //* for now only spawn specified items 
+                if(addTypeIds.Contains(mt.Type))
+                {
+                    thingAllocation.SpawnMapThing(mt);
+                }
             }
         }
 

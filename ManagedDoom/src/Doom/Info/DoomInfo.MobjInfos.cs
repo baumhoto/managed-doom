@@ -1297,31 +1297,31 @@ namespace ManagedDoom
             //     MobjState.Null // raiseState
             // ),
 
-            // new MobjInfo( // MobjType.Misc6
-            //     6, // doomEdNum
-            //     MobjState.Ykey, // spawnState
-            //     1000, // spawnHealth
-            //     MobjState.Null, // seeState
-            //     Sfx.NONE, // seeSound
-            //     8, // reactionTime
-            //     Sfx.NONE, // attackSound
-            //     MobjState.Null, // painState
-            //     0, // painChance
-            //     Sfx.NONE, // painSound
-            //     MobjState.Null, // meleeState
-            //     MobjState.Null, // missileState
-            //     MobjState.Null, // deathState
-            //     MobjState.Null, // xdeathState
-            //     Sfx.NONE, // deathSound
-            //     0, // speed
-            //     Fixed.FromInt(20), // radius
-            //     Fixed.FromInt(16), // height
-            //     100, // mass
-            //     0, // damage
-            //     Sfx.NONE, // activeSound
-            //     MobjFlags.Special | MobjFlags.NotDeathmatch, // flags
-            //     MobjState.Null // raiseState
-            // ),
+            new MobjInfo( // MobjType.Misc6
+                80, // doomEdNum
+                MobjState.Ykyy, // spawnState
+                1000, // spawnHealth
+                MobjState.Null, // seeState
+                Sfx.NONE, // seeSound
+                8, // reactionTime
+                Sfx.NONE, // attackSound
+                MobjState.Null, // painState
+                0, // painChance
+                Sfx.NONE, // painSound
+                MobjState.Null, // meleeState
+                MobjState.Null, // missileState
+                MobjState.Null, // deathState
+                MobjState.Null, // xdeathState
+                Sfx.NONE, // deathSound
+                0, // speed
+                Fixed.FromInt(20), // radius
+                Fixed.FromInt(16), // height
+                100, // mass
+                0, // damage
+                Sfx.NONE, // activeSound
+                MobjFlags.Special | MobjFlags.NotDeathmatch, // flags
+                MobjState.Null // raiseState
+            ),
 
             // new MobjInfo( // MobjType.Misc7
             //     39, // doomEdNum

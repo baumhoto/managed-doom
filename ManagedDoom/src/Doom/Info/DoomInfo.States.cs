@@ -27,6 +27,41 @@ namespace ManagedDoom
         public static readonly MobjStateDef[] States = new MobjStateDef[]
         {
             new MobjStateDef(0, Sprite.PLAY, 0, -1, null, null, MobjState.Null, 0, 0), // State.Null
+            new MobjStateDef(1, Sprite.PLAY, 0, -1, null, null, MobjState.Null, 0, 0), // State.Play
+            new MobjStateDef(2, Sprite.PLAY, 0, 4, null, null, MobjState.PlayRun2, 0, 0), // State.PlayRun1
+            new MobjStateDef(3, Sprite.PLAY, 1, 4, null, null, MobjState.PlayRun3, 0, 0), // State.PlayRun2
+            new MobjStateDef(4, Sprite.PLAY, 2, 4, null, null, MobjState.PlayRun4, 0, 0), // State.PlayRun3
+            new MobjStateDef(5, Sprite.PLAY, 3, 4, null, null, MobjState.PlayRun1, 0, 0), // State.PlayRun4
+            new MobjStateDef(6, Sprite.PLAY, 4, 12, null, null, MobjState.Play, 0, 0), // State.PlayAtk1
+            new MobjStateDef(7, Sprite.PLAY, 32773, 6, null, null, MobjState.PlayAtk1, 0, 0), // State.PlayAtk2
+            new MobjStateDef(8, Sprite.PLAY, 6, 4, null, null, MobjState.PlayPain2, 0, 0), // State.PlayPain
+            new MobjStateDef(9, Sprite.PLAY, 6, 4, null, ma.Pain, MobjState.Play, 0, 0), // State.PlayPain2
+            new MobjStateDef(10, Sprite.PLAY, 7, 10, null, null, MobjState.PlayDie2, 0, 0), // State.PlayDie1
+            new MobjStateDef(11, Sprite.PLAY, 8, 10, null, ma.PlayerScream, MobjState.PlayDie3, 0, 0), // State.PlayDie2
+            new MobjStateDef(12, Sprite.PLAY, 9, 10, null, ma.Fall, MobjState.PlayDie4, 0, 0), // State.PlayDie3
+            new MobjStateDef(13, Sprite.PLAY, 10, 10, null, null, MobjState.PlayDie5, 0, 0), // State.PlayDie4
+            new MobjStateDef(14, Sprite.PLAY, 11, 10, null, null, MobjState.PlayDie6, 0, 0), // State.PlayDie5
+            new MobjStateDef(15, Sprite.PLAY, 12, 10, null, null, MobjState.PlayDie7, 0, 0), // State.PlayDie6
+            new MobjStateDef(16, Sprite.PLAY, 13, -1, null, null, MobjState.Null, 0, 0), // State.PlayDie7
+            new MobjStateDef(17, Sprite.PLAY, 14, 5, null, null, MobjState.PlayXdie2, 0, 0), // State.PlayXdie1
+            new MobjStateDef(18, Sprite.PLAY, 15, 5, null, ma.XScream, MobjState.PlayXdie3, 0, 0), // State.PlayXdie2
+            new MobjStateDef(19, Sprite.PLAY, 16, 5, null, ma.Fall, MobjState.PlayXdie4, 0, 0), // State.PlayXdie3
+            new MobjStateDef(20, Sprite.PLAY, 17, 5, null, null, MobjState.PlayXdie5, 0, 0), // State.PlayXdie4
+            new MobjStateDef(21, Sprite.PLAY, 18, 5, null, null, MobjState.PlayXdie6, 0, 0), // State.PlayXdie5
+            new MobjStateDef(22, Sprite.PLAY, 19, 5, null, null, MobjState.PlayXdie7, 0, 0), // State.PlayXdie6
+            new MobjStateDef(23, Sprite.PLAY, 20, 5, null, null, MobjState.PlayXdie8, 0, 0), // State.PlayXdie7
+            new MobjStateDef(24, Sprite.PLAY, 21, 5, null, null, MobjState.PlayXdie9, 0, 0), // State.PlayXdie8
+            new MobjStateDef(25, Sprite.PLAY, 22, -1, null, null, MobjState.Null, 0, 0), // State.PlayXdie9
+            new MobjStateDef(26, Sprite.YKEY, 32768, 3, null, null, MobjState.Ykyy2, 0, 0), // State.Ykey
+            new MobjStateDef(27, Sprite.YKEY, 32769, 3, null, null, MobjState.Ykyy3, 0, 0), // State.Ykey2
+            new MobjStateDef(28, Sprite.YKEY, 32770, 3, null, null, MobjState.Ykyy4, 0, 0), // State.Ykey3
+            new MobjStateDef(29, Sprite.YKEY, 32771, 3, null, null, MobjState.Ykyy5, 0, 0), // State.Ykey4
+            new MobjStateDef(30, Sprite.YKEY, 32772, 3, null, null, MobjState.Ykyy6, 0, 0), // State.Ykey5
+            new MobjStateDef(31, Sprite.YKEY, 32773, 3, null, null, MobjState.Ykyy7, 0, 0), // State.Ykey6
+            new MobjStateDef(32, Sprite.YKEY, 32774, 3, null, null, MobjState.Ykyy8, 0, 0), // State.Ykey7
+            new MobjStateDef(33, Sprite.YKEY, 32775, 3, null, null, MobjState.Ykyy9, 0, 0), // State.Ykey8
+            new MobjStateDef(34, Sprite.YKEY, 32776, 3, null, null, MobjState.Ykyy, 0, 0), // State.Ykey9
+        
             //* new MobjStateDef(1, Sprite.SHTG, 4, 0, pa.Light0, null, MobjState.Null, 0, 0), // State.Lightdone
             // new MobjStateDef(2, Sprite.PUNG, 0, 1, pa.WeaponReady, null, MobjState.Punch, 0, 0), // State.Punch
             // new MobjStateDef(3, Sprite.PUNG, 0, 1, pa.Lower, null, MobjState.Punchdown, 0, 0), // State.Punchdown
@@ -175,32 +210,7 @@ namespace ManagedDoom
             // new MobjStateDef(146, Sprite.IFOG, 32770, 6, null, null, MobjState.Ifog4, 0, 0), // State.Ifog3
             // new MobjStateDef(147, Sprite.IFOG, 32771, 6, null, null, MobjState.Ifog5, 0, 0), // State.Ifog4
             // new MobjStateDef(148, Sprite.IFOG, 32772, 6, null, null, MobjState.Null, 0, 0), // State.Ifog5
-            new MobjStateDef(0, Sprite.PLAY, 0, -1, null, null, MobjState.Null, 0, 0), // State.Play
-            new MobjStateDef(1, Sprite.PLAY, 0, 4, null, null, MobjState.PlayRun2, 0, 0), // State.PlayRun1
-            new MobjStateDef(2, Sprite.PLAY, 1, 4, null, null, MobjState.PlayRun3, 0, 0), // State.PlayRun2
-            new MobjStateDef(3, Sprite.PLAY, 2, 4, null, null, MobjState.PlayRun4, 0, 0), // State.PlayRun3
-            new MobjStateDef(4, Sprite.PLAY, 3, 4, null, null, MobjState.PlayRun1, 0, 0), // State.PlayRun4
-            new MobjStateDef(5, Sprite.PLAY, 4, 12, null, null, MobjState.Play, 0, 0), // State.PlayAtk1
-            new MobjStateDef(6, Sprite.PLAY, 32773, 6, null, null, MobjState.PlayAtk1, 0, 0), // State.PlayAtk2
-            new MobjStateDef(7, Sprite.PLAY, 6, 4, null, null, MobjState.PlayPain2, 0, 0), // State.PlayPain
-            new MobjStateDef(8, Sprite.PLAY, 6, 4, null, ma.Pain, MobjState.Play, 0, 0), // State.PlayPain2
-            new MobjStateDef(9, Sprite.PLAY, 7, 10, null, null, MobjState.PlayDie2, 0, 0), // State.PlayDie1
-            new MobjStateDef(10, Sprite.PLAY, 8, 10, null, ma.PlayerScream, MobjState.PlayDie3, 0, 0), // State.PlayDie2
-            new MobjStateDef(11, Sprite.PLAY, 9, 10, null, ma.Fall, MobjState.PlayDie4, 0, 0), // State.PlayDie3
-            new MobjStateDef(12, Sprite.PLAY, 10, 10, null, null, MobjState.PlayDie5, 0, 0), // State.PlayDie4
-            new MobjStateDef(13, Sprite.PLAY, 11, 10, null, null, MobjState.PlayDie6, 0, 0), // State.PlayDie5
-            new MobjStateDef(14, Sprite.PLAY, 12, 10, null, null, MobjState.PlayDie7, 0, 0), // State.PlayDie6
-            new MobjStateDef(15, Sprite.PLAY, 13, -1, null, null, MobjState.Null, 0, 0), // State.PlayDie7
-            new MobjStateDef(16, Sprite.PLAY, 14, 5, null, null, MobjState.PlayXdie2, 0, 0), // State.PlayXdie1
-            new MobjStateDef(17, Sprite.PLAY, 15, 5, null, ma.XScream, MobjState.PlayXdie3, 0, 0), // State.PlayXdie2
-            new MobjStateDef(18, Sprite.PLAY, 16, 5, null, ma.Fall, MobjState.PlayXdie4, 0, 0), // State.PlayXdie3
-            new MobjStateDef(19, Sprite.PLAY, 17, 5, null, null, MobjState.PlayXdie5, 0, 0), // State.PlayXdie4
-            new MobjStateDef(20, Sprite.PLAY, 18, 5, null, null, MobjState.PlayXdie6, 0, 0), // State.PlayXdie5
-            new MobjStateDef(21, Sprite.PLAY, 19, 5, null, null, MobjState.PlayXdie7, 0, 0), // State.PlayXdie6
-            new MobjStateDef(22, Sprite.PLAY, 20, 5, null, null, MobjState.PlayXdie8, 0, 0), // State.PlayXdie7
-            new MobjStateDef(23, Sprite.PLAY, 21, 5, null, null, MobjState.PlayXdie9, 0, 0), // State.PlayXdie8
-            new MobjStateDef(24, Sprite.PLAY, 22, -1, null, null, MobjState.Null, 0, 0), // State.PlayXdie9
-            //* new MobjStateDef(174, Sprite.POSS, 0, 10, null, ma.Look, MobjState.PossStnd2, 0, 0), // State.PossStnd
+                     // new MobjStateDef(174, Sprite.POSS, 0, 10, null, ma.Look, MobjState.PossStnd2, 0, 0), // State.PossStnd
             // new MobjStateDef(175, Sprite.POSS, 1, 10, null, ma.Look, MobjState.PossStnd, 0, 0), // State.PossStnd2
             // new MobjStateDef(176, Sprite.POSS, 0, 4, null, ma.Chase, MobjState.PossRun2, 0, 0), // State.PossRun1
             // new MobjStateDef(177, Sprite.POSS, 0, 4, null, ma.Chase, MobjState.PossRun3, 0, 0), // State.PossRun2

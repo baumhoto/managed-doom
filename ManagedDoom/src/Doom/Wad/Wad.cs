@@ -172,16 +172,8 @@ namespace ManagedDoom
             {
                 switch (name.ToLower())
                 {
-                    case "doom2":
-                    case "freedoom2":
+                    case "heretic":
                         return GameVersion.Version109;
-                    case "doom":
-                    case "doom1":
-                    case "freedoom1":
-                        return GameVersion.Ultimate;
-                    case "plutonia":
-                    case "tnt":
-                        return GameVersion.Final;
                 }
             }
 
@@ -194,15 +186,9 @@ namespace ManagedDoom
             {
                 switch (name.ToLower())
                 {
-                    case "doom2":
-                    case "plutonia":
-                    case "tnt":
-                    case "freedoom2":
-                        return GameMode.Commercial;
-                    case "doom":
-                    case "freedoom1":
+                    case "heretic":
                         return GameMode.Retail;
-                    case "doom1":
+                    case "heretic1":
                         return GameMode.Shareware;
                 }
             }
