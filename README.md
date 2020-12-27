@@ -1,4 +1,17 @@
-# Managed Doom
+# Managed Heretic
+
+Forked version of Managed Doom for Heretic. For now everthing has been disabled which is not required to load a level without anything except the Player  ( no monsters, weapons, pickups). Menu is also not finished and can only be used to start an episode. Automap, HUD, Weapons,  Intermissions are also disabled.
+
+![Heretic Screenshot 1](screenshots/heretic1.png)
+
+![Heretic Screenshot 2](screenshots/heretic2.png)
+
+
+
+
+
+# Original Readme
+## Managed Doom
 
 ![Doom II MAP01 screenshot](screenshots/doom2-map01.png)
 
