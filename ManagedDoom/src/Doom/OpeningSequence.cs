@@ -114,7 +114,7 @@ namespace ManagedDoom
                     count++;
                     if (count == timer)
                     {
-                        nextStage = 1;
+                        //* nextStage = 1;
                     }
                     break;
 

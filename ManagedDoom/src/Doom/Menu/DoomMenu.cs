@@ -80,32 +80,32 @@ namespace ManagedDoom
 
             skillMenu = new SelectableMenu(
                 this,
-                "M_NEWG", 96, 14,
-                "M_SKILL", 54, 38,
+                "NEW GAME", 110, 56,
+                "SKILL", 38, 30,
                 2,
-
+                true,
                 new SimpleMenuItem(
-                    "M_JKILL", 16, 58, 48, 63,
+                    "SKILL", 16, 58, 48, 63,
                     () => app.NewGame(GameSkill.Baby, selectedEpisode, 1),
                     null),
 
                 new SimpleMenuItem(
-                    "M_ROUGH", 16, 74, 48, 79,
+                    "ROUGH", 16, 74, 48, 79,
                     () => app.NewGame(GameSkill.Easy, selectedEpisode, 1),
                     null),
 
                 new SimpleMenuItem(
-                    "M_HURT", 16, 90, 48, 95,
+                    "HURT", 16, 90, 48, 95,
                     () => app.NewGame(GameSkill.Medium, selectedEpisode, 1),
                     null),
 
                 new SimpleMenuItem(
-                    "M_ULTRA", 16, 106, 48, 111,
+                    "ULTRA", 16, 106, 48, 111,
                     () => app.NewGame(GameSkill.Hard, selectedEpisode, 1),
                     null),
 
                 new SimpleMenuItem(
-                    "M_NMARE", 16, 122, 48, 127,
+                    "NMARE", 16, 122, 48, 127,
                     null,
                     nightmareConfirm));
 
@@ -113,26 +113,27 @@ namespace ManagedDoom
             {
                 episodeMenu = new SelectableMenu(
                     this,
-                    "M_EPISOD", 54, 38,
+                    "EPISODES", 54, 38,
                     0,
+                    true,
 
                     new SimpleMenuItem(
-                        "M_EPI1", 16, 58, 48, 63,
+                        "EPI1", 16, 58, 48, 63,
                         () => selectedEpisode = 1,
                         skillMenu),
 
                     new SimpleMenuItem(
-                        "M_EPI2", 16, 74, 48, 79,
+                        "EPI2", 16, 74, 48, 79,
                         () => selectedEpisode = 2,
                         skillMenu),
 
                     new SimpleMenuItem(
-                        "M_EPI3", 16, 90, 48, 95,
+                        "EPI3", 16, 90, 48, 95,
                         () => selectedEpisode = 3,
                         skillMenu),
 
                     new SimpleMenuItem(
-                        "M_EPI4", 16, 106, 48, 111,
+                        "EPI4", 16, 106, 48, 111,
                         () => selectedEpisode = 4,
                         skillMenu));
             }
@@ -142,21 +143,22 @@ namespace ManagedDoom
                 {
                     episodeMenu = new SelectableMenu(
                         this,
-                        "M_EPISOD", 54, 38,
+                        "EPISOD", 54, 38,
                         0,
+                        true,
 
                         new SimpleMenuItem(
-                            "M_EPI1", 16, 58, 48, 63,
+                            "EPI1", 16, 58, 48, 63,
                             () => selectedEpisode = 1,
                             skillMenu),
 
                         new SimpleMenuItem(
-                            "M_EPI2", 16, 74, 48, 79,
+                            "EPI2", 16, 74, 48, 79,
                             null,
                             thisIsShareware),
 
                         new SimpleMenuItem(
-                            "M_EPI3", 16, 90, 48, 95,
+                            "EPI3", 16, 90, 48, 95,
                             null,
                             thisIsShareware));
                 }
@@ -164,19 +166,20 @@ namespace ManagedDoom
                 {
                     episodeMenu = new SelectableMenu(
                         this,
-                        "M_EPISOD", 54, 38,
+                        "EPISODES", 54, 38,
                         0,
+                        true,
 
                         new SimpleMenuItem(
-                            "M_EPI1", 16, 58, 48, 63,
+                            "EPI1", 16, 58, 48, 63,
                             () => selectedEpisode = 1,
                             skillMenu),
                         new SimpleMenuItem(
-                            "M_EPI2", 16, 74, 48, 79,
+                            "EPI2", 16, 74, 48, 79,
                             () => selectedEpisode = 2,
                             skillMenu),
                         new SimpleMenuItem(
-                            "M_EPI3", 16, 90, 48, 95,
+                            "EPI3", 16, 90, 48, 95,
                             () => selectedEpisode = 3,
                             skillMenu));
                 }
@@ -186,16 +189,17 @@ namespace ManagedDoom
             var music = options.Music;
             volume = new SelectableMenu(
                 this,
-                "M_SVOL", 60, 38,
+                "SVOL", 60, 38,
                 0,
+                true,
 
                 new SliderMenuItem(
-                    "M_SFXVOL", 48, 59, 80, 64,
+                    "SFXVOL", 48, 59, 80, 64,
                     sound.MaxVolume + 1,
                     () => sound.Volume,
                     vol => sound.Volume = vol),
 
-                new SliderMenuItem("M_MUSVOL", 48, 91, 80, 96,
+                new SliderMenuItem("MUSVOL", 48, 91, 80, 96,
                     music.MaxVolume + 1,
                     () => music.Volume,
                     vol => music.Volume = vol));
@@ -204,40 +208,41 @@ namespace ManagedDoom
             var userInput = options.UserInput;
             optionMenu = new SelectableMenu(
                 this,
-                "M_OPTTTL", 108, 15,
+                "OPTTTL", 108, 15,
                 0,
+                true,
 
                 new SimpleMenuItem(
-                    "M_ENDGAM", 28, 32, 60, 37,
+                    "ENDGAM", 28, 32, 60, 37,
                     null,
                     endGameConfirm,
                     () => app.State == ApplicationState.Game),
 
                 new ToggleMenuItem(
-                    "M_MESSG", 28, 48, 60, 53, "M_MSGON", "M_MSGOFF", 180,
+                    "MESSG", 28, 48, 60, 53, "M_MSGON", "M_MSGOFF", 180,
                     () => renderer.DisplayMessage ? 0 : 1,
                     value => renderer.DisplayMessage = value == 0),
 
                 new SliderMenuItem(
-                    "M_SCRNSZ", 28, 80 - 16, 60, 85 - 16,
+                    "SCRNSZ", 28, 80 - 16, 60, 85 - 16,
                     renderer.MaxWindowSize + 1,
                     () => renderer.WindowSize,
                     size => renderer.WindowSize = size),
 
                 new SliderMenuItem(
-                    "M_MSENS", 28, 112 - 16, 60, 117 - 16,
+                    "MSENS", 28, 112 - 16, 60, 117 - 16,
                     userInput.MaxMouseSensitivity + 1,
                     () => userInput.MouseSensitivity,
                     ms => userInput.MouseSensitivity = ms),
 
                 new SimpleMenuItem(
-                    "M_SVOL", 28, 144 - 16, 60, 149 - 16,
+                    "SVOL", 28, 144 - 16, 60, 149 - 16,
                     null,
                     volume));
 
             load = new LoadMenu(
                 this,
-                "M_LOADG", 72, 28,
+                "LOADG", 72, 28,
                 0,
                 new TextBoxMenuItem(48, 49, 72, 61),
                 new TextBoxMenuItem(48, 65, 72, 77),
@@ -248,7 +253,7 @@ namespace ManagedDoom
 
             save = new SaveMenu(
                 this,
-                "M_SAVEG", 72, 28,
+                "SAVEG", 72, 28,
                 0,
                 new TextBoxMenuItem(48, 49, 72, 61),
                 new TextBoxMenuItem(48, 65, 72, 77),
@@ -263,30 +268,32 @@ namespace ManagedDoom
             {
                 main = new SelectableMenu(
                 this,
-                "M_DOOM", 94, 2,
+                "M_HTIC", 80, 0,
                 0,
-                new SimpleMenuItem("M_NGAME", 65, 67, 97, 72, null, skillMenu),
-                new SimpleMenuItem("M_OPTION", 65, 83, 97, 88, null, optionMenu),
-                new SimpleMenuItem("M_LOADG", 65, 99, 97, 104, null, load),
-                new SimpleMenuItem("M_SAVEG", 65, 115, 97, 120, null, save,
+                false,
+                new SimpleMenuItem("NEW GAME", 65, 67, 120, 80, null, skillMenu),
+                new SimpleMenuItem("OPTIONS", 65, 83, 97, 88, null, optionMenu),
+                new SimpleMenuItem("LOAD GAME", 65, 99, 97, 104, null, load),
+                new SimpleMenuItem("SAVE GAME", 65, 115, 97, 120, null, save,
                     () => !(app.State == ApplicationState.Game &&
                         app.Game.State != GameState.Level)),
-                new SimpleMenuItem("M_QUITG", 65, 131, 97, 136, null, quitConfirm));
+                new SimpleMenuItem("QUIT GAME", 65, 131, 97, 136, null, quitConfirm));
             }
             else
             {
                 main = new SelectableMenu(
                 this,
-                "M_DOOM", 94, 2,
+                "M_HTIC", 80, 0,
                 0,
-                new SimpleMenuItem("M_NGAME", 65, 59, 97, 64, null, episodeMenu),
-                new SimpleMenuItem("M_OPTION", 65, 75, 97, 80, null, optionMenu),
-                new SimpleMenuItem("M_LOADG", 65, 91, 97, 96, null, load),
-                new SimpleMenuItem("M_SAVEG", 65, 107, 97, 112, null, save,
+                false,
+                new SimpleMenuItem("NEW GAME", 70, 60, 100, 70, null, episodeMenu),
+                new SimpleMenuItem("OPTIONS", 70, 80, 100, 90, null, optionMenu),
+                new SimpleMenuItem("LOAD GAME", 70, 100, 100, 110, null, load),
+                new SimpleMenuItem("SAVE GAME", 70, 120, 100, 130, null, save,
                     () => !(app.State == ApplicationState.Game &&
                         app.Game.State != GameState.Level)),
-                new SimpleMenuItem("M_RDTHIS", 65, 123, 97, 128, null, help),
-                new SimpleMenuItem("M_QUITG", 65, 139, 97, 144, null, quitConfirm));
+                new SimpleMenuItem("INFO", 70, 140, 100, 150, null, help),
+                new SimpleMenuItem("QUIT GAME", 70, 160, 100, 170, null, quitConfirm));
             }
 
             current = main;

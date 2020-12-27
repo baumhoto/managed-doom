@@ -100,7 +100,7 @@ namespace ManagedDoom
 			// Crunch bodies to giblets.
 			if (thing.Health <= 0)
 			{
-				thing.SetState(MobjState.Gibs);
+				//* thing.SetState(MobjState.Gibs);
 				thing.Flags &= ~MobjFlags.Solid;
 				thing.Height = Fixed.Zero;
 				thing.Radius = Fixed.Zero;

@@ -58,11 +58,11 @@ namespace ManagedDoom
                 player.Mobj.SetState(MobjState.Play);
             }
 
-            if (player.ReadyWeapon == WeaponType.Chainsaw &&
-                psp.State == DoomInfo.States[(int)MobjState.Saw])
-            {
-                world.StartSound(player.Mobj, Sfx.SAWIDL, SfxType.Weapon);
-            }
+            //* if (player.ReadyWeapon == WeaponType.Chainsaw &&
+            //     psp.State == DoomInfo.States[(int)MobjState.Saw])
+            // {
+            //     world.StartSound(player.Mobj, Sfx.SAWIDL, SfxType.Weapon);
+            // }
 
             // Check for weapon change.
             // If player is dead, put the weapon away.
@@ -306,7 +306,7 @@ namespace ManagedDoom
 
             player.ReadyWeapon = player.PendingWeapon;
 
-            pb.BringUpWeapon(player);
+            //* pb.BringUpWeapon(player);
         }
 
 
@@ -540,11 +540,11 @@ namespace ManagedDoom
 
             player.Ammo[(int)DoomInfo.WeaponInfos[(int)player.ReadyWeapon].Ammo]--;
 
-            world.PlayerBehavior.SetPlayerSprite(
-                player,
-                PlayerSprite.Flash,
-                DoomInfo.WeaponInfos[(int)player.ReadyWeapon].FlashState +
-                psp.State.Number - DoomInfo.States[(int)MobjState.Chain1].Number);
+            //* world.PlayerBehavior.SetPlayerSprite(
+            //     player,
+            //     PlayerSprite.Flash,
+            //     DoomInfo.WeaponInfos[(int)player.ReadyWeapon].FlashState +
+            //     psp.State.Number - DoomInfo.States[(int)MobjState.Chain1].Number);
 
             BulletSlope(player.Mobj);
 

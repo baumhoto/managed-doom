@@ -83,8 +83,40 @@ namespace ManagedDoom
                 columns);
         }
 
+
+        public static Patch FromDataRaw(string name, byte[] data)
+        {
+            var width = 320;
+            var height = 200;
+            var leftOffset = 0;
+            var topOffset = 0;
+             //PadDataRaw(ref data, width);
+
+            var columns = new Column[width][];
+            var p = 0;
+            for (var x = 0; x < width; x++)
+            {
+                var cs = new List<Column>();
+                var offset = p;
+                cs.Add(new Column(0, data, offset, height));
+                columns[x] = cs.ToArray();
+                p += height;
+            }
+
+            return new Patch(
+                name,
+                width,
+                height,
+                leftOffset,
+                topOffset,
+                columns);
+        }
+
         public static Patch FromWad(Wad wad, string name)
         {
+            if (name == "TITLE") {
+                return FromDataRaw(name, wad.ReadLump(name));
+            }
             return FromData(name, wad.ReadLump(name));
         }
 
@@ -105,6 +137,32 @@ namespace ManagedDoom
                     var offset = p + 3;
                     need = Math.Max(offset + 128, need);
                     p += length + 4;
+                }
+            }
+
+            if (data.Length < need)
+            {
+                Array.Resize(ref data, need);
+            }
+        }
+
+        private static void PadDataRaw(ref byte[] data, int width)
+        {
+            var need = 0;
+            for (var x = 0; x < width; x++)
+            {
+                var p = BitConverter.ToInt32(data, x);
+                while (true)
+                {
+                    var topDelta = 0;
+                    if (topDelta == Column.Last)
+                    {
+                        break;
+                    }
+                    var length = 200;
+                    var offset = p;
+                    need = Math.Max(offset + 128, need);
+                    p += length;
                 }
             }
 

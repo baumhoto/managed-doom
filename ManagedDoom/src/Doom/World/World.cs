@@ -217,11 +217,17 @@ namespace ManagedDoom
                             break;
                     }
                 }
+                //* only spawn player for now
+                if(mt.Type != 1)
+                {
+                    spawn = false;
+                }
 
                 if (!spawn)
                 {
                     break;
                 }
+
 
                 thingAllocation.SpawnMapThing(mt);
             }

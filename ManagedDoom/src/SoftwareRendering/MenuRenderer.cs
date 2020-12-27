@@ -84,12 +84,20 @@ namespace ManagedDoom.SoftwareRendering
 
         private void DrawSelectableMenu(SelectableMenu selectable)
         {
+            var scale = screen.Width / 320;
             for (var i = 0; i < selectable.Name.Count; i++)
             {
-                DrawMenuPatch(
-                    selectable.Name[i],
-                    selectable.TitleX[i],
-                    selectable.TitleY[i]);
+                if (selectable.HeadersAsText)
+                {
+                    screen.DrawTextB(selectable.Name[i], scale * selectable.TitleX[i], scale * selectable.TitleY[i], scale);
+                }
+                else 
+                {
+                    DrawMenuPatch(
+                        selectable.Name[i],
+                        selectable.TitleX[i],
+                        selectable.TitleY[i]);
+                }
             }
 
             foreach (var item in selectable.Items)
@@ -98,8 +106,8 @@ namespace ManagedDoom.SoftwareRendering
             }
 
             var choice = selectable.Choice;
-            var skull = selectable.Menu.Tics / 8 % 2 == 0 ? "M_SKULL1" : "M_SKULL2";
-            DrawMenuPatch(skull, choice.SkullX, choice.SkullY);
+            var arrow = selectable.Menu.Tics / 8 % 2 == 0 ? "M_SLCTR1" : "M_SLCTR2";
+            DrawMenuPatch(arrow, choice.SkullX, choice.SkullY);
         }
 
         private void DrawSaveMenu(SaveMenu save)
@@ -178,12 +186,14 @@ namespace ManagedDoom.SoftwareRendering
         private void DrawMenuText(IReadOnlyList<char> text, int x, int y)
         {
             var scale = screen.Width / 320;
-            screen.DrawText(text, scale * x, scale * y, scale);
+            screen.DrawTextB(text, scale * x, scale * y, scale);
         }
 
         private void DrawSimpleMenuItem(SimpleMenuItem item)
         {
-            DrawMenuPatch(item.Name, item.ItemX, item.ItemY);
+            var scale = screen.Width / 320;
+            screen.DrawTextB(item.Text, scale * item.ItemX, scale * item.ItemY, scale);
+            //DrawMenuPatch(item.Name, item.ItemX, item.ItemY);
         }
 
         private void DrawToggleMenuItem(ToggleMenuItem item)
@@ -248,7 +258,7 @@ namespace ManagedDoom.SoftwareRendering
             {
                 var x = (screen.Width - screen.MeasureText(text[i], scale)) / 2;
                 var y = (screen.Height - height) / 2 + 7 * scale * (i + 1);
-                screen.DrawText(text[i], x, y, scale);
+                screen.DrawTextB(text[i], x, y, scale);
             }
         }
 

@@ -1228,7 +1228,7 @@ namespace ManagedDoom
                             actor.Target = vileTargetCorpse;
                             FaceTarget(actor);
                             actor.Target = temp;
-                            actor.SetState(MobjState.VileHeal1);
+                            //* actor.SetState(MobjState.VileHeal1);
 
                             world.StartSound(vileTargetCorpse, Sfx.SLOP, SfxType.Misc);
 
@@ -1852,7 +1852,7 @@ namespace ManagedDoom
 
                 var explosion = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Rocket);
                 explosion.MomZ = new Fixed(random.Next() * 512);
-                explosion.SetState(MobjState.Brainexplode1);
+                //* explosion.SetState(MobjState.Brainexplode1);
                 explosion.Tics -= random.Next() & 7;
                 if (explosion.Tics < 1)
                 {
@@ -1874,7 +1874,7 @@ namespace ManagedDoom
 
             var explosion = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Rocket);
             explosion.MomZ = new Fixed(random.Next() * 512);
-            explosion.SetState(MobjState.Brainexplode1);
+            //* explosion.SetState(MobjState.Brainexplode1);
             explosion.Tics -= random.Next() & 7;
             if (explosion.Tics < 1)
             {

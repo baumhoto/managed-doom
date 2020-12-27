@@ -108,7 +108,7 @@ namespace ManagedDoom.SoftwareRendering
                     continue;
                 }
 
-                screen.DrawChar(c, cx, cy, scale);
+                screen.DrawCharB(c, cx, cy, scale);
 
                 cx += screen.MeasureChar(c, scale);
             }
@@ -205,7 +205,7 @@ namespace ManagedDoom.SoftwareRendering
             }
 
             var width = screen.MeasureText(finale.CastName, scale);
-            screen.DrawText(
+            screen.DrawTextB(
                 finale.CastName,
                 (screen.Width - width) / 2,
                 screen.Height - scale * 13,

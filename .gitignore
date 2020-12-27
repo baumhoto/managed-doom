@@ -606,3 +606,5 @@ fabric.properties
 
 # Coverlet Test Result
 test-results
+
+.ionide

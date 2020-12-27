@@ -41,7 +41,9 @@ namespace ManagedDoom.SoftwareRendering
             switch (sequence.State)
             {
                 case OpeningSequenceState.Title:
-                    screen.DrawPatch(cache["TITLEPIC"], 0, 0, scale);
+                    screen.FillRect(0, 0, screen.Width, screen.Height, 0);
+                    //* fix render title background 
+                    //screen.DrawRaw(cache["TITLE"].Columns[0][0].Data, scale);
                     break;
                 case OpeningSequenceState.Demo:
                     parent.RenderGame(sequence.DemoGame);

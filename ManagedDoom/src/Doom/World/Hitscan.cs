@@ -406,7 +406,7 @@ namespace ManagedDoom
             // Don't make punches spark on the wall.
             if (currentRange == WeaponBehavior.MeleeRange)
             {
-                thing.SetState(MobjState.Puff3);
+                //* thing.SetState(MobjState.Puff3);
             }
         }
 
@@ -430,11 +430,11 @@ namespace ManagedDoom
 
             if (damage <= 12 && damage >= 9)
             {
-                thing.SetState(MobjState.Blood2);
+                //* thing.SetState(MobjState.Blood2);
             }
             else if (damage < 9)
             {
-                thing.SetState(MobjState.Blood3);
+                //* thing.SetState(MobjState.Blood3);
             }
         }
 

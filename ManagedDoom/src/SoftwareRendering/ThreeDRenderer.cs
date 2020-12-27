@@ -616,22 +616,22 @@ namespace ManagedDoom.SoftwareRendering
 
         private void InitWindowBorder(Wad wad)
         {
-            borderTopLeft = Patch.FromWad(wad, "BRDR_TL");
-            borderTopRight = Patch.FromWad(wad, "BRDR_TR");
-            borderBottomLeft = Patch.FromWad(wad, "BRDR_BL");
-            borderBottomRight = Patch.FromWad(wad, "BRDR_BR");
-            borderTop = Patch.FromWad(wad, "BRDR_T");
-            borderBottom = Patch.FromWad(wad, "BRDR_B");
-            borderLeft = Patch.FromWad(wad, "BRDR_L");
-            borderRight = Patch.FromWad(wad, "BRDR_R");
+            borderTopLeft = Patch.FromWad(wad, "BORDTL");
+            borderTopRight = Patch.FromWad(wad, "BORDTR");
+            borderBottomLeft = Patch.FromWad(wad, "BORDBL");
+            borderBottomRight = Patch.FromWad(wad, "BORDBR");
+            borderTop = Patch.FromWad(wad, "BORDT");
+            borderBottom = Patch.FromWad(wad, "BORDB");
+            borderLeft = Patch.FromWad(wad, "BORDL");
+            borderRight = Patch.FromWad(wad, "BORDR");
 
             if (wad.GameMode == GameMode.Commercial)
             {
-                backFlat = flats["GRNROCK"];
+                backFlat = flats["FLAT513"];
             }
             else
             {
-                backFlat = flats["FLOOR7_2"];
+                backFlat = flats["FLOOR04"];
             }
         }
 

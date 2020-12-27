@@ -26,24 +26,69 @@ namespace ManagedDoom.SoftwareRendering
         private int height;
         private byte[] data;
 
-        private Patch[] chars;
+        private Patch[] charsFontA;
+        private Patch[] charsFontB;
 
         public DrawScreen(Wad wad, int width, int height)
         {
             this.width = width;
             this.height = height;
             data = new byte[width * height];
+            var fontAStart = wad.GetLumpNumber("FONTA_S") + 1;
+            var fontAEnd = wad.GetLumpNumber("FONTA_E") - 1;
+            var count = fontAEnd - fontAStart + 1;
 
-            chars = new Patch[128];
-            for (var i = 0; i < chars.Length; i++)
+            charsFontA = new Patch[count];
+            for (var i = 1; i < charsFontA.Length; i++)
             {
-                var name = "STCFN" + i.ToString("000");
+                var name = "FONTA" + i.ToString("00");
                 var lump = wad.GetLumpNumber(name);
                 if (lump != -1)
                 {
-                    chars[i] = Patch.FromData(name, wad.ReadLump(lump));
+                    charsFontA[i] = Patch.FromData(name, wad.ReadLump(lump));
                 }
             }
+
+            var fontBStart = wad.GetLumpNumber("FONTB_S") + 1;
+            var fontBEnd = wad.GetLumpNumber("FONTB_E") - 1;
+            count = fontAEnd - fontAStart + 1;
+
+            charsFontB = new Patch[count];
+            for (var i = 1; i < charsFontB.Length; i++)
+            {
+                var name = "FONTB" + i.ToString("00");
+                var lump = wad.GetLumpNumber(name);
+                if (lump != -1)
+                {
+                    charsFontB[i] = Patch.FromData(name, wad.ReadLump(lump));
+                }
+            }
+        }
+
+        public void DrawRaw(byte[] rawData, int scale) {
+            this.data = rawData;
+            // var drawX = 320 - scale * 0;
+            // var drawY = 200 - scale * 0;
+            // var drawWidth = scale * 320;
+            // var drawHeight = scale * 200;
+
+            // var i = 0;
+            // var step = Fixed.One / scale;
+            // for(int col = 0; col < drawWidth; col++ ){
+            //     var frac = Fixed.One / scale - Fixed.Epsilon;
+            //     for(int row = 0; row < drawHeight; row++) {
+            //         var index = (col / scale * 200) + frac.ToIntFloor();
+            //         if(index < rawData.Length) 
+            //         {
+            //             data[i] = rawData[index];
+            //         }
+            //         else {
+            //             Console.WriteLine(index);
+            //         }
+            //         i++;
+            //         frac += step;
+            //     }
+            // }
         }
 
         public void DrawPatch(Patch patch, int x, int y, int scale)
@@ -147,13 +192,13 @@ namespace ManagedDoom.SoftwareRendering
             }
         }
 
-        public void DrawText(IReadOnlyList<char> text, int x, int y, int scale)
+        public void DrawTextB(IReadOnlyList<char> text, int x, int y, int scale)
         {
             var drawX = x;
             var drawY = y - 7 * scale;
             foreach (var ch in text)
             {
-                if (ch >= chars.Length)
+                if (ch >= charsFontB.Length)
                 {
                     continue;
                 }
@@ -170,7 +215,7 @@ namespace ManagedDoom.SoftwareRendering
                     index = index - 'a' + 'A';
                 }
 
-                var patch = chars[index];
+                var patch = charsFontB[index];
                 if (patch == null)
                 {
                     continue;
@@ -182,12 +227,12 @@ namespace ManagedDoom.SoftwareRendering
             }
         }
 
-        public void DrawChar(char ch, int x, int y, int scale)
+        public void DrawCharB(char ch, int x, int y, int scale)
         {
             var drawX = x;
             var drawY = y - 7 * scale;
 
-            if (ch >= chars.Length)
+            if (ch >= charsFontB.Length)
             {
                 return;
             }
@@ -203,7 +248,7 @@ namespace ManagedDoom.SoftwareRendering
                 index = index - 'a' + 'A';
             }
 
-            var patch = chars[index];
+            var patch = charsFontB[index];
             if (patch == null)
             {
                 return;
@@ -212,20 +257,20 @@ namespace ManagedDoom.SoftwareRendering
             DrawPatch(patch, drawX, drawY, scale);
         }
 
-        public void DrawText(string text, int x, int y, int scale)
+        public void DrawTextB(string text, int x, int y, int scale)
         {
             var drawX = x;
             var drawY = y - 7 * scale;
             foreach (var ch in text)
             {
-                if (ch >= chars.Length)
-                {
-                    continue;
-                }
+                // if (ch >= charsFontB.Length)
+                // {
+                //     continue;
+                // }
 
-                if (ch == 32)
+                if (ch < 33)
                 {
-                    drawX += 4 * scale;
+                    drawX += 8 * scale;
                     continue;
                 }
 
@@ -235,7 +280,7 @@ namespace ManagedDoom.SoftwareRendering
                     index = index - 'a' + 'A';
                 }
 
-                var patch = chars[index];
+                var patch = charsFontB[index-32];
                 if (patch == null)
                 {
                     continue;
@@ -249,7 +294,7 @@ namespace ManagedDoom.SoftwareRendering
 
         public int MeasureChar(char ch, int scale)
         {
-            if (ch >= chars.Length)
+            if (ch >= charsFontB.Length)
             {
                 return 0;
             }
@@ -265,7 +310,7 @@ namespace ManagedDoom.SoftwareRendering
                 index = index - 'a' + 'A';
             }
 
-            var patch = chars[index];
+            var patch = charsFontB[index];
             if (patch == null)
             {
                 return 0;
@@ -280,7 +325,7 @@ namespace ManagedDoom.SoftwareRendering
 
             foreach (var ch in text)
             {
-                if (ch >= chars.Length)
+                if (ch >= charsFontB.Length)
                 {
                     continue;
                 }
@@ -297,7 +342,7 @@ namespace ManagedDoom.SoftwareRendering
                     index = index - 'a' + 'A';
                 }
 
-                var patch = chars[index];
+                var patch = charsFontB[index];
                 if (patch == null)
                 {
                     continue;
@@ -315,7 +360,7 @@ namespace ManagedDoom.SoftwareRendering
 
             foreach (var ch in text)
             {
-                if (ch >= chars.Length)
+                if (ch >= charsFontB.Length)
                 {
                     continue;
                 }
@@ -332,7 +377,7 @@ namespace ManagedDoom.SoftwareRendering
                     index = index - 'a' + 'A';
                 }
 
-                var patch = chars[index];
+                var patch = charsFontB[index];
                 if (patch == null)
                 {
                     continue;

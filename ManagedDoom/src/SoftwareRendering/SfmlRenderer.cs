@@ -119,13 +119,13 @@ namespace ManagedDoom.SoftwareRendering
 
                 menu = new MenuRenderer(resource.Wad, screen);
                 threeD = new ThreeDRenderer(resource, screen, config.video_gamescreensize);
-                statusBar = new StatusBarRenderer(resource.Wad, screen);
-                intermission = new IntermissionRenderer(resource.Wad, screen);
+                //statusBar = new StatusBarRenderer(resource.Wad, screen);
+                //intermission = new IntermissionRenderer(resource.Wad, screen);
                 openingSequence = new OpeningSequenceRenderer(resource.Wad, screen, this);
-                autoMap = new AutoMapRenderer(resource.Wad, screen);
-                finale = new FinaleRenderer(resource, screen);
+                //autoMap = new AutoMapRenderer(resource.Wad, screen);
+                //finale = new FinaleRenderer(resource, screen);
 
-                pause = Patch.FromWad(resource.Wad, "M_PAUSE");
+                //pause = Patch.FromWad(resource.Wad, "M_PAUSE");
 
                 var scale = screen.Width / 320;
                 wipeBandWidth = 2 * scale;
@@ -199,14 +199,14 @@ namespace ManagedDoom.SoftwareRendering
                 else
                 {
                     threeD.Render(displayPlayer);
-                    if (threeD.WindowSize < 8)
-                    {
-                        statusBar.Render(consolePlayer, true);
-                    }
-                    else if (threeD.WindowSize == ThreeDRenderer.MaxScreenSize)
-                    {
-                        statusBar.Render(consolePlayer, false);
-                    }
+                    //* if (threeD.WindowSize < 8)
+                    // {
+                    //     statusBar.Render(consolePlayer, true);
+                    // }
+                    // else if (threeD.WindowSize == ThreeDRenderer.MaxScreenSize)
+                    // {
+                    //     statusBar.Render(consolePlayer, false);
+                    // }
                 }
 
                 if (config.video_displaymessage || ReferenceEquals(consolePlayer.Message, (string)DoomInfo.Strings.MSGOFF))
@@ -214,7 +214,7 @@ namespace ManagedDoom.SoftwareRendering
                     if (consolePlayer.MessageTime > 0)
                     {
                         var scale = screen.Width / 320;
-                        screen.DrawText(consolePlayer.Message, 0, 7 * scale, scale);
+                        screen.DrawTextB(consolePlayer.Message, 0, 7 * scale, scale);
                     }
                 }
             }

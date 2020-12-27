@@ -16,25 +16,26 @@
 
 
 using System;
+using System.Collections.Generic;
 
 namespace ManagedDoom
 {
     public class SimpleMenuItem : MenuItem
     {
-        private string name;
+        private string text;
         private int itemX;
         private int itemY;
         private Action action;
         private Func<bool> selectable;
 
         public SimpleMenuItem(
-            string name,
+            string text,
             int skullX, int skullY,
             int itemX, int itemY,
             Action action, MenuDef next)
             : base(skullX, skullY, next)
         {
-            this.name = name;
+            this.text = text;
             this.itemX = itemX;
             this.itemY = itemY;
             this.action = action;
@@ -42,20 +43,20 @@ namespace ManagedDoom
         }
 
         public SimpleMenuItem(
-            string name,
+            string text,
             int skullX, int skullY,
             int itemX, int itemY,
             Action action, MenuDef next, Func<bool> selectable)
             : base(skullX, skullY, next)
         {
-            this.name = name;
+            this.text = text;
             this.itemX = itemX;
             this.itemY = itemY;
             this.action = action;
             this.selectable = selectable;
         }
 
-        public string Name => name;
+        public string Text => text;
         public int ItemX => itemX;
         public int ItemY => itemY;
         public Action Action => action;

@@ -360,384 +360,384 @@ namespace ManagedDoom
             switch (special.Sprite)
             {
                 // Armor.
-                case Sprite.ARM1:
-                    if (!GiveArmor(player, DoomInfo.DeHackEdConst.GreenArmorClass))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTARMOR);
-                    break;
+                //* case Sprite.ARM1:
+                //     if (!GiveArmor(player, DoomInfo.DeHackEdConst.GreenArmorClass))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTARMOR);
+                //     break;
 
-                case Sprite.ARM2:
-                    if (!GiveArmor(player, DoomInfo.DeHackEdConst.BlueArmorClass))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTMEGA);
-                    break;
+                // case Sprite.ARM2:
+                //     if (!GiveArmor(player, DoomInfo.DeHackEdConst.BlueArmorClass))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTMEGA);
+                //     break;
 
-                // Bonus items.
-                case Sprite.BON1:
-                    // Can go over 100%.
-                    player.Health++;
-                    if (player.Health > DoomInfo.DeHackEdConst.MaxHealth)
-                    {
-                        player.Health = DoomInfo.DeHackEdConst.MaxHealth;
-                    }
-                    player.Mobj.Health = player.Health;
-                    player.SendMessage(DoomInfo.Strings.GOTHTHBONUS);
-                    break;
+                // // Bonus items.
+                // case Sprite.BON1:
+                //     // Can go over 100%.
+                //     player.Health++;
+                //     if (player.Health > DoomInfo.DeHackEdConst.MaxHealth)
+                //     {
+                //         player.Health = DoomInfo.DeHackEdConst.MaxHealth;
+                //     }
+                //     player.Mobj.Health = player.Health;
+                //     player.SendMessage(DoomInfo.Strings.GOTHTHBONUS);
+                //     break;
 
-                case Sprite.BON2:
-                    // Can go over 100%.
-                    player.ArmorPoints++;
-                    if (player.ArmorPoints > DoomInfo.DeHackEdConst.MaxArmor)
-                    {
-                        player.ArmorPoints = DoomInfo.DeHackEdConst.MaxArmor;
-                    }
-                    if (player.ArmorType == 0)
-                    {
-                        player.ArmorType = DoomInfo.DeHackEdConst.GreenArmorClass;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTARMBONUS);
-                    break;
+                // case Sprite.BON2:
+                //     // Can go over 100%.
+                //     player.ArmorPoints++;
+                //     if (player.ArmorPoints > DoomInfo.DeHackEdConst.MaxArmor)
+                //     {
+                //         player.ArmorPoints = DoomInfo.DeHackEdConst.MaxArmor;
+                //     }
+                //     if (player.ArmorType == 0)
+                //     {
+                //         player.ArmorType = DoomInfo.DeHackEdConst.GreenArmorClass;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTARMBONUS);
+                //     break;
 
-                case Sprite.SOUL:
-                    player.Health += DoomInfo.DeHackEdConst.SoulsphereHealth;
-                    if (player.Health > DoomInfo.DeHackEdConst.MaxSoulsphere)
-                    {
-                        player.Health = DoomInfo.DeHackEdConst.MaxSoulsphere;
-                    }
-                    player.Mobj.Health = player.Health;
-                    player.SendMessage(DoomInfo.Strings.GOTSUPER);
-                    sound = Sfx.GETPOW;
-                    break;
+                // case Sprite.SOUL:
+                //     player.Health += DoomInfo.DeHackEdConst.SoulsphereHealth;
+                //     if (player.Health > DoomInfo.DeHackEdConst.MaxSoulsphere)
+                //     {
+                //         player.Health = DoomInfo.DeHackEdConst.MaxSoulsphere;
+                //     }
+                //     player.Mobj.Health = player.Health;
+                //     player.SendMessage(DoomInfo.Strings.GOTSUPER);
+                //     sound = Sfx.GETPOW;
+                //     break;
 
-                case Sprite.MEGA:
-                    if (world.Options.GameMode != GameMode.Commercial)
-                    {
-                        return;
-                    }
+                // case Sprite.MEGA:
+                //     if (world.Options.GameMode != GameMode.Commercial)
+                //     {
+                //         return;
+                //     }
 
-                    player.Health = DoomInfo.DeHackEdConst.MegasphereHealth;
-                    player.Mobj.Health = player.Health;
-                    GiveArmor(player, DoomInfo.DeHackEdConst.BlueArmorClass);
-                    player.SendMessage(DoomInfo.Strings.GOTMSPHERE);
-                    sound = Sfx.GETPOW;
-                    break;
+                //     player.Health = DoomInfo.DeHackEdConst.MegasphereHealth;
+                //     player.Mobj.Health = player.Health;
+                //     GiveArmor(player, DoomInfo.DeHackEdConst.BlueArmorClass);
+                //     player.SendMessage(DoomInfo.Strings.GOTMSPHERE);
+                //     sound = Sfx.GETPOW;
+                //     break;
 
-                // Cards.
-                // Leave cards for everyone.
-                case Sprite.BKEY:
-                    if (!player.Cards[(int)CardType.BlueCard])
-                    {
-                        player.SendMessage(DoomInfo.Strings.GOTBLUECARD);
-                    }
-                    GiveCard(player, CardType.BlueCard);
-                    if (!world.Options.NetGame)
-                    {
-                        break;
-                    }
-                    return;
+                // // Cards.
+                // // Leave cards for everyone.
+                // case Sprite.BKEY:
+                //     if (!player.Cards[(int)CardType.BlueCard])
+                //     {
+                //         player.SendMessage(DoomInfo.Strings.GOTBLUECARD);
+                //     }
+                //     GiveCard(player, CardType.BlueCard);
+                //     if (!world.Options.NetGame)
+                //     {
+                //         break;
+                //     }
+                //     return;
 
-                case Sprite.YKEY:
-                    if (!player.Cards[(int)CardType.YellowCard])
-                    {
-                        player.SendMessage(DoomInfo.Strings.GOTYELWCARD);
-                    }
-                    GiveCard(player, CardType.YellowCard);
-                    if (!world.Options.NetGame)
-                    {
-                        break;
-                    }
-                    return;
+                // case Sprite.YKEY:
+                //     if (!player.Cards[(int)CardType.YellowCard])
+                //     {
+                //         player.SendMessage(DoomInfo.Strings.GOTYELWCARD);
+                //     }
+                //     GiveCard(player, CardType.YellowCard);
+                //     if (!world.Options.NetGame)
+                //     {
+                //         break;
+                //     }
+                //     return;
 
-                case Sprite.RKEY:
-                    if (!player.Cards[(int)CardType.RedCard])
-                    {
-                        player.SendMessage(DoomInfo.Strings.GOTREDCARD);
-                    }
-                    GiveCard(player, CardType.RedCard);
-                    if (!world.Options.NetGame)
-                    {
-                        break;
-                    }
-                    return;
+                // case Sprite.RKEY:
+                //     if (!player.Cards[(int)CardType.RedCard])
+                //     {
+                //         player.SendMessage(DoomInfo.Strings.GOTREDCARD);
+                //     }
+                //     GiveCard(player, CardType.RedCard);
+                //     if (!world.Options.NetGame)
+                //     {
+                //         break;
+                //     }
+                //     return;
 
-                case Sprite.BSKU:
-                    if (!player.Cards[(int)CardType.BlueSkull])
-                    {
-                        player.SendMessage(DoomInfo.Strings.GOTBLUESKUL);
-                    }
-                    GiveCard(player, CardType.BlueSkull);
-                    if (!world.Options.NetGame)
-                    {
-                        break;
-                    }
-                    return;
+                // case Sprite.BSKU:
+                //     if (!player.Cards[(int)CardType.BlueSkull])
+                //     {
+                //         player.SendMessage(DoomInfo.Strings.GOTBLUESKUL);
+                //     }
+                //     GiveCard(player, CardType.BlueSkull);
+                //     if (!world.Options.NetGame)
+                //     {
+                //         break;
+                //     }
+                //     return;
 
-                case Sprite.YSKU:
-                    if (!player.Cards[(int)CardType.YellowSkull])
-                    {
-                        player.SendMessage(DoomInfo.Strings.GOTYELWSKUL);
-                    }
-                    GiveCard(player, CardType.YellowSkull);
-                    if (!world.Options.NetGame)
-                    {
-                        break;
-                    }
-                    return;
+                // case Sprite.YSKU:
+                //     if (!player.Cards[(int)CardType.YellowSkull])
+                //     {
+                //         player.SendMessage(DoomInfo.Strings.GOTYELWSKUL);
+                //     }
+                //     GiveCard(player, CardType.YellowSkull);
+                //     if (!world.Options.NetGame)
+                //     {
+                //         break;
+                //     }
+                //     return;
 
-                case Sprite.RSKU:
-                    if (!player.Cards[(int)CardType.RedSkull])
-                    {
-                        player.SendMessage(DoomInfo.Strings.GOTREDSKULL);
-                    }
-                    GiveCard(player, CardType.RedSkull);
-                    if (!world.Options.NetGame)
-                    {
-                        break;
-                    }
-                    return;
+                // case Sprite.RSKU:
+                //     if (!player.Cards[(int)CardType.RedSkull])
+                //     {
+                //         player.SendMessage(DoomInfo.Strings.GOTREDSKULL);
+                //     }
+                //     GiveCard(player, CardType.RedSkull);
+                //     if (!world.Options.NetGame)
+                //     {
+                //         break;
+                //     }
+                //     return;
 
-                // Medikits, heals.
-                case Sprite.STIM:
-                    if (!GiveHealth(player, 10))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTSTIM);
-                    break;
+                // // Medikits, heals.
+                // case Sprite.STIM:
+                //     if (!GiveHealth(player, 10))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTSTIM);
+                //     break;
 
-                case Sprite.MEDI:
-                    if (!GiveHealth(player, 25))
-                    {
-                        return;
-                    }
-                    if (player.Health < 25)
-                    {
-                        player.SendMessage(DoomInfo.Strings.GOTMEDINEED);
-                    }
-                    else
-                    {
-                        player.SendMessage(DoomInfo.Strings.GOTMEDIKIT);
-                    }
-                    break;
+                // case Sprite.MEDI:
+                //     if (!GiveHealth(player, 25))
+                //     {
+                //         return;
+                //     }
+                //     if (player.Health < 25)
+                //     {
+                //         player.SendMessage(DoomInfo.Strings.GOTMEDINEED);
+                //     }
+                //     else
+                //     {
+                //         player.SendMessage(DoomInfo.Strings.GOTMEDIKIT);
+                //     }
+                //     break;
 
 
-                // Power ups.
-                case Sprite.PINV:
-                    if (!GivePower(player, PowerType.Invulnerability))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTINVUL);
-                    sound = Sfx.GETPOW;
-                    break;
+                // // Power ups.
+                // case Sprite.PINV:
+                //     if (!GivePower(player, PowerType.Invulnerability))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTINVUL);
+                //     sound = Sfx.GETPOW;
+                //     break;
 
-                case Sprite.PSTR:
-                    if (!GivePower(player, PowerType.Strength))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTBERSERK);
-                    if (player.ReadyWeapon != WeaponType.Fist)
-                    {
-                        player.PendingWeapon = WeaponType.Fist;
-                    }
-                    sound = Sfx.GETPOW;
-                    break;
+                // case Sprite.PSTR:
+                //     if (!GivePower(player, PowerType.Strength))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTBERSERK);
+                //     if (player.ReadyWeapon != WeaponType.Fist)
+                //     {
+                //         player.PendingWeapon = WeaponType.Fist;
+                //     }
+                //     sound = Sfx.GETPOW;
+                //     break;
 
-                case Sprite.PINS:
-                    if (!GivePower(player, PowerType.Invisibility))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTINVIS);
-                    sound = Sfx.GETPOW;
-                    break;
+                // case Sprite.PINS:
+                //     if (!GivePower(player, PowerType.Invisibility))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTINVIS);
+                //     sound = Sfx.GETPOW;
+                //     break;
 
-                case Sprite.SUIT:
-                    if (!GivePower(player, PowerType.IronFeet))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTSUIT);
-                    sound = Sfx.GETPOW;
-                    break;
+                // case Sprite.SUIT:
+                //     if (!GivePower(player, PowerType.IronFeet))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTSUIT);
+                //     sound = Sfx.GETPOW;
+                //     break;
 
-                case Sprite.PMAP:
-                    if (!GivePower(player, PowerType.AllMap))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTMAP);
-                    sound = Sfx.GETPOW;
-                    break;
+                // case Sprite.PMAP:
+                //     if (!GivePower(player, PowerType.AllMap))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTMAP);
+                //     sound = Sfx.GETPOW;
+                //     break;
 
-                case Sprite.PVIS:
-                    if (!GivePower(player, PowerType.Infrared))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTVISOR);
-                    sound = Sfx.GETPOW;
-                    break;
+                // case Sprite.PVIS:
+                //     if (!GivePower(player, PowerType.Infrared))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTVISOR);
+                //     sound = Sfx.GETPOW;
+                //     break;
 
-                // Ammo.
-                case Sprite.CLIP:
-                    if ((special.Flags & MobjFlags.Dropped) != 0)
-                    {
-                        if (!GiveAmmo(player, AmmoType.Clip, 0))
-                        {
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        if (!GiveAmmo(player, AmmoType.Clip, 1))
-                        {
-                            return;
-                        }
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTCLIP);
-                    break;
+                // // Ammo.
+                // case Sprite.CLIP:
+                //     if ((special.Flags & MobjFlags.Dropped) != 0)
+                //     {
+                //         if (!GiveAmmo(player, AmmoType.Clip, 0))
+                //         {
+                //             return;
+                //         }
+                //     }
+                //     else
+                //     {
+                //         if (!GiveAmmo(player, AmmoType.Clip, 1))
+                //         {
+                //             return;
+                //         }
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTCLIP);
+                //     break;
 
-                case Sprite.AMMO:
-                    if (!GiveAmmo(player, AmmoType.Clip, 5))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTCLIPBOX);
-                    break;
+                // case Sprite.AMMO:
+                //     if (!GiveAmmo(player, AmmoType.Clip, 5))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTCLIPBOX);
+                //     break;
 
-                case Sprite.ROCK:
-                    if (!GiveAmmo(player, AmmoType.Missile, 1))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTROCKET);
-                    break;
+                // case Sprite.ROCK:
+                //     if (!GiveAmmo(player, AmmoType.Missile, 1))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTROCKET);
+                //     break;
 
-                case Sprite.BROK:
-                    if (!GiveAmmo(player, AmmoType.Missile, 5))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTROCKBOX);
-                    break;
+                // case Sprite.BROK:
+                //     if (!GiveAmmo(player, AmmoType.Missile, 5))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTROCKBOX);
+                //     break;
 
-                case Sprite.CELL:
-                    if (!GiveAmmo(player, AmmoType.Cell, 1))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTCELL);
-                    break;
+                // case Sprite.CELL:
+                //     if (!GiveAmmo(player, AmmoType.Cell, 1))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTCELL);
+                //     break;
 
-                case Sprite.CELP:
-                    if (!GiveAmmo(player, AmmoType.Cell, 5))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTCELLBOX);
-                    break;
+                // case Sprite.CELP:
+                //     if (!GiveAmmo(player, AmmoType.Cell, 5))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTCELLBOX);
+                //     break;
 
-                case Sprite.SHEL:
-                    if (!GiveAmmo(player, AmmoType.Shell, 1))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTSHELLS);
-                    break;
+                // case Sprite.SHEL:
+                //     if (!GiveAmmo(player, AmmoType.Shell, 1))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTSHELLS);
+                //     break;
 
-                case Sprite.SBOX:
-                    if (!GiveAmmo(player, AmmoType.Shell, 5))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTSHELLBOX);
-                    break;
+                // case Sprite.SBOX:
+                //     if (!GiveAmmo(player, AmmoType.Shell, 5))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTSHELLBOX);
+                //     break;
 
-                case Sprite.BPAK:
-                    if (!player.Backpack)
-                    {
-                        for (var i = 0; i < (int)AmmoType.Count; i++)
-                        {
-                            player.MaxAmmo[i] *= 2;
-                        }
-                        player.Backpack = true;
-                    }
-                    for (var i = 0; i < (int)AmmoType.Count; i++)
-                    {
-                        GiveAmmo(player, (AmmoType)i, 1);
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTBACKPACK);
-                    break;
+                // case Sprite.BPAK:
+                //     if (!player.Backpack)
+                //     {
+                //         for (var i = 0; i < (int)AmmoType.Count; i++)
+                //         {
+                //             player.MaxAmmo[i] *= 2;
+                //         }
+                //         player.Backpack = true;
+                //     }
+                //     for (var i = 0; i < (int)AmmoType.Count; i++)
+                //     {
+                //         GiveAmmo(player, (AmmoType)i, 1);
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTBACKPACK);
+                //     break;
 
-                // Weapons.
-                case Sprite.BFUG:
-                    if (!GiveWeapon(player, WeaponType.Bfg, false))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTBFG9000);
-                    sound = Sfx.WPNUP;
-                    break;
+                // // Weapons.
+                // case Sprite.BFUG:
+                //     if (!GiveWeapon(player, WeaponType.Bfg, false))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTBFG9000);
+                //     sound = Sfx.WPNUP;
+                //     break;
 
-                case Sprite.MGUN:
-                    if (!GiveWeapon(player, WeaponType.Chaingun, (special.Flags & MobjFlags.Dropped) != 0))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTCHAINGUN);
-                    sound = Sfx.WPNUP;
-                    break;
+                // case Sprite.MGUN:
+                //     if (!GiveWeapon(player, WeaponType.Chaingun, (special.Flags & MobjFlags.Dropped) != 0))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTCHAINGUN);
+                //     sound = Sfx.WPNUP;
+                //     break;
 
-                case Sprite.CSAW:
-                    if (!GiveWeapon(player, WeaponType.Chainsaw, false))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTCHAINSAW);
-                    sound = Sfx.WPNUP;
-                    break;
+                // case Sprite.CSAW:
+                //     if (!GiveWeapon(player, WeaponType.Chainsaw, false))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTCHAINSAW);
+                //     sound = Sfx.WPNUP;
+                //     break;
 
-                case Sprite.LAUN:
-                    if (!GiveWeapon(player, WeaponType.Missile, false))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTLAUNCHER);
-                    sound = Sfx.WPNUP;
-                    break;
+                // case Sprite.LAUN:
+                //     if (!GiveWeapon(player, WeaponType.Missile, false))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTLAUNCHER);
+                //     sound = Sfx.WPNUP;
+                //     break;
 
-                case Sprite.PLAS:
-                    if (!GiveWeapon(player, WeaponType.Plasma, false))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTPLASMA);
-                    sound = Sfx.WPNUP;
-                    break;
+                // case Sprite.PLAS:
+                //     if (!GiveWeapon(player, WeaponType.Plasma, false))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTPLASMA);
+                //     sound = Sfx.WPNUP;
+                //     break;
 
-                case Sprite.SHOT:
-                    if (!GiveWeapon(player, WeaponType.Shotgun, (special.Flags & MobjFlags.Dropped) != 0))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTSHOTGUN);
-                    sound = Sfx.WPNUP;
-                    break;
+                // case Sprite.SHOT:
+                //     if (!GiveWeapon(player, WeaponType.Shotgun, (special.Flags & MobjFlags.Dropped) != 0))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTSHOTGUN);
+                //     sound = Sfx.WPNUP;
+                //     break;
 
-                case Sprite.SGN2:
-                    if (!GiveWeapon(player, WeaponType.SuperShotgun, (special.Flags & MobjFlags.Dropped) != 0))
-                    {
-                        return;
-                    }
-                    player.SendMessage(DoomInfo.Strings.GOTSHOTGUN2);
-                    sound = Sfx.WPNUP;
-                    break;
+                // case Sprite.SGN2:
+                //     if (!GiveWeapon(player, WeaponType.SuperShotgun, (special.Flags & MobjFlags.Dropped) != 0))
+                //     {
+                //         return;
+                //     }
+                //     player.SendMessage(DoomInfo.Strings.GOTSHOTGUN2);
+                //     sound = Sfx.WPNUP;
+                //     break;
 
                 default:
                     throw new Exception("Unknown gettable thing!");

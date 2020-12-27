@@ -282,15 +282,15 @@ namespace ManagedDoom
             var options = world.Options;
             if (options.FastMonsters || options.Skill == GameSkill.Nightmare)
             {
-                if ((int)MobjState.SargRun1 <= state.Number &&
-                    state.Number <= (int)MobjState.SargPain2)
-                {
-                    return state.Tics >> 1;
-                }
-                else
-                {
+                //* if ((int)MobjState.SargRun1 <= state.Number &&
+                //     state.Number <= (int)MobjState.SargPain2)
+                // {
+                //     return state.Tics >> 1;
+                // }
+                // else
+                // {
                     return state.Tics;
-                }
+                //}
             }
             else
             {

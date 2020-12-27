@@ -132,14 +132,12 @@ namespace ManagedDoom.SoftwareRendering
             health.NumberWidget.Width = 3;
             health.NumberWidget.X = healthX;
             health.NumberWidget.Y = healthY;
-            health.Patch = patches.TallPercent;
 
             armor = new PercentWidget();
             armor.NumberWidget.Patches = patches.TallNumbers;
             armor.NumberWidget.Width = 3;
             armor.NumberWidget.X = armorX;
             armor.NumberWidget.Y = armorY;
-            armor.Patch = patches.TallPercent;
 
             ammo = new NumberWidget[(int)AmmoType.Count];
             ammo[0] = new NumberWidget();
@@ -185,14 +183,14 @@ namespace ManagedDoom.SoftwareRendering
             maxAmmo[3].X = maxAmmo3X;
             maxAmmo[3].Y = maxAmmo3Y;
 
-            weapons = new MultIconWidget[6];
-            for (var i = 0; i < weapons.Length; i++)
-            {
-                weapons[i] = new MultIconWidget();
-                weapons[i].X = armsX + (i % 3) * armsSpaceX;
-                weapons[i].Y = armsY + (i / 3) * armsSpaceY;
-                weapons[i].Patches = patches.Arms[i];
-            }
+            // weapons = new MultIconWidget[6];
+            // for (var i = 0; i < weapons.Length; i++)
+            // {
+            //     weapons[i] = new MultIconWidget();
+            //     weapons[i].X = armsX + (i % 3) * armsSpaceX;
+            //     weapons[i].Y = armsY + (i / 3) * armsSpaceY;
+            //     weapons[i].Patches = patches.Arms[i];
+            // }
 
             frags = new NumberWidget();
             frags.Patches = patches.TallNumbers;
@@ -243,19 +241,19 @@ namespace ManagedDoom.SoftwareRendering
 
             if (player.Mobj.World.Options.Deathmatch == 0)
             {
-                if (drawBackground)
-                {
-                    screen.DrawPatch(
-                        patches.ArmsBackground,
-                        scale * armsBackgroundX,
-                        scale * armsBackgroundY,
-                        scale);
-                }
+                // if (drawBackground)
+                // {
+                //     screen.DrawPatch(
+                //         patches.ArmsBackground,
+                //         scale * armsBackgroundX,
+                //         scale * armsBackgroundY,
+                //         scale);
+                // }
 
-                for (var i = 0; i < weapons.Length; i++)
-                {
-                    DrawMultIcon(weapons[i], player.WeaponOwned[i + 1] ? 1 : 0);
-                }
+                // for (var i = 0; i < weapons.Length; i++)
+                // {
+                //     DrawMultIcon(weapons[i], player.WeaponOwned[i + 1] ? 1 : 0);
+                // }
             }
             else
             {
@@ -267,23 +265,23 @@ namespace ManagedDoom.SoftwareRendering
                 DrawNumber(frags, sum);
             }
 
-            if (drawBackground)
-            {
-                if (player.Mobj.World.Options.NetGame)
-                {
-                    screen.DrawPatch(
-                        patches.FaceBackground[player.Number],
-                        scale * faceBackgroundX,
-                        scale * faceBackgroundY,
-                        scale);
-                }
+            // if (drawBackground)
+            // {
+            //     if (player.Mobj.World.Options.NetGame)
+            //     {
+            //         screen.DrawPatch(
+            //             patches.FaceBackground[player.Number],
+            //             scale * faceBackgroundX,
+            //             scale * faceBackgroundY,
+            //             scale);
+            //     }
 
-                screen.DrawPatch(
-                    patches.Faces[player.Mobj.World.StatusBar.FaceIndex],
-                    scale * faceX,
-                    scale * faceY,
-                    scale);
-            }
+            //     screen.DrawPatch(
+            //         patches.Faces[player.Mobj.World.StatusBar.FaceIndex],
+            //         scale * faceX,
+            //         scale * faceY,
+            //         scale);
+            // }
 
             for (var i = 0; i < 3; i++)
             {
@@ -415,64 +413,63 @@ namespace ManagedDoom.SoftwareRendering
             public Patch[] TallNumbers;
             public Patch[] ShortNumbers;
             public Patch TallMinus;
-            public Patch TallPercent;
+            //public Patch TallPercent;
             public Patch[] Keys;
-            public Patch ArmsBackground;
-            public Patch[][] Arms;
-            public Patch[] FaceBackground;
-            public Patch[] Faces;
+            //public Patch ArmsBackground;
+            //public Patch[][] Arms;
+            //public Patch[] FaceBackground;
+            //public Patch[] Faces;
 
             public Patches(Wad wad)
             {
-                Background = Patch.FromWad(wad, "STBAR");
+                Background = Patch.FromWad(wad, "LIFEBAR");
 
                 TallNumbers = new Patch[10];
                 ShortNumbers = new Patch[10];
                 for (var i = 0; i < 10; i++)
                 {
-                    TallNumbers[i] = Patch.FromWad(wad, "STTNUM" + i);
-                    ShortNumbers[i] = Patch.FromWad(wad, "STYSNUM" + i);
+                    TallNumbers[i] = Patch.FromWad(wad, "IN" + i);
+                    ShortNumbers[i] = Patch.FromWad(wad, "SMALLIN" + i);
                 }
-                TallMinus = Patch.FromWad(wad, "STTMINUS");
-                TallPercent = Patch.FromWad(wad, "STTPRCNT");
+                TallMinus = Patch.FromWad(wad, "NEGNUM");
+                //TallPercent = Patch.FromWad(wad, "LAME");
 
                 Keys = new Patch[(int)CardType.Count];
-                for (var i = 0; i < Keys.Length; i++)
-                {
-                    Keys[i] = Patch.FromWad(wad, "STKEYS" + i);
-                }
+                Keys[0] = Patch.FromWad(wad, "BKEYICON");
+                Keys[1] = Patch.FromWad(wad, "GKEYICON");
+                Keys[2] = Patch.FromWad(wad, "YKEYICON");
 
-                ArmsBackground = Patch.FromWad(wad, "STARMS");
-                Arms = new Patch[6][];
-                for (var i = 0; i < 6; i++)
-                {
-                    var num = i + 2;
-                    Arms[i] = new Patch[2];
-                    Arms[i][0] = Patch.FromWad(wad, "STGNUM" + num);
-                    Arms[i][1] = ShortNumbers[num];
-                }
+                // ArmsBackground = Patch.FromWad(wad, "STARMS");
+                // Arms = new Patch[6][];
+                // for (var i = 0; i < 6; i++)
+                // {
+                //     var num = i + 2;
+                //     Arms[i] = new Patch[2];
+                //     Arms[i][0] = Patch.FromWad(wad, "STGNUM" + num);
+                //     Arms[i][1] = ShortNumbers[num];
+                // }
 
-                FaceBackground = new Patch[Player.MaxPlayerCount];
-                for (var i = 0; i < FaceBackground.Length; i++)
-                {
-                    FaceBackground[i] = Patch.FromWad(wad, "STFB" + i);
-                }
-                Faces = new Patch[StatusBar.Face.FaceCount];
-                var faceCount = 0;
-                for (var i = 0; i < StatusBar.Face.PainFaceCount; i++)
-                {
-                    for (var j = 0; j < StatusBar.Face.StraightFaceCount; j++)
-                    {
-                        Faces[faceCount++] = Patch.FromWad(wad, "STFST" + i + j);
-                    }
-                    Faces[faceCount++] = Patch.FromWad(wad, "STFTR" + i + "0");
-                    Faces[faceCount++] = Patch.FromWad(wad, "STFTL" + i + "0");
-                    Faces[faceCount++] = Patch.FromWad(wad, "STFOUCH" + i);
-                    Faces[faceCount++] = Patch.FromWad(wad, "STFEVL" + i);
-                    Faces[faceCount++] = Patch.FromWad(wad, "STFKILL" + i);
-                }
-                Faces[faceCount++] = Patch.FromWad(wad, "STFGOD0");
-                Faces[faceCount++] = Patch.FromWad(wad, "STFDEAD0");
+                // FaceBackground = new Patch[Player.MaxPlayerCount];
+                // for (var i = 0; i < FaceBackground.Length; i++)
+                // {
+                //     FaceBackground[i] = Patch.FromWad(wad, "STFB" + i);
+                // }
+                // Faces = new Patch[StatusBar.Face.FaceCount];
+                // var faceCount = 0;
+                // for (var i = 0; i < StatusBar.Face.PainFaceCount; i++)
+                // {
+                //     for (var j = 0; j < StatusBar.Face.StraightFaceCount; j++)
+                //     {
+                //         Faces[faceCount++] = Patch.FromWad(wad, "STFST" + i + j);
+                //     }
+                //     Faces[faceCount++] = Patch.FromWad(wad, "STFTR" + i + "0");
+                //     Faces[faceCount++] = Patch.FromWad(wad, "STFTL" + i + "0");
+                //     Faces[faceCount++] = Patch.FromWad(wad, "STFOUCH" + i);
+                //     Faces[faceCount++] = Patch.FromWad(wad, "STFEVL" + i);
+                //     Faces[faceCount++] = Patch.FromWad(wad, "STFKILL" + i);
+                // }
+                // Faces[faceCount++] = Patch.FromWad(wad, "STFGOD0");
+                // Faces[faceCount++] = Patch.FromWad(wad, "STFDEAD0");
             }
         }
     }

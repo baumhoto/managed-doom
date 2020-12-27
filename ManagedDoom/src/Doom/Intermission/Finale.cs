@@ -364,78 +364,78 @@ namespace ManagedDoom
 						sfx = Sfx.DSHTGN;
 						break;
 
-					case MobjState.PossAtk2:
-						sfx = Sfx.PISTOL;
-						break;
+					//* case MobjState.PossAtk2:
+					// 	sfx = Sfx.PISTOL;
+					// 	break;
 
-					case MobjState.SposAtk2:
-						sfx = Sfx.SHOTGN;
-						break;
+					// case MobjState.SposAtk2:
+					// 	sfx = Sfx.SHOTGN;
+					// 	break;
 
-					case MobjState.VileAtk2:
-						sfx = Sfx.VILATK;
-						break;
+					// case MobjState.VileAtk2:
+					// 	sfx = Sfx.VILATK;
+					// 	break;
 
-					case MobjState.SkelFist2:
-						sfx = Sfx.SKESWG;
-						break;
+					// case MobjState.SkelFist2:
+					// 	sfx = Sfx.SKESWG;
+					// 	break;
 
-					case MobjState.SkelFist4:
-						sfx = Sfx.SKEPCH;
-						break;
+					// case MobjState.SkelFist4:
+					// 	sfx = Sfx.SKEPCH;
+					// 	break;
 
-					case MobjState.SkelMiss2:
-						sfx = Sfx.SKEATK;
-						break;
+					// case MobjState.SkelMiss2:
+					// 	sfx = Sfx.SKEATK;
+					// 	break;
 
-					case MobjState.FattAtk8:
-					case MobjState.FattAtk5:
-					case MobjState.FattAtk2:
-						sfx = Sfx.FIRSHT;
-						break;
+					// case MobjState.FattAtk8:
+					// case MobjState.FattAtk5:
+					// case MobjState.FattAtk2:
+					// 	sfx = Sfx.FIRSHT;
+					// 	break;
 
-					case MobjState.CposAtk2:
-					case MobjState.CposAtk3:
-					case MobjState.CposAtk4:
-						sfx = Sfx.SHOTGN;
-						break;
+					// case MobjState.CposAtk2:
+					// case MobjState.CposAtk3:
+					// case MobjState.CposAtk4:
+					// 	sfx = Sfx.SHOTGN;
+					// 	break;
 
-					case MobjState.TrooAtk3:
-						sfx = Sfx.CLAW;
-						break;
+					// case MobjState.TrooAtk3:
+					// 	sfx = Sfx.CLAW;
+					// 	break;
 
-					case MobjState.SargAtk2:
-						sfx = Sfx.SGTATK;
-						break;
+					// case MobjState.SargAtk2:
+					// 	sfx = Sfx.SGTATK;
+					// 	break;
 
-					case MobjState.BossAtk2:
-					case MobjState.Bos2Atk2:
-					case MobjState.HeadAtk2:
-						sfx = Sfx.FIRSHT;
-						break;
+					// case MobjState.BossAtk2:
+					// case MobjState.Bos2Atk2:
+					// case MobjState.HeadAtk2:
+					// 	sfx = Sfx.FIRSHT;
+					// 	break;
 
-					case MobjState.SkullAtk2:
-						sfx = Sfx.SKLATK;
-						break;
+					// case MobjState.SkullAtk2:
+					// 	sfx = Sfx.SKLATK;
+					// 	break;
 
-					case MobjState.SpidAtk2:
-					case MobjState.SpidAtk3:
-						sfx = Sfx.SHOTGN;
-						break;
+					// case MobjState.SpidAtk2:
+					// case MobjState.SpidAtk3:
+					// 	sfx = Sfx.SHOTGN;
+					// 	break;
 
-					case MobjState.BspiAtk2:
-						sfx = Sfx.PLASMA;
-						break;
+					// case MobjState.BspiAtk2:
+					// 	sfx = Sfx.PLASMA;
+					// 	break;
 
-					case MobjState.CyberAtk2:
-					case MobjState.CyberAtk4:
-					case MobjState.CyberAtk6:
-						sfx = Sfx.RLAUNC;
-						break;
+					// case MobjState.CyberAtk2:
+					// case MobjState.CyberAtk4:
+					// case MobjState.CyberAtk6:
+					// 	sfx = Sfx.RLAUNC;
+					// 	break;
 
-					case MobjState.PainAtk3:
-						sfx = Sfx.SKLATK;
-						break;
+					// case MobjState.PainAtk3:
+					// 	sfx = Sfx.SKLATK;
+					// 	break;
 
 					default:
 						sfx = 0;

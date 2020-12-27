@@ -26,6 +26,7 @@ namespace ManagedDoom
         private int[] titleX;
         private int[] titleY;
         private MenuItem[] items;
+        private bool headerAsText;
 
         private int index;
         private MenuItem choice;
@@ -35,13 +36,14 @@ namespace ManagedDoom
         public SelectableMenu(
             DoomMenu menu,
             string name, int titleX, int titleY,
-            int firstChoice,
+            int firstChoice, bool headerAsText,
             params MenuItem[] items) : base(menu)
         {
             this.name = new[] { name };
             this.titleX = new[] { titleX };
             this.titleY = new[] { titleY };
             this.items = items;
+            this.headerAsText = headerAsText;
 
             index = firstChoice;
             choice = items[index];
@@ -52,12 +54,14 @@ namespace ManagedDoom
             string name1, int titleX1, int titleY1,
             string name2, int titleX2, int titleY2,
             int firstChoice,
+            bool headerAsText,
             params MenuItem[] items) : base(menu)
         {
             this.name = new[] { name1, name2 };
             this.titleX = new[] { titleX1, titleX2 };
             this.titleY = new[] { titleY1, titleY2 };
             this.items = items;
+            this.headerAsText = headerAsText;
 
             index = firstChoice;
             choice = items[index];
@@ -227,5 +231,6 @@ namespace ManagedDoom
         public IReadOnlyList<int> TitleY => titleY;
         public IReadOnlyList<MenuItem> Items => items;
         public MenuItem Choice => choice;
+        public bool HeadersAsText => headerAsText;
     }
 }

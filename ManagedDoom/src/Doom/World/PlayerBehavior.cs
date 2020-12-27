@@ -520,7 +520,7 @@ namespace ManagedDoom
 
             // Spawn the gun.
             player.PendingWeapon = player.ReadyWeapon;
-            BringUpWeapon(player);
+            //* BringUpWeapon(player);
         }
 
         /// <summary>

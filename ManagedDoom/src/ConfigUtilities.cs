@@ -67,13 +67,14 @@ namespace ManagedDoom
         {
             var names = new string[]
             {
-                "DOOM2.WAD",
-                "PLUTONIA.WAD",
-                "TNT.WAD",
-                "DOOM.WAD",
-                "DOOM1.WAD",
-                "FREEDOOM2.WAD",
-                "FREEDOOM1.WAD"
+                // "DOOM2.WAD",
+                // "PLUTONIA.WAD",
+                // "TNT.WAD",
+                // "DOOM.WAD",
+                // "DOOM1.WAD",
+                // "FREEDOOM2.WAD",
+                // "FREEDOOM1.WAD"
+                "HERETIC.WAD"
             };
 
             var exeDirectory = GetExeDirectory();

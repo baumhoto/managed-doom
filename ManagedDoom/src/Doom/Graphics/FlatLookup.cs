@@ -99,7 +99,7 @@ namespace ManagedDoom
 
                 for (var lump = firstFlat; lump <= lastFlat; lump++)
                 {
-                    if (wad.GetLumpSize(lump) != 4096)
+                    if (wad.GetLumpSize(lump) != 4096 && wad.GetLumpSize(lump) != 4)
                     {
                         continue;
                     }

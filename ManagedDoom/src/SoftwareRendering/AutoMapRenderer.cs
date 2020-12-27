@@ -236,7 +236,7 @@ namespace ManagedDoom.SoftwareRendering
                     grays);
             }
 
-            screen.DrawText(
+            screen.DrawTextB(
                 world.Map.Title,
                 0,
                 amHeight - scale,
