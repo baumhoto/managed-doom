@@ -38,10 +38,10 @@ namespace ManagedDoom
 		{
 			target.Flags &= ~(MobjFlags.Shootable | MobjFlags.Float | MobjFlags.SkullFly);
 
-			if (target.Type != MobjType.Skull)
-			{
-				target.Flags &= ~MobjFlags.NoGravity;
-			}
+			//* if (target.Type != MobjType.Skull)
+			// {
+			// 	target.Flags &= ~MobjFlags.NoGravity;
+			// }
 
 			target.Flags |= MobjFlags.Corpse | MobjFlags.DropOff;
 			target.Height = new Fixed(target.Height.Data >> 2);
@@ -106,18 +106,18 @@ namespace ManagedDoom
 			MobjType item;
 			switch (target.Type)
 			{
-				case MobjType.Wolfss:
-				case MobjType.Possessed:
-					item = MobjType.Clip;
-					break;
+				//* case MobjType.Wolfss:
+				// case MobjType.Possessed:
+				// 	item = MobjType.Clip;
+				// 	break;
 
-				case MobjType.Shotguy:
-					item = MobjType.Shotgun;
-					break;
+				// case MobjType.Shotguy:
+				// 	item = MobjType.Shotgun;
+				// 	break;
 
-				case MobjType.Chainguy:
-					item = MobjType.Chaingun;
-					break;
+				// case MobjType.Chainguy:
+				// 	item = MobjType.Chaingun;
+				// 	break;
 
 				default:
 					return;
@@ -277,20 +277,20 @@ namespace ManagedDoom
 			// We're awake now...
 			target.ReactionTime = 0;
 
-			if ((target.Threshold == 0 || target.Type == MobjType.Vile) &&
-				source != null &&
-				source != target &&
-				source.Type != MobjType.Vile)
-			{
-				// If not intent on another player, chase after this one.
-				target.Target = source;
-				target.Threshold = baseThreshold;
-				if (target.State == DoomInfo.States[(int)target.Info.SpawnState] &&
-					target.Info.SeeState != MobjState.Null)
-				{
-					target.SetState(target.Info.SeeState);
-				}
-			}
+			//* if ((target.Threshold == 0 || target.Type == MobjType.Vile) &&
+			// 	source != null &&
+			// 	source != target &&
+			// 	source.Type != MobjType.Vile)
+			// {
+			// 	// If not intent on another player, chase after this one.
+			// 	target.Target = source;
+			// 	target.Threshold = baseThreshold;
+			// 	if (target.State == DoomInfo.States[(int)target.Info.SpawnState] &&
+			// 		target.Info.SeeState != MobjState.Null)
+			// 	{
+			// 		target.SetState(target.Info.SeeState);
+			// 	}
+			// }
 		}
 
 
@@ -341,10 +341,10 @@ namespace ManagedDoom
 			}
 
 			// Boss spider and cyborg take no damage from concussion.
-			if (thing.Type == MobjType.Cyborg || thing.Type == MobjType.Spider)
-			{
-				return true;
-			}
+			//* if (thing.Type == MobjType.Cyborg || thing.Type == MobjType.Spider)
+			// {
+			// 	return true;
+			// }
 
 			var dx = Fixed.Abs(thing.X - bombSpot.X);
 			var dy = Fixed.Abs(thing.Y - bombSpot.Y);

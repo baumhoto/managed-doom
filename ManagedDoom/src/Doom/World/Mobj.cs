@@ -320,22 +320,22 @@ namespace ManagedDoom
             var ta = world.ThingAllocation;
 
             // Spawn a teleport fog at old spot.
-            var fog1 = ta.SpawnMobj(
-                x, y,
-                subsector.Sector.FloorHeight,
-                MobjType.Tfog);
+            //* var fog1 = ta.SpawnMobj(
+            //     x, y,
+            //     subsector.Sector.FloorHeight,
+            //     MobjType.Tfog);
 
             // Initiate teleport sound.
-            world.StartSound(fog1, Sfx.TELEPT, SfxType.Misc);
+            //* world.StartSound(fog1, Sfx.TELEPT, SfxType.Misc);
 
             // Spawn a teleport fog at the new spot.
             var ss = Geometry.PointInSubsector(sp.X, sp.Y, world.Map);
 
-            var fog2 = ta.SpawnMobj(
-                sp.X, sp.Y,
-                ss.Sector.FloorHeight, MobjType.Tfog);
+            //* var fog2 = ta.SpawnMobj(
+            //     sp.X, sp.Y,
+            //     ss.Sector.FloorHeight, MobjType.Tfog);
 
-            world.StartSound(fog2, Sfx.TELEPT, SfxType.Misc);
+            //* world.StartSound(fog2, Sfx.TELEPT, SfxType.Misc);
 
             // Spawn the new monster.
             Fixed z;

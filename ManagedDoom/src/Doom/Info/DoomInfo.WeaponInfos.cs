@@ -33,15 +33,15 @@ namespace ManagedDoom
             //     MobjState.Null
             // ),
 
-            // // pistol
-            // new WeaponInfo(
-            //     AmmoType.Clip,
-            //     MobjState.Pistolup,
-            //     MobjState.Pistoldown,
-            //     MobjState.Pistol,
-            //     MobjState.Pistol1,
-            //     MobjState.Pistolflash
-            // ),
+            // pistol
+            new WeaponInfo(
+                AmmoType.Clip,
+                MobjState.ElvenwandUp,
+                MobjState.ElvenwandDown,
+                MobjState.Elvenwand,
+                MobjState.Elvenwand2,
+                MobjState.Null
+            ),
 
             // // shotgun
             // new WeaponInfo(

@@ -23,10 +23,13 @@ namespace ManagedDoom
     {
         public static readonly DoomString[] SpriteNames = new DoomString[]
         {
+            new DoomString("PUF3"),
+            new DoomString("PLAY"),
+            new DoomString("CKYY"),
+            new DoomString("GWND"),
+            new DoomString("PUF2"),
             //* new DoomString("STFF"), // weapon 1`
-            // new DoomString("PUF3"),
             // new DoomString("PUF4"),
-            // new DoomString("GWND"),
             // new DoomString("FX01"),
             // new DoomString("PUF2"),
             // new DoomString("CRBW"),
@@ -49,7 +52,6 @@ namespace ManagedDoom
             // new DoomString("FX04"),
             // new DoomString("FX08"),
             // new DoomString("FX09"),
-            new DoomString("PLAY"),
             //* new DoomString("IFOG"),
             // new DoomString("POSS"),
             // new DoomString("SPOS"),
@@ -86,7 +88,6 @@ namespace ManagedDoom
             // new DoomString("BON2"),
             // new DoomString("BKEY"),
             // new DoomString("RKEY"),
-            new DoomString("CKYY"),
             // new DoomString("BSKU"),
             // new DoomString("RSKU"),
             // new DoomString("YSKU"),

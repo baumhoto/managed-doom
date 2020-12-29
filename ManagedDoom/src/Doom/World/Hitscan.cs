@@ -394,8 +394,11 @@ namespace ManagedDoom
 
             z += new Fixed((random.Next() - random.Next()) << 10);
 
-            var thing = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Puff);
-            thing.MomZ = Fixed.One;
+            var thing = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Puf2);
+            //* for elvenwand puff set movement to zero. needs to be checks for other puffs
+            thing.MomZ = Fixed.Zero;
+            thing.MomY = Fixed.Zero;
+            thing.MomY = Fixed.Zero;
             thing.Tics -= random.Next() & 3;
 
             if (thing.Tics < 1)
@@ -412,6 +415,7 @@ namespace ManagedDoom
 
         /// <summary>
         /// Spawn blood.
+
         /// </summary>
         public void SpawnBlood(Fixed x, Fixed y, Fixed z, int damage)
         {
@@ -419,14 +423,14 @@ namespace ManagedDoom
 
             z += new Fixed((random.Next() - random.Next()) << 10);
 
-            var thing = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Blood);
-            thing.MomZ = Fixed.FromInt(2);
-            thing.Tics -= random.Next() & 3;
+            //* var thing = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Blood);
+            // thing.MomZ = Fixed.FromInt(2);
+            // thing.Tics -= random.Next() & 3;
 
-            if (thing.Tics < 1)
-            {
-                thing.Tics = 1;
-            }
+            //* if (thing.Tics < 1)
+            // {
+            //     thing.Tics = 1;
+            // }
 
             if (damage <= 12 && damage >= 9)
             {

@@ -27,7 +27,7 @@ namespace ManagedDoom
             new DoomString("PISTOL"),
             new DoomString("SHOTGN"),
             new DoomString("SGCOCK"),
-            new DoomString("DSHTGN"),
+            new DoomString("GLDHIT"),
             new DoomString("DBOPN"),
             new DoomString("DBCLS"),
             new DoomString("DBLOAD"),

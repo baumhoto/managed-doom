@@ -153,12 +153,12 @@ namespace ManagedDoom
                         break;
                 }
 
-                if (actor.Type == MobjType.Spider || actor.Type == MobjType.Cyborg)
-                {
-                    // Full volume for boss monsters.
-                    world.StartSound(actor, (Sfx)sound, SfxType.Diffuse);
-                }
-                else
+                //* if (actor.Type == MobjType.Spider || actor.Type == MobjType.Cyborg)
+                // {
+                //     // Full volume for boss monsters.
+                //     world.StartSound(actor, (Sfx)sound, SfxType.Diffuse);
+                // }
+                // else
                 {
                     world.StartSound(actor, (Sfx)sound, SfxType.Voice);
                 }
@@ -514,43 +514,43 @@ namespace ManagedDoom
 
             var attackDist = dist.Data >> 16;
 
-            if (actor.Type == MobjType.Vile)
-            {
-                if (attackDist > 14 * 64)
-                {
-                    // Too far away.
-                    return false;
-                }
-            }
+            // if (actor.Type == MobjType.Vile)
+            // {
+            //     if (attackDist > 14 * 64)
+            //     {
+            //         // Too far away.
+            //         return false;
+            //     }
+            // }
 
-            if (actor.Type == MobjType.Undead)
-            {
-                if (attackDist < 196)
-                {
-                    // Close for fist attack.
-                    return false;
-                }
+            //* if (actor.Type == MobjType.Undead)
+            // {
+            //     if (attackDist < 196)
+            //     {
+            //         // Close for fist attack.
+            //         return false;
+            //     }
 
-                attackDist >>= 1;
-            }
+            //     attackDist >>= 1;
+            // }
 
 
-            if (actor.Type == MobjType.Cyborg ||
-                actor.Type == MobjType.Spider ||
-                actor.Type == MobjType.Skull)
-            {
-                attackDist >>= 1;
-            }
+            //* if (actor.Type == MobjType.Cyborg ||
+            //     actor.Type == MobjType.Spider ||
+            //     actor.Type == MobjType.Skull)
+            // {
+            //     attackDist >>= 1;
+            // }
 
             if (attackDist > 200)
             {
                 attackDist = 200;
             }
 
-            if (actor.Type == MobjType.Cyborg && attackDist > 160)
-            {
-                attackDist = 160;
-            }
+            // if (actor.Type == MobjType.Cyborg && attackDist > 160)
+            // {
+            //     attackDist = 160;
+            // }
 
             if (world.Random.Next() < attackDist)
             {
@@ -726,15 +726,15 @@ namespace ManagedDoom
             }
 
             // Check for bosses.
-            if (actor.Type == MobjType.Spider || actor.Type == MobjType.Cyborg)
-            {
-                // Full volume.
-                world.StartSound(actor, (Sfx)sound, SfxType.Diffuse);
-            }
-            else
-            {
+            //* if (actor.Type == MobjType.Spider || actor.Type == MobjType.Cyborg)
+            // {
+            //     // Full volume.
+            //     world.StartSound(actor, (Sfx)sound, SfxType.Diffuse);
+            // }
+            // else
+            // {
                 world.StartSound(actor, (Sfx)sound, SfxType.Voice);
-            }
+            // }
         }
 
         public void XScream(Mobj actor)
@@ -885,7 +885,7 @@ namespace ManagedDoom
             }
 
             // Launch a missile.
-            world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Troopshot);
+            //* world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Troopshot);
         }
 
 
@@ -924,7 +924,7 @@ namespace ManagedDoom
             }
 
             // Launch a missile.
-            world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Headshot);
+            //* world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Headshot);
         }
 
 
@@ -946,7 +946,7 @@ namespace ManagedDoom
             }
 
             // Launch a missile.
-            world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Bruisershot);
+            //* world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Bruisershot);
         }
 
 
@@ -1002,14 +1002,14 @@ namespace ManagedDoom
 
             // Change direction to...
             actor.Angle += fatSpread;
-            var target = world.SubstNullMobj(actor.Target);
-            ta.SpawnMissile(actor, target, MobjType.Fatshot);
+            //* var target = world.SubstNullMobj(actor.Target);
+            // ta.SpawnMissile(actor, target, MobjType.Fatshot);
 
-            var missile = ta.SpawnMissile(actor, target, MobjType.Fatshot);
-            missile.Angle += fatSpread;
-            var angle = missile.Angle;
-            missile.MomX = new Fixed(missile.Info.Speed) * Trig.Cos(angle);
-            missile.MomY = new Fixed(missile.Info.Speed) * Trig.Sin(angle);
+            //* var missile = ta.SpawnMissile(actor, target, MobjType.Fatshot);
+            // missile.Angle += fatSpread;
+            // var angle = missile.Angle;
+            // missile.MomX = new Fixed(missile.Info.Speed) * Trig.Cos(angle);
+            // missile.MomY = new Fixed(missile.Info.Speed) * Trig.Sin(angle);
         }
 
         public void FatAttack2(Mobj actor)
@@ -1021,13 +1021,13 @@ namespace ManagedDoom
             // Now here choose opposite deviation.
             actor.Angle -= fatSpread;
             var target = world.SubstNullMobj(actor.Target);
-            ta.SpawnMissile(actor, target, MobjType.Fatshot);
+            //* ta.SpawnMissile(actor, target, MobjType.Fatshot);
 
-            var missile = ta.SpawnMissile(actor, target, MobjType.Fatshot);
-            missile.Angle -= fatSpread * 2;
-            var angle = missile.Angle;
-            missile.MomX = new Fixed(missile.Info.Speed) * Trig.Cos(angle);
-            missile.MomY = new Fixed(missile.Info.Speed) * Trig.Sin(angle);
+            //* var missile = ta.SpawnMissile(actor, target, MobjType.Fatshot);
+            // missile.Angle -= fatSpread * 2;
+            // var angle = missile.Angle;
+            // missile.MomX = new Fixed(missile.Info.Speed) * Trig.Cos(angle);
+            // missile.MomY = new Fixed(missile.Info.Speed) * Trig.Sin(angle);
         }
 
         public void FatAttack3(Mobj actor)
@@ -1038,17 +1038,17 @@ namespace ManagedDoom
 
             var target = world.SubstNullMobj(actor.Target);
 
-            var missile1 = ta.SpawnMissile(actor, target, MobjType.Fatshot);
-            missile1.Angle -= fatSpread / 2;
-            var angle1 = missile1.Angle;
-            missile1.MomX = new Fixed(missile1.Info.Speed) * Trig.Cos(angle1);
-            missile1.MomY = new Fixed(missile1.Info.Speed) * Trig.Sin(angle1);
+            //* var missile1 = ta.SpawnMissile(actor, target, MobjType.Fatshot);
+            // missile1.Angle -= fatSpread / 2;
+            // var angle1 = missile1.Angle;
+            // missile1.MomX = new Fixed(missile1.Info.Speed) * Trig.Cos(angle1);
+            // missile1.MomY = new Fixed(missile1.Info.Speed) * Trig.Sin(angle1);
 
-            var missile2 = ta.SpawnMissile(actor, target, MobjType.Fatshot);
-            missile2.Angle += fatSpread / 2;
-            var angle2 = missile2.Angle;
-            missile2.MomX = new Fixed(missile2.Info.Speed) * Trig.Cos(angle2);
-            missile2.MomY = new Fixed(missile2.Info.Speed) * Trig.Sin(angle2);
+            //* var missile2 = ta.SpawnMissile(actor, target, MobjType.Fatshot);
+            // missile2.Angle += fatSpread / 2;
+            // var angle2 = missile2.Angle;
+            // missile2.MomX = new Fixed(missile2.Info.Speed) * Trig.Cos(angle2);
+            // missile2.MomY = new Fixed(missile2.Info.Speed) * Trig.Sin(angle2);
         }
 
 
@@ -1062,7 +1062,7 @@ namespace ManagedDoom
             FaceTarget(actor);
 
             // Launch a missile.
-            world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Arachplaz);
+            //* world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Arachplaz);
         }
 
 
@@ -1094,7 +1094,7 @@ namespace ManagedDoom
 
             FaceTarget(actor);
 
-            world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Rocket);
+            //* world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Rocket);
         }
 
 
@@ -1169,14 +1169,14 @@ namespace ManagedDoom
                 return true;
             }
 
-            var maxDist = thing.Info.Radius + DoomInfo.MobjInfos[(int)MobjType.Vile].Radius;
+            //* var maxDist = thing.Info.Radius + DoomInfo.MobjInfos[(int)MobjType.Vile].Radius;
 
-            if (Fixed.Abs(thing.X - vileTryX) > maxDist ||
-                Fixed.Abs(thing.Y - vileTryY) > maxDist)
-            {
-                // Not actually touching.
-                return true;
-            }
+            // if (Fixed.Abs(thing.X - vileTryX) > maxDist ||
+            //     Fixed.Abs(thing.Y - vileTryY) > maxDist)
+            // {
+            //     // Not actually touching.
+            //     return true;
+            // }
 
             vileTargetCorpse = thing;
             vileTargetCorpse.MomX = vileTargetCorpse.MomY = Fixed.Zero;
@@ -1309,16 +1309,16 @@ namespace ManagedDoom
 
             FaceTarget(actor);
 
-            var fog = world.ThingAllocation.SpawnMobj(
-                actor.Target.X,
-                actor.Target.X,
-                actor.Target.Z,
-                MobjType.Fire);
+            //* var fog = world.ThingAllocation.SpawnMobj(
+            //     actor.Target.X,
+            //     actor.Target.X,
+            //     actor.Target.Z,
+            //     MobjType.Fire);
 
-            actor.Tracer = fog;
-            fog.Target = actor;
-            fog.Tracer = actor.Target;
-            Fire(fog);
+            // actor.Tracer = fog;
+            // fog.Target = actor;
+            // fog.Tracer = actor.Target;
+            // Fire(fog);
         }
 
 
@@ -1372,14 +1372,14 @@ namespace ManagedDoom
             // Missile spawns higher.
             actor.Z += Fixed.FromInt(16);
 
-            var missile = world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Tracer);
+            //* var missile = world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Tracer);
 
-            // Back to normal.
-            actor.Z -= Fixed.FromInt(16);
+            // // Back to normal.
+            // actor.Z -= Fixed.FromInt(16);
 
-            missile.X += missile.MomX;
-            missile.Y += missile.MomY;
-            missile.Tracer = actor.Target;
+            // missile.X += missile.MomX;
+            // missile.Y += missile.MomY;
+            // missile.Tracer = actor.Target;
         }
 
 
@@ -1395,18 +1395,18 @@ namespace ManagedDoom
             // Spawn a puff of smoke behind the rocket.
             world.Hitscan.SpawnPuff(actor.X, actor.Y, actor.Z);
 
-            var smoke = world.ThingAllocation.SpawnMobj(
-                actor.X - actor.MomX,
-                actor.Y - actor.MomY,
-                actor.Z,
-                MobjType.Smoke);
+            //* var smoke = world.ThingAllocation.SpawnMobj(
+            //     actor.X - actor.MomX,
+            //     actor.Y - actor.MomY,
+            //     actor.Z,
+            //     MobjType.Smoke);
 
-            smoke.MomZ = Fixed.One;
-            smoke.Tics -= world.Random.Next() & 3;
-            if (smoke.Tics < 1)
-            {
-                smoke.Tics = 1;
-            }
+            // smoke.MomZ = Fixed.One;
+            // smoke.Tics -= world.Random.Next() & 3;
+            // if (smoke.Tics < 1)
+            // {
+            //     smoke.Tics = 1;
+            // }
 
             // Adjust direction.
             var dest = actor.Tracer;
@@ -1514,10 +1514,10 @@ namespace ManagedDoom
             foreach (var thinker in world.Thinkers)
             {
                 var mobj = thinker as Mobj;
-                if (mobj != null && mobj.Type == MobjType.Skull)
-                {
-                    count++;
-                }
+                //* if (mobj != null && mobj.Type == MobjType.Skull)
+                // {
+                //     count++;
+                // }
             }
 
             // If there are allready 20 skulls on the level,
@@ -1529,26 +1529,26 @@ namespace ManagedDoom
 
             // Okay, there's playe for another one.
 
-            var preStep = Fixed.FromInt(4) +
-                3 * (actor.Info.Radius + DoomInfo.MobjInfos[(int)MobjType.Skull].Radius) / 2;
+            //* var preStep = Fixed.FromInt(4) +
+            //     3 * (actor.Info.Radius + DoomInfo.MobjInfos[(int)MobjType.Skull].Radius) / 2;
 
-            var x = actor.X + preStep * Trig.Cos(angle);
-            var y = actor.Y + preStep * Trig.Sin(angle);
-            var z = actor.Z + Fixed.FromInt(8);
+            //* var x = actor.X + preStep * Trig.Cos(angle);
+            // var y = actor.Y + preStep * Trig.Sin(angle);
+            // var z = actor.Z + Fixed.FromInt(8);
 
-            var skull = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Skull);
+            // var skull = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Skull);
 
             // Check for movements.
-            if (!world.ThingMovement.TryMove(skull, skull.X, skull.Y))
-            {
-                // Kill it immediately.
-                world.ThingInteraction.DamageMobj(skull, actor, actor, 10000);
-                return;
-            }
+            //* if (!world.ThingMovement.TryMove(skull, skull.X, skull.Y))
+            // {
+            //     // Kill it immediately.
+            //     world.ThingInteraction.DamageMobj(skull, actor, actor, 10000);
+            //     return;
+            // }
 
-            skull.Target = actor.Target;
+            // skull.Target = actor.Target;
 
-            SkullAttack(skull);
+            // SkullAttack(skull);
         }
 
 
@@ -1599,10 +1599,10 @@ namespace ManagedDoom
                     return;
                 }
 
-                if ((actor.Type != MobjType.Fatso) && (actor.Type != MobjType.Baby))
-                {
-                    return;
-                }
+                // if ((actor.Type != MobjType.Fatso) && (actor.Type != MobjType.Baby))
+                // {
+                //     return;
+                // }
             }
             else
             {
@@ -1614,10 +1614,10 @@ namespace ManagedDoom
                             return;
                         }
 
-                        if (actor.Type != MobjType.Bruiser)
-                        {
-                            return;
-                        }
+                        // if (actor.Type != MobjType.Bruiser)
+                        // {
+                        //     return;
+                        // }
 
                         break;
 
@@ -1627,10 +1627,10 @@ namespace ManagedDoom
                             return;
                         }
 
-                        if (actor.Type != MobjType.Cyborg)
-                        {
-                            return;
-                        }
+                        // if (actor.Type != MobjType.Cyborg)
+                        // {
+                        //     return;
+                        // }
 
                         break;
 
@@ -1640,10 +1640,10 @@ namespace ManagedDoom
                             return;
                         }
 
-                        if (actor.Type != MobjType.Spider)
-                        {
-                            return;
-                        }
+                        // if (actor.Type != MobjType.Spider)
+                        // {
+                        //     return;
+                        // }
 
                         break;
 
@@ -1651,18 +1651,18 @@ namespace ManagedDoom
                         switch (options.Map)
                         {
                             case 6:
-                                if (actor.Type != MobjType.Cyborg)
-                                {
-                                    return;
-                                }
+                                // if (actor.Type != MobjType.Cyborg)
+                                // {
+                                //     return;
+                                // }
 
                                 break;
 
                             case 8:
-                                if (actor.Type != MobjType.Spider)
-                                {
-                                    return;
-                                }
+                                // if (actor.Type != MobjType.Spider)
+                                // {
+                                //     return;
+                                // }
 
                                 break;
 
@@ -1719,19 +1719,19 @@ namespace ManagedDoom
             {
                 if (options.Map == 7)
                 {
-                    if (actor.Type == MobjType.Fatso)
-                    {
-                        junk.Tag = 666;
-                        world.SectorAction.DoFloor(junk, FloorMoveType.LowerFloorToLowest);
-                        return;
-                    }
+                    //* if (actor.Type == MobjType.Fatso)
+                    // {
+                    //     junk.Tag = 666;
+                    //     world.SectorAction.DoFloor(junk, FloorMoveType.LowerFloorToLowest);
+                    //     return;
+                    // }
 
-                    if (actor.Type == MobjType.Baby)
-                    {
-                        junk.Tag = 667;
-                        world.SectorAction.DoFloor(junk, FloorMoveType.RaiseToTexture);
-                        return;
-                    }
+                    // if (actor.Type == MobjType.Baby)
+                    // {
+                    //     junk.Tag = 667;
+                    //     world.SectorAction.DoFloor(junk, FloorMoveType.RaiseToTexture);
+                    //     return;
+                    // }
                 }
             }
             else
@@ -1824,11 +1824,11 @@ namespace ManagedDoom
                     continue;
                 }
 
-                if (mobj.Type == MobjType.Bosstarget)
-                {
-                    brainTargets[brainTargetCount] = mobj;
-                    brainTargetCount++;
-                }
+                //* if (mobj.Type == MobjType.Bosstarget)
+                // {
+                //     brainTargets[brainTargetCount] = mobj;
+                //     brainTargetCount++;
+                // }
             }
 
             world.StartSound(actor, Sfx.BOSSIT, SfxType.Diffuse);
@@ -1850,14 +1850,14 @@ namespace ManagedDoom
                 var y = actor.Y - Fixed.FromInt(320);
                 var z = new Fixed(128) + random.Next() * Fixed.FromInt(2);
 
-                var explosion = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Rocket);
-                explosion.MomZ = new Fixed(random.Next() * 512);
-                //* explosion.SetState(MobjState.Brainexplode1);
-                explosion.Tics -= random.Next() & 7;
-                if (explosion.Tics < 1)
-                {
-                    explosion.Tics = 1;
-                }
+                //* var explosion = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Rocket);
+                // explosion.MomZ = new Fixed(random.Next() * 512);
+                // //* explosion.SetState(MobjState.Brainexplode1);
+                // explosion.Tics -= random.Next() & 7;
+                // if (explosion.Tics < 1)
+                // {
+                //     explosion.Tics = 1;
+                // }
             }
 
             world.StartSound(actor, Sfx.BOSDTH, SfxType.Diffuse);
@@ -1872,14 +1872,14 @@ namespace ManagedDoom
             var y = actor.Y;
             var z = new Fixed(128) + random.Next() * Fixed.FromInt(2);
 
-            var explosion = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Rocket);
-            explosion.MomZ = new Fixed(random.Next() * 512);
-            //* explosion.SetState(MobjState.Brainexplode1);
-            explosion.Tics -= random.Next() & 7;
-            if (explosion.Tics < 1)
-            {
-                explosion.Tics = 1;
-            }
+            //* var explosion = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Rocket);
+            // explosion.MomZ = new Fixed(random.Next() * 512);
+            // //* explosion.SetState(MobjState.Brainexplode1);
+            // explosion.Tics -= random.Next() & 7;
+            // if (explosion.Tics < 1)
+            // {
+            //     explosion.Tics = 1;
+            // }
         }
 
 
@@ -1909,9 +1909,9 @@ namespace ManagedDoom
             currentBrainTarget = (currentBrainTarget + 1) % brainTargetCount;
 
             // Spawn brain missile.
-            var missile = world.ThingAllocation.SpawnMissile(actor, target, MobjType.Spawnshot);
-            missile.Target = target;
-            missile.ReactionTime = ((target.Y - actor.Y).Data / missile.MomY.Data) / missile.State.Tics;
+            //* var missile = world.ThingAllocation.SpawnMissile(actor, target, MobjType.Spawnshot);
+            // missile.Target = target;
+            // missile.ReactionTime = ((target.Y - actor.Y).Data / missile.MomY.Data) / missile.State.Tics;
 
             world.StartSound(actor, Sfx.BOSPIT, SfxType.Diffuse);
         }
@@ -1945,70 +1945,70 @@ namespace ManagedDoom
             var ta = world.ThingAllocation;
 
             // First spawn teleport fog.
-            var fog = ta.SpawnMobj(target.X, target.Y, target.Z, MobjType.Spawnfire);
-            world.StartSound(fog, Sfx.TELEPT, SfxType.Misc);
+            //* var fog = ta.SpawnMobj(target.X, target.Y, target.Z, MobjType.Spawnfire);
+            // world.StartSound(fog, Sfx.TELEPT, SfxType.Misc);
 
             // Randomly select monster to spawn.
             var r = world.Random.Next();
 
             // Probability distribution (kind of :), decreasing likelihood.
             MobjType type;
-            if (r < 50)
-            {
-                type = MobjType.Troop;
-            }
-            else if (r < 90)
-            {
-                type = MobjType.Sergeant;
-            }
-            else if (r < 120)
-            {
-                type = MobjType.Shadows;
-            }
-            else if (r < 130)
-            {
-                type = MobjType.Pain;
-            }
-            else if (r < 160)
-            {
-                type = MobjType.Head;
-            }
-            else if (r < 162)
-            {
-                type = MobjType.Vile;
-            }
-            else if (r < 172)
-            {
-                type = MobjType.Undead;
-            }
-            else if (r < 192)
-            {
-                type = MobjType.Baby;
-            }
-            else if (r < 222)
-            {
-                type = MobjType.Fatso;
-            }
-            else if (r < 246)
-            {
-                type = MobjType.Knight;
-            }
-            else
-            {
-                type = MobjType.Bruiser;
-            }
+            //* if (r < 50)
+            // {
+            //     type = MobjType.Troop;
+            // }
+            // else if (r < 90)
+            // {
+            //     type = MobjType.Sergeant;
+            // }
+            // else if (r < 120)
+            // {
+            //     type = MobjType.Shadows;
+            // }
+            // else if (r < 130)
+            // {
+            //     type = MobjType.Pain;
+            // }
+            // else if (r < 160)
+            // {
+            //     type = MobjType.Head;
+            // }
+            // else if (r < 162)
+            // {
+            //     type = MobjType.Vile;
+            // }
+            // else if (r < 172)
+            // {
+            //     type = MobjType.Undead;
+            // }
+            // else if (r < 192)
+            // {
+            //     type = MobjType.Baby;
+            // }
+            // else if (r < 222)
+            // {
+            //     type = MobjType.Fatso;
+            // }
+            // else if (r < 246)
+            // {
+            //     type = MobjType.Knight;
+            // }
+            // else
+            // {
+            //     type = MobjType.Bruiser;
+            // }
 
-            var monster = ta.SpawnMobj(target.X, target.Y, target.Z, type);
-            if (LookForPlayers(monster, true))
-            {
-                monster.SetState(monster.Info.SeeState);
-            }
+            //* var monster = ta.SpawnMobj(target.X, target.Y, target.Z, type);
+            // if (LookForPlayers(monster, true))
+            // {
+            //     monster.SetState(monster.Info.SeeState);
+            // }
 
-            // Telefrag anything in this spot.
-            world.ThingMovement.TeleportMove(monster, monster.X, monster.Y);
+            // // Telefrag anything in this spot.
+            // world.ThingMovement.TeleportMove(monster, monster.X, monster.Y);
 
-            // Remove self (i.e., cube).
-            world.ThingAllocation.RemoveMobj(actor);
+            // // Remove self (i.e., cube).
+            // world.ThingAllocation.RemoveMobj(actor);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace ManagedDoom
         PISTOL,
         SHOTGN,
         SGCOCK,
-        DSHTGN,
+        GLDHIT,
         DBOPN,
         DBCLS,
         DBLOAD,

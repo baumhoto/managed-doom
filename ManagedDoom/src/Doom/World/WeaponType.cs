@@ -21,8 +21,9 @@ namespace ManagedDoom
 {
     public enum WeaponType
     {
-        Fist,
+        //* naming and order
         Pistol,
+        Fist,
         Shotgun,
         Chaingun,
         Missile,

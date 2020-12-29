@@ -26,7 +26,7 @@ namespace ManagedDoom
 
         public static readonly MobjStateDef[] States = new MobjStateDef[]
         {
-            new MobjStateDef(0, Sprite.PLAY, 0, -1, null, null, MobjState.Null, 0, 0), // State.Null
+            new MobjStateDef(0, Sprite.PUF3, 0, -1, null, null, MobjState.Null, 0, 0), // State.Null
             new MobjStateDef(1, Sprite.PLAY, 0, -1, null, null, MobjState.Null, 0, 0), // State.Play
             new MobjStateDef(2, Sprite.PLAY, 0, 4, null, null, MobjState.PlayRun2, 0, 0), // State.PlayRun1
             new MobjStateDef(3, Sprite.PLAY, 1, 4, null, null, MobjState.PlayRun3, 0, 0), // State.PlayRun2
@@ -61,7 +61,24 @@ namespace ManagedDoom
             new MobjStateDef(32, Sprite.YKEY, 32774, 3, null, null, MobjState.Ykyy8, 0, 0), // State.Ykey7
             new MobjStateDef(33, Sprite.YKEY, 32775, 3, null, null, MobjState.Ykyy9, 0, 0), // State.Ykey8
             new MobjStateDef(34, Sprite.YKEY, 32776, 3, null, null, MobjState.Ykyy, 0, 0), // State.Ykey9
-        
+            new MobjStateDef(35, Sprite.GWND, 0, 1, pa.WeaponReady, null, MobjState.Elvenwand, 0, 0), // State.Pistol
+            new MobjStateDef(36, Sprite.GWND, 0, 1, pa.Lower, null, MobjState.ElvenwandDown, 0, 0), // State.Pistoldown
+            new MobjStateDef(37, Sprite.GWND, 0, 1, pa.Raise, null, MobjState.ElvenwandUp, 0, 0), // State.Pistolup
+            new MobjStateDef(38, Sprite.GWND, 0, 4, null, null, MobjState.Elvenwand2, 0, 0), // State.Pistol1
+            new MobjStateDef(39, Sprite.GWND, 1, 6, pa.FirePistol, null, MobjState.Elvenwand3, 0, 0), // State.Pistol1
+            new MobjStateDef(40, Sprite.GWND, 2, 4, null, null, MobjState.Elvenwand4, 0, 0), // State.Pistol1
+            new MobjStateDef(41, Sprite.GWND, 1, 5, pa.ReFire, null, MobjState.Elvenwand, 0, 0), // State.Pistol1
+            new MobjStateDef(42, Sprite.PUF2, 32768, 4, null, null, MobjState.Puf22, 0, 0), // State.Puf21
+            new MobjStateDef(43, Sprite.PUF2, 32769, 4, null, null, MobjState.Puf23, 0, 0), // State.Puf22
+            new MobjStateDef(44, Sprite.PUF2, 32770, 4, null, null, MobjState.Puf24, 0, 0), // State.Puf23
+            new MobjStateDef(45, Sprite.PUF2, 32771, 4, null, null, MobjState.Null, 0, 0), // State.Puf24
+          
+
+            // new MobjStateDef(14, Sprite.PISG, 1, 6, pa.FirePistol, null, MobjState.Pistol3, 0, 0), // State.Pistol2
+            // new MobjStateDef(15, Sprite.PISG, 2, 4, null, null, MobjState.Pistol4, 0, 0), // State.Pistol3
+            // new MobjStateDef(16, Sprite.PISG, 1, 5, pa.ReFire, null, MobjState.Pistol, 0, 0), // State.Pistol4
+            // new MobjStateDef(17, Sprite.PISF, 32768, 7, pa.Light1, null, MobjState.Lightdone, 0, 0), // State.Pistolflash
+ 
             //* new MobjStateDef(1, Sprite.SHTG, 4, 0, pa.Light0, null, MobjState.Null, 0, 0), // State.Lightdone
             // new MobjStateDef(2, Sprite.PUNG, 0, 1, pa.WeaponReady, null, MobjState.Punch, 0, 0), // State.Punch
             // new MobjStateDef(3, Sprite.PUNG, 0, 1, pa.Lower, null, MobjState.Punchdown, 0, 0), // State.Punchdown
@@ -71,15 +88,7 @@ namespace ManagedDoom
             // new MobjStateDef(7, Sprite.PUNG, 3, 5, null, null, MobjState.Punch4, 0, 0), // State.Punch3
             // new MobjStateDef(8, Sprite.PUNG, 2, 4, null, null, MobjState.Punch5, 0, 0), // State.Punch4
             // new MobjStateDef(9, Sprite.PUNG, 1, 5, pa.ReFire, null, MobjState.Punch, 0, 0), // State.Punch5
-            // new MobjStateDef(10, Sprite.PISG, 0, 1, pa.WeaponReady, null, MobjState.Pistol, 0, 0), // State.Pistol
-            // new MobjStateDef(11, Sprite.PISG, 0, 1, pa.Lower, null, MobjState.Pistoldown, 0, 0), // State.Pistoldown
-            // new MobjStateDef(12, Sprite.PISG, 0, 1, pa.Raise, null, MobjState.Pistolup, 0, 0), // State.Pistolup
-            // new MobjStateDef(13, Sprite.PISG, 0, 4, null, null, MobjState.Pistol2, 0, 0), // State.Pistol1
-            // new MobjStateDef(14, Sprite.PISG, 1, 6, pa.FirePistol, null, MobjState.Pistol3, 0, 0), // State.Pistol2
-            // new MobjStateDef(15, Sprite.PISG, 2, 4, null, null, MobjState.Pistol4, 0, 0), // State.Pistol3
-            // new MobjStateDef(16, Sprite.PISG, 1, 5, pa.ReFire, null, MobjState.Pistol, 0, 0), // State.Pistol4
-            // new MobjStateDef(17, Sprite.PISF, 32768, 7, pa.Light1, null, MobjState.Lightdone, 0, 0), // State.Pistolflash
-            // new MobjStateDef(18, Sprite.SHTG, 0, 1, pa.WeaponReady, null, MobjState.Sgun, 0, 0), // State.Sgun
+                       // new MobjStateDef(18, Sprite.SHTG, 0, 1, pa.WeaponReady, null, MobjState.Sgun, 0, 0), // State.Sgun
             // new MobjStateDef(19, Sprite.SHTG, 0, 1, pa.Lower, null, MobjState.Sgundown, 0, 0), // State.Sgundown
             // new MobjStateDef(20, Sprite.SHTG, 0, 1, pa.Raise, null, MobjState.Sgunup, 0, 0), // State.Sgunup
             // new MobjStateDef(21, Sprite.SHTG, 0, 3, null, null, MobjState.Sgun2, 0, 0), // State.Sgun1

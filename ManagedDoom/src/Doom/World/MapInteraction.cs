@@ -577,13 +577,13 @@ namespace ManagedDoom
 				// Things that should NOT trigger specials...
 				switch (thing.Type)
 				{
-					case MobjType.Rocket:
-					case MobjType.Plasma:
-					case MobjType.Bfg:
-					case MobjType.Troopshot:
-					case MobjType.Headshot:
-					case MobjType.Bruisershot:
-						return;
+					//* case MobjType.Rocket:
+					// case MobjType.Plasma:
+					// case MobjType.Bfg:
+					// case MobjType.Troopshot:
+					// case MobjType.Headshot:
+					// case MobjType.Bruisershot:
+					// 	return;
 					default:
 						break;
 				}

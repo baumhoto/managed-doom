@@ -12,7 +12,7 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/ManagedDoom/bin/Debug/net5.0/managed-doom.dll",
-            "args": ["-nomonsters -episode 1"],
+            "args": [],
             "cwd": "${workspaceFolder}/ManagedDoom/bin/Debug/net5.0/",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",

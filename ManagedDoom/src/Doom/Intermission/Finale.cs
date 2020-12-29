@@ -273,23 +273,23 @@ namespace ManagedDoom
 
 		private static readonly CastInfo[] castorder = new CastInfo[]
 		{
-			new CastInfo(DoomInfo.Strings.CC_ZOMBIE, MobjType.Possessed),
-			new CastInfo(DoomInfo.Strings.CC_SHOTGUN, MobjType.Shotguy),
-			new CastInfo(DoomInfo.Strings.CC_HEAVY, MobjType.Chainguy),
-			new CastInfo(DoomInfo.Strings.CC_IMP, MobjType.Troop),
-			new CastInfo(DoomInfo.Strings.CC_DEMON, MobjType.Sergeant),
-			new CastInfo(DoomInfo.Strings.CC_LOST, MobjType.Skull),
-			new CastInfo(DoomInfo.Strings.CC_CACO, MobjType.Head),
-			new CastInfo(DoomInfo.Strings.CC_HELL, MobjType.Knight),
-			new CastInfo(DoomInfo.Strings.CC_BARON, MobjType.Bruiser),
-			new CastInfo(DoomInfo.Strings.CC_ARACH, MobjType.Baby),
-			new CastInfo(DoomInfo.Strings.CC_PAIN, MobjType.Pain),
-			new CastInfo(DoomInfo.Strings.CC_REVEN, MobjType.Undead),
-			new CastInfo(DoomInfo.Strings.CC_MANCU, MobjType.Fatso),
-			new CastInfo(DoomInfo.Strings.CC_ARCH, MobjType.Vile),
-			new CastInfo(DoomInfo.Strings.CC_SPIDER, MobjType.Spider),
-			new CastInfo(DoomInfo.Strings.CC_CYBER, MobjType.Cyborg),
-			new CastInfo(DoomInfo.Strings.CC_HERO, MobjType.Player)
+			//* new CastInfo(DoomInfo.Strings.CC_ZOMBIE, MobjType.Possessed),
+			// new CastInfo(DoomInfo.Strings.CC_SHOTGUN, MobjType.Shotguy),
+			// new CastInfo(DoomInfo.Strings.CC_HEAVY, MobjType.Chainguy),
+			// new CastInfo(DoomInfo.Strings.CC_IMP, MobjType.Troop),
+			// new CastInfo(DoomInfo.Strings.CC_DEMON, MobjType.Sergeant),
+			// new CastInfo(DoomInfo.Strings.CC_LOST, MobjType.Skull),
+			// new CastInfo(DoomInfo.Strings.CC_CACO, MobjType.Head),
+			// new CastInfo(DoomInfo.Strings.CC_HELL, MobjType.Knight),
+			// new CastInfo(DoomInfo.Strings.CC_BARON, MobjType.Bruiser),
+			// new CastInfo(DoomInfo.Strings.CC_ARACH, MobjType.Baby),
+			// new CastInfo(DoomInfo.Strings.CC_PAIN, MobjType.Pain),
+			// new CastInfo(DoomInfo.Strings.CC_REVEN, MobjType.Undead),
+			// new CastInfo(DoomInfo.Strings.CC_MANCU, MobjType.Fatso),
+			// new CastInfo(DoomInfo.Strings.CC_ARCH, MobjType.Vile),
+			// new CastInfo(DoomInfo.Strings.CC_SPIDER, MobjType.Spider),
+			// new CastInfo(DoomInfo.Strings.CC_CYBER, MobjType.Cyborg),
+			// new CastInfo(DoomInfo.Strings.CC_HERO, MobjType.Player)
 		};
 
 		private int castNumber;
@@ -360,9 +360,9 @@ namespace ManagedDoom
 				Sfx sfx;
 				switch (st)
 				{
-					case MobjState.PlayAtk1:
-						sfx = Sfx.DSHTGN;
-						break;
+					//* case MobjState.PlayAtk1:
+					// 	sfx = Sfx.DSHTGN;
+					// 	break;
 
 					//* case MobjState.PossAtk2:
 					// 	sfx = Sfx.PISTOL;

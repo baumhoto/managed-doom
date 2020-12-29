@@ -476,7 +476,7 @@ namespace ManagedDoom
 
         public void FirePistol(Player player)
         {
-            world.StartSound(player.Mobj, Sfx.PISTOL, SfxType.Weapon);
+            world.StartSound(player.Mobj, Sfx.GLDHIT, SfxType.Weapon);
 
             player.Mobj.SetState(MobjState.PlayAtk2);
 
@@ -554,7 +554,7 @@ namespace ManagedDoom
 
         public void FireShotgun2(Player player)
         {
-            world.StartSound(player.Mobj, Sfx.DSHTGN, SfxType.Weapon);
+            //* world.StartSound(player.Mobj, Sfx.DSHTGN, SfxType.Weapon);
 
             player.Mobj.SetState(MobjState.PlayAtk2);
 
@@ -625,7 +625,7 @@ namespace ManagedDoom
         {
             player.Ammo[(int)DoomInfo.WeaponInfos[(int)player.ReadyWeapon].Ammo]--;
 
-            world.ThingAllocation.SpawnPlayerMissile(player.Mobj, MobjType.Rocket);
+            //* world.ThingAllocation.SpawnPlayerMissile(player.Mobj, MobjType.Rocket);
         }
 
 
@@ -638,7 +638,7 @@ namespace ManagedDoom
                 PlayerSprite.Flash,
                 DoomInfo.WeaponInfos[(int)player.ReadyWeapon].FlashState + (world.Random.Next() & 1));
 
-            world.ThingAllocation.SpawnPlayerMissile(player.Mobj, MobjType.Plasma);
+            world.ThingAllocation.SpawnPlayerMissile(player.Mobj, MobjType.Wand);
         }
 
 
@@ -652,7 +652,7 @@ namespace ManagedDoom
         {
             player.Ammo[(int)DoomInfo.WeaponInfos[(int)player.ReadyWeapon].Ammo] -= DoomInfo.DeHackEdConst.BfgCellsPerShot;
 
-            world.ThingAllocation.SpawnPlayerMissile(player.Mobj, MobjType.Bfg);
+            //* world.ThingAllocation.SpawnPlayerMissile(player.Mobj, MobjType.Bfg);
         }
 
 
@@ -674,11 +674,11 @@ namespace ManagedDoom
                     continue;
                 }
 
-                world.ThingAllocation.SpawnMobj(
-                    hs.LineTarget.X,
-                    hs.LineTarget.Y,
-                    hs.LineTarget.Z + (hs.LineTarget.Height >> 2),
-                    MobjType.Extrabfg);
+                //* world.ThingAllocation.SpawnMobj(
+                //     hs.LineTarget.X,
+                //     hs.LineTarget.Y,
+                //     hs.LineTarget.Z + (hs.LineTarget.Height >> 2),
+                //     MobjType.Extrabfg);
 
                 var damage = 0;
                 for (var j = 0; j < 15; j++)

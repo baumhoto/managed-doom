@@ -205,8 +205,8 @@ namespace ManagedDoom.SoftwareRendering
                     // }
                     // else if (threeD.WindowSize == ThreeDRenderer.MaxScreenSize)
                     // {
-                    //     statusBar.Render(consolePlayer, false);
-                    // }
+                    //    statusBar.Render(consolePlayer, false);
+                    //}
                 }
 
                 if (config.video_displaymessage || ReferenceEquals(consolePlayer.Message, (string)DoomInfo.Strings.MSGOFF))

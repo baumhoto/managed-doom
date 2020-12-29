@@ -140,12 +140,12 @@ namespace ManagedDoom
             }
 
             // Don't spawn any monsters if -nomonsters.
-            if (world.Options.NoMonsters &&
-                    (i == (int)MobjType.Skull ||
-                    (DoomInfo.MobjInfos[i].Flags & MobjFlags.CountKill) != 0))
-            {
-                return;
-            }
+            //* if (world.Options.NoMonsters &&
+            //         (i == (int)MobjType.Skull ||
+            //         (DoomInfo.MobjInfos[i].Flags & MobjFlags.CountKill) != 0))
+            // {
+            //     return;
+            // }
 
             // Spawn it.
             Fixed x = mt.X;
@@ -329,9 +329,11 @@ namespace ManagedDoom
             var tm = world.ThingMovement;
 
             if ((mobj.Flags & MobjFlags.Special) != 0 &&
-                (mobj.Flags & MobjFlags.Dropped) == 0 &&
-                (mobj.Type != MobjType.Inv) &&
-                (mobj.Type != MobjType.Ins))
+                (mobj.Flags & MobjFlags.Dropped) == 0 
+                //* &&
+                // (mobj.Type != MobjType.Inv) &&
+                // (mobj.Type != MobjType.Ins)
+                )
             {
                 itemRespawnQue[itemQueHead] = mobj.SpawnPoint;
                 itemRespawnTime[itemQueHead] = world.LevelTime;
@@ -364,10 +366,10 @@ namespace ManagedDoom
             {
                 switch (type)
                 {
-                    case MobjType.Bruisershot:
-                    case MobjType.Headshot:
-                    case MobjType.Troopshot:
-                        return 20 * Fixed.FracUnit;
+                    //* case MobjType.Bruisershot:
+                    // case MobjType.Headshot:
+                    // case MobjType.Troopshot:
+                    //     return 20 * Fixed.FracUnit;
                     default:
                         return DoomInfo.MobjInfos[(int)type].Speed;
                 }
@@ -394,10 +396,10 @@ namespace ManagedDoom
             missile.Y += (missile.MomY >> 1);
             missile.Z += (missile.MomZ >> 1);
 
-            if (!world.ThingMovement.TryMove(missile, missile.X, missile.Y))
-            {
-                world.ThingInteraction.ExplodeMissile(missile);
-            }
+            // if (!world.ThingMovement.TryMove(missile, missile.X, missile.Y))
+            // {
+            //     world.ThingInteraction.ExplodeMissile(missile);
+            // }
         }
 
         /// <summary>
@@ -599,16 +601,16 @@ namespace ManagedDoom
                     throw new Exception("Unexpected angle: " + angle);
             }
 
-            var mo = SpawnMobj(
-                x + 20 * xa, y + 20 * ya,
-                subsector.Sector.FloorHeight,
-                MobjType.Tfog);
+            //* var mo = SpawnMobj(
+            //     x + 20 * xa, y + 20 * ya,
+            //     subsector.Sector.FloorHeight,
+            //     MobjType.Tfog);
 
-            if (!world.FirstTicIsNotYetDone)
-            {
-                // Don't start sound on first frame.
-                world.StartSound(mo, Sfx.TELEPT, SfxType.Misc);
-            }
+            // if (!world.FirstTicIsNotYetDone)
+            // {
+            //     // Don't start sound on first frame.
+            //     world.StartSound(mo, Sfx.TELEPT, SfxType.Misc);
+            // }
 
             return true;
         }
@@ -691,8 +693,8 @@ namespace ManagedDoom
 
             // Spawn a teleport fog at the new spot.
             var ss = Geometry.PointInSubsector(x, y, world.Map);
-            var mo = SpawnMobj(x, y, ss.Sector.FloorHeight, MobjType.Ifog);
-            world.StartSound(mo, Sfx.ITMBK, SfxType.Misc);
+            // var mo = SpawnMobj(x, y, ss.Sector.FloorHeight, MobjType.Ifog);
+            // world.StartSound(mo, Sfx.ITMBK, SfxType.Misc);
 
             int i;
             // Find which type to spawn.
@@ -715,7 +717,7 @@ namespace ManagedDoom
                 z = Mobj.OnFloorZ;
             }
 
-            mo = SpawnMobj(x, y, z, (MobjType)i);
+            var mo = SpawnMobj(x, y, z, (MobjType)i);
             mo.SpawnPoint = mthing;
             mo.Angle = mthing.Angle;
 

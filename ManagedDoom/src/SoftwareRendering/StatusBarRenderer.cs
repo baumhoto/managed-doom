@@ -183,7 +183,7 @@ namespace ManagedDoom.SoftwareRendering
             maxAmmo[3].X = maxAmmo3X;
             maxAmmo[3].Y = maxAmmo3Y;
 
-            // weapons = new MultIconWidget[6];
+            //* weapons = new MultIconWidget[6];
             // for (var i = 0; i < weapons.Length; i++)
             // {
             //     weapons[i] = new MultIconWidget();
@@ -230,8 +230,8 @@ namespace ManagedDoom.SoftwareRendering
                 DrawNumber(ready, num);
             }
 
-            DrawPercent(health, player.Health);
-            DrawPercent(armor, player.ArmorPoints);
+            //* DrawPercent(health, player.Health);
+            // DrawPercent(armor, player.ArmorPoints);
 
             for (var i = 0; i < (int)AmmoType.Count; i++)
             {
@@ -241,7 +241,7 @@ namespace ManagedDoom.SoftwareRendering
 
             if (player.Mobj.World.Options.Deathmatch == 0)
             {
-                // if (drawBackground)
+                //* if (drawBackground)
                 // {
                 //     screen.DrawPatch(
                 //         patches.ArmsBackground,
@@ -265,7 +265,7 @@ namespace ManagedDoom.SoftwareRendering
                 DrawNumber(frags, sum);
             }
 
-            // if (drawBackground)
+            //* if (drawBackground)
             // {
             //     if (player.Mobj.World.Options.NetGame)
             //     {
@@ -439,7 +439,7 @@ namespace ManagedDoom.SoftwareRendering
                 Keys[1] = Patch.FromWad(wad, "GKEYICON");
                 Keys[2] = Patch.FromWad(wad, "YKEYICON");
 
-                // ArmsBackground = Patch.FromWad(wad, "STARMS");
+                //* ArmsBackground = Patch.FromWad(wad, "STARMS");
                 // Arms = new Patch[6][];
                 // for (var i = 0; i < 6; i++)
                 // {

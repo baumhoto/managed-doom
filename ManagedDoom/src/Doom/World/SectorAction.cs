@@ -131,15 +131,15 @@ namespace ManagedDoom
 				world.ThingInteraction.DamageMobj(thing, null, null, 10);
 
 				// Spray blood in a random direction.
-				var blood = world.ThingAllocation.SpawnMobj(
-					thing.X,
-					thing.Y,
-					thing.Z + thing.Height / 2,
-					MobjType.Blood);
+				//* var blood = world.ThingAllocation.SpawnMobj(
+				// 	thing.X,
+				// 	thing.Y,
+				// 	thing.Z + thing.Height / 2,
+				// 	MobjType.Blood);
 
 				var random = world.Random;
-				blood.MomX = new Fixed((random.Next() - random.Next()) << 12);
-				blood.MomY = new Fixed((random.Next() - random.Next()) << 12);
+				//* blood.MomX = new Fixed((random.Next() - random.Next()) << 12);
+				// blood.MomY = new Fixed((random.Next() - random.Next()) << 12);
 			}
 
 			// Keep checking (crush other things).	
@@ -1486,11 +1486,11 @@ namespace ManagedDoom
 							continue;
 						}
 
-						if (dest.Type != MobjType.Teleportman)
-						{
-							// Not a teleportman.
-							continue;
-						}
+						//* if (dest.Type != MobjType.Teleportman)
+						// {
+						// 	// Not a teleportman.
+						// 	continue;
+						// }
 
 						var sector = dest.Subsector.Sector;
 
@@ -1523,21 +1523,21 @@ namespace ManagedDoom
 						var ta = world.ThingAllocation;
 
 						// Spawn teleport fog at source position.
-						var fog1 = ta.SpawnMobj(
-							oldX,
-							oldY,
-							oldZ,
-							MobjType.Tfog);
-						world.StartSound(fog1, Sfx.TELEPT, SfxType.Misc);
+						//* var fog1 = ta.SpawnMobj(
+						// 	oldX,
+						// 	oldY,
+						// 	oldZ,
+						// 	MobjType.Tfog);
+						// world.StartSound(fog1, Sfx.TELEPT, SfxType.Misc);
 
 						// Destination position.
 						var angle = dest.Angle;
-						var fog2 = ta.SpawnMobj(
-							dest.X + 20 * Trig.Cos(angle),
-							dest.Y + 20 * Trig.Sin(angle),
-							thing.Z,
-							MobjType.Tfog);
-						world.StartSound(fog2, Sfx.TELEPT, SfxType.Misc);
+						//* var fog2 = ta.SpawnMobj(
+						// 	dest.X + 20 * Trig.Cos(angle),
+						// 	dest.Y + 20 * Trig.Sin(angle),
+						// 	thing.Z,
+						// 	MobjType.Tfog);
+						// world.StartSound(fog2, Sfx.TELEPT, SfxType.Misc);
 
 						if (thing.Player != null)
 						{
