@@ -53,9 +53,9 @@ namespace ManagedDoom
                 world.WeaponBehavior.ReFire(player);
             }
 
-            public void FirePistol(World world, Player player, PlayerSpriteDef psp)
+            public void FireGoldwand(World world, Player player, PlayerSpriteDef psp)
             {
-                world.WeaponBehavior.FirePistol(player);
+                world.WeaponBehavior.FireGoldwand(player);
             }
 
             public void Light1(World world, Player player, PlayerSpriteDef psp)

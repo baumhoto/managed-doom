@@ -51,7 +51,7 @@ namespace ManagedDoom
 
                 new MobjInfo( // MobjType.Puf2
                 -1, // doomEdNum
-                MobjState.Puf21, // spawnState
+                MobjState.GwandPuff1_1, // spawnState
                 1000, // spawnHealth
                 MobjState.Null, // seeState
                 Sfx.NONE, // seeSound
@@ -103,7 +103,7 @@ namespace ManagedDoom
 
              new MobjInfo( // MobjType.Wand
                 -1, // doomEdNum
-                MobjState.Puf21, // spawnState
+                MobjState.GoldwandAtk1_1, // spawnState
                 1000, // spawnHealth
                 MobjState.Null, // seeState
                 Sfx.NONE, //Sfx.PLASMA, // seeSound

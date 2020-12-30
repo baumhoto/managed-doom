@@ -440,7 +440,7 @@ namespace ManagedDoom
                 //     }
                 //     return;
 
-                case Sprite.YKEY:
+                case Sprite.CKYY:
                     if (!player.Cards[(int)CardType.YellowCard])
                     {
                         player.SendMessage(DoomInfo.Strings.GOTYELWCARD);

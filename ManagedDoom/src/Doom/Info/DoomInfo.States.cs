@@ -52,26 +52,31 @@ namespace ManagedDoom
             new MobjStateDef(23, Sprite.PLAY, 20, 5, null, null, MobjState.PlayXdie8, 0, 0), // State.PlayXdie7
             new MobjStateDef(24, Sprite.PLAY, 21, 5, null, null, MobjState.PlayXdie9, 0, 0), // State.PlayXdie8
             new MobjStateDef(25, Sprite.PLAY, 22, -1, null, null, MobjState.Null, 0, 0), // State.PlayXdie9
-            new MobjStateDef(26, Sprite.YKEY, 32768, 3, null, null, MobjState.Ykyy2, 0, 0), // State.Ykey
-            new MobjStateDef(27, Sprite.YKEY, 32769, 3, null, null, MobjState.Ykyy3, 0, 0), // State.Ykey2
-            new MobjStateDef(28, Sprite.YKEY, 32770, 3, null, null, MobjState.Ykyy4, 0, 0), // State.Ykey3
-            new MobjStateDef(29, Sprite.YKEY, 32771, 3, null, null, MobjState.Ykyy5, 0, 0), // State.Ykey4
-            new MobjStateDef(30, Sprite.YKEY, 32772, 3, null, null, MobjState.Ykyy6, 0, 0), // State.Ykey5
-            new MobjStateDef(31, Sprite.YKEY, 32773, 3, null, null, MobjState.Ykyy7, 0, 0), // State.Ykey6
-            new MobjStateDef(32, Sprite.YKEY, 32774, 3, null, null, MobjState.Ykyy8, 0, 0), // State.Ykey7
-            new MobjStateDef(33, Sprite.YKEY, 32775, 3, null, null, MobjState.Ykyy9, 0, 0), // State.Ykey8
-            new MobjStateDef(34, Sprite.YKEY, 32776, 3, null, null, MobjState.Ykyy, 0, 0), // State.Ykey9
-            new MobjStateDef(35, Sprite.GWND, 0, 1, pa.WeaponReady, null, MobjState.Elvenwand, 0, 0), // State.Pistol
-            new MobjStateDef(36, Sprite.GWND, 0, 1, pa.Lower, null, MobjState.ElvenwandDown, 0, 0), // State.Pistoldown
-            new MobjStateDef(37, Sprite.GWND, 0, 1, pa.Raise, null, MobjState.ElvenwandUp, 0, 0), // State.Pistolup
-            new MobjStateDef(38, Sprite.GWND, 0, 4, null, null, MobjState.Elvenwand2, 0, 0), // State.Pistol1
-            new MobjStateDef(39, Sprite.GWND, 1, 6, pa.FirePistol, null, MobjState.Elvenwand3, 0, 0), // State.Pistol1
-            new MobjStateDef(40, Sprite.GWND, 2, 4, null, null, MobjState.Elvenwand4, 0, 0), // State.Pistol1
-            new MobjStateDef(41, Sprite.GWND, 1, 5, pa.ReFire, null, MobjState.Elvenwand, 0, 0), // State.Pistol1
-            new MobjStateDef(42, Sprite.PUF2, 32768, 4, null, null, MobjState.Puf22, 0, 0), // State.Puf21
-            new MobjStateDef(43, Sprite.PUF2, 32769, 4, null, null, MobjState.Puf23, 0, 0), // State.Puf22
-            new MobjStateDef(44, Sprite.PUF2, 32770, 4, null, null, MobjState.Puf24, 0, 0), // State.Puf23
-            new MobjStateDef(45, Sprite.PUF2, 32771, 4, null, null, MobjState.Null, 0, 0), // State.Puf24
+            new MobjStateDef(26, Sprite.CKYY, 32768, 3, null, null, MobjState.Ykyy2, 0, 0), // State.Ykey
+            new MobjStateDef(27, Sprite.CKYY, 32769, 3, null, null, MobjState.Ykyy3, 0, 0), // State.Ykey2
+            new MobjStateDef(28, Sprite.CKYY, 32770, 3, null, null, MobjState.Ykyy4, 0, 0), // State.Ykey3
+            new MobjStateDef(29, Sprite.CKYY, 32771, 3, null, null, MobjState.Ykyy5, 0, 0), // State.Ykey4
+            new MobjStateDef(30, Sprite.CKYY, 32772, 3, null, null, MobjState.Ykyy6, 0, 0), // State.Ykey5
+            new MobjStateDef(31, Sprite.CKYY, 32773, 3, null, null, MobjState.Ykyy7, 0, 0), // State.Ykey6
+            new MobjStateDef(32, Sprite.CKYY, 32774, 3, null, null, MobjState.Ykyy8, 0, 0), // State.Ykey7
+            new MobjStateDef(33, Sprite.CKYY, 32775, 3, null, null, MobjState.Ykyy9, 0, 0), // State.Ykey8
+            new MobjStateDef(34, Sprite.CKYY, 32776, 3, null, null, MobjState.Ykyy, 0, 0), // State.Ykey9
+            new MobjStateDef(35, Sprite.GWND, 0, 1, pa.WeaponReady, null, MobjState.GoldwandReady, 0, 0), // State.GoldwandReady
+            new MobjStateDef(36, Sprite.GWND, 0, 1, pa.Lower, null, MobjState.GoldwandDown, 0, 0), // State.GoldwandDown
+            new MobjStateDef(37, Sprite.GWND, 0, 1, pa.Raise, null, MobjState.GoldwandUp, 0, 0), // State.GoldwandUp
+            new MobjStateDef(38, Sprite.GWND, 1, 3, null, null, MobjState.GoldwandAtk1_2, 0, 0), // State.Pistol1
+            new MobjStateDef(39, Sprite.GWND, 2, 5, pa.FireGoldwand, null, MobjState.GoldwandAtk1_3, 0, 0), // State.Pistol1
+            new MobjStateDef(40, Sprite.GWND, 3, 3, null, null, MobjState.GoldwandAtk1_4, 0, 0), // State.Pistol1
+            new MobjStateDef(41, Sprite.GWND, 3, 0, pa.ReFire, null, MobjState.GoldwandReady, 0, 0), // State.Pistol1
+            new MobjStateDef(42, Sprite.GWND, 1, 3, null, null, MobjState.GoldwandAtk2_2, 0, 0), // State.Pistol1
+            new MobjStateDef(43, Sprite.GWND, 2, 4, pa.FireGoldwand, null, MobjState.GoldwandAtk2_3, 0, 0), //* FireGoldwandPL2 needs to be added (multiplayer only?)
+            new MobjStateDef(44, Sprite.GWND, 3, 3, null, null, MobjState.GoldwandAtk2_4, 0, 0), // State.Pistol1
+            new MobjStateDef(45, Sprite.GWND, 3, 0, pa.ReFire, null, MobjState.GoldwandReady, 0, 0), // State.Pistol1
+            new MobjStateDef(46, Sprite.PUF2, 32768, 3, null, null, MobjState.GwandPuff1_2, 0, 0), // State.Puf21
+            new MobjStateDef(47, Sprite.PUF2, 32769, 3, null, null, MobjState.GwandPuff1_3, 0, 0), // State.Puf22
+            new MobjStateDef(48, Sprite.PUF2, 32770, 3, null, null, MobjState.GwandPuff1_4, 0, 0), // State.Puf23
+            new MobjStateDef(49, Sprite.PUF2, 32771, 3, null, null, MobjState.GwandPuff1_5, 0, 0), // State.Puf24
+            new MobjStateDef(50, Sprite.PUF2, 32772, 3, null, null, MobjState.Null, 0, 0), // State.Puf24
           
 
             // new MobjStateDef(14, Sprite.PISG, 1, 6, pa.FirePistol, null, MobjState.Pistol3, 0, 0), // State.Pistol2

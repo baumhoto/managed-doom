@@ -394,7 +394,7 @@ namespace ManagedDoom
 
             z += new Fixed((random.Next() - random.Next()) << 10);
 
-            var thing = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.Puf2);
+            var thing = world.ThingAllocation.SpawnMobj(x, y, z, MobjType.GoldenwandPuff); //* make it pufftype method parameter?
             //* for elvenwand puff set movement to zero. needs to be checks for other puffs
             thing.MomZ = Fixed.Zero;
             thing.MomY = Fixed.Zero;

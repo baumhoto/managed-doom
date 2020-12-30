@@ -21,8 +21,13 @@ namespace ManagedDoom
 {
     public enum Sprite
     {
-        //* STFF,
         PUF3,
+        PLAY,
+        CKYY,
+        GWND,
+        PUF2,
+        //  IMPX,
+        //* STFF,
         // PUF4,
         // FX01,
         // PUF2,
@@ -45,10 +50,7 @@ namespace ManagedDoom
         // PHNX,
         // FX04,
         // FX08,
-        PLAY,
-        YKEY,
-        GWND,
-        PUF2,
+    
         //* TFOG,
         // IFOG,
         // PLAY,

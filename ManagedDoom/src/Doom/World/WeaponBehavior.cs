@@ -457,11 +457,11 @@ namespace ManagedDoom
         }
 
 
-        private void GunShot(Mobj mo, bool accurate)
+        private void WandShot(Mobj mo, bool accurate)
         {
             var random = world.Random;
 
-            var damage = 5 * (random.Next() % 3 + 1);
+            var damage = 7 + (random.Next() & 7);
 
             var angle = mo.Angle;
 
@@ -474,7 +474,7 @@ namespace ManagedDoom
         }
 
 
-        public void FirePistol(Player player)
+        public void FireGoldwand(Player player)
         {
             world.StartSound(player.Mobj, Sfx.GLDHIT, SfxType.Weapon);
 
@@ -489,7 +489,7 @@ namespace ManagedDoom
 
             BulletSlope(player.Mobj);
 
-            GunShot(player.Mobj, player.Refire == 0);
+            WandShot(player.Mobj, player.Refire == 0);
         }
 
 
@@ -516,7 +516,7 @@ namespace ManagedDoom
 
             for (var i = 0; i < 7; i++)
             {
-                GunShot(player.Mobj, false);
+                WandShot(player.Mobj, false);
             }
         }
 
@@ -548,7 +548,7 @@ namespace ManagedDoom
 
             BulletSlope(player.Mobj);
 
-            GunShot(player.Mobj, player.Refire == 0);
+            WandShot(player.Mobj, player.Refire == 0);
         }
 
 
@@ -638,7 +638,7 @@ namespace ManagedDoom
                 PlayerSprite.Flash,
                 DoomInfo.WeaponInfos[(int)player.ReadyWeapon].FlashState + (world.Random.Next() & 1));
 
-            world.ThingAllocation.SpawnPlayerMissile(player.Mobj, MobjType.Wand);
+            world.ThingAllocation.SpawnPlayerMissile(player.Mobj, MobjType.Goldenwand);
         }
 
 

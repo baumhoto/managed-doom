@@ -36,10 +36,10 @@ namespace ManagedDoom
             // pistol
             new WeaponInfo(
                 AmmoType.Clip,
-                MobjState.ElvenwandUp,
-                MobjState.ElvenwandDown,
-                MobjState.Elvenwand,
-                MobjState.Elvenwand2,
+                MobjState.GoldwandUp,
+                MobjState.GoldwandDown,
+                MobjState.GoldwandAtk1_1,
+                MobjState.GoldwandAtk1_1,
                 MobjState.Null
             ),
 

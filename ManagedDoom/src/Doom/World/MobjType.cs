@@ -22,9 +22,10 @@ namespace ManagedDoom
     public enum MobjType
     {
         Player,
-        Puf2,
+        GoldenwandPuff,
         Misc6,
-        Wand,
+        Goldenwand,
+        //Imp,
         // Possessed,
         // Shotguy,
         // Vile,
