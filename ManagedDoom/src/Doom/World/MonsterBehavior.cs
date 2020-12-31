@@ -749,6 +749,32 @@ namespace ManagedDoom
         }
 
 
+        public void ImpDeath(Mobj actor)
+        {
+            actor.Flags &= ~MobjFlags.Solid;
+            //* add and implement actor.Flags2 |= MF2_FOOTCLIP
+            if (actor.Z >= actor.FloorZ)
+            {
+                actor.SetState(actor.Info.Crashstate);
+            }
+        }
+
+        public void ImpXDeath1(Mobj actor)
+        {
+            actor.Flags &= ~MobjFlags.Solid;
+            actor.Flags |= MobjFlags.NoGravity;
+            //* add and implement actor.Flags2 |= MF2_FOOTCLIP;
+            actor.State.Number = 666;//* actor->special1??
+        }
+
+        public void ImpXDeath2(Mobj actor)
+        {
+            actor.Flags &= MobjFlags.NoGravity;
+            if (actor.Z >= actor.FloorZ)
+            {
+                actor.SetState(actor.Info.Crashstate);
+            }
+        }
 
         ////////////////////////////////////////////////////////////
         // Monster attack
@@ -865,7 +891,7 @@ namespace ManagedDoom
         }
 
 
-        public void TroopAttack(Mobj actor)
+        public void ImpMeAttack(Mobj actor)
         {
             if (actor.Target == null)
             {
@@ -876,7 +902,7 @@ namespace ManagedDoom
 
             if (CheckMeleeRange(actor))
             {
-                world.StartSound(actor, Sfx.CLAW, SfxType.Weapon);
+                world.StartSound(actor, actor.Info.AttackSound, SfxType.Weapon);
 
                 var damage = (world.Random.Next() % 8 + 1) * 3;
                 world.ThingInteraction.DamageMobj(actor.Target, actor, actor, damage);
@@ -1163,12 +1189,6 @@ namespace ManagedDoom
                 return true;
             }
 
-            if (thing.Info.Raisestate == MobjState.Null)
-            {
-                // Monster doesn't have a raise state.
-                return true;
-            }
-
             //* var maxDist = thing.Info.Radius + DoomInfo.MobjInfos[(int)MobjType.Vile].Radius;
 
             // if (Fixed.Abs(thing.X - vileTryX) > maxDist ||
@@ -1233,7 +1253,6 @@ namespace ManagedDoom
                             world.StartSound(vileTargetCorpse, Sfx.SLOP, SfxType.Misc);
 
                             var info = vileTargetCorpse.Info;
-                            vileTargetCorpse.SetState(info.Raisestate);
                             vileTargetCorpse.Height <<= 2;
                             vileTargetCorpse.Flags = info.Flags;
                             vileTargetCorpse.Health = info.SpawnHealth;

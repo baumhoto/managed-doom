@@ -43,7 +43,7 @@ namespace ManagedDoom
         private int damage;
         private Sfx activeSound;
         private MobjFlags flags;
-        private MobjState raiseState;
+        private MobjState crashState;
 
         public MobjInfo(
             int doomEdNum,
@@ -68,7 +68,7 @@ namespace ManagedDoom
             int damage,
             Sfx activeSound,
             MobjFlags flags,
-            MobjState raiseState)
+            MobjState crashState)
         {
             this.doomEdNum = doomEdNum;
             this.spawnState = spawnState;
@@ -92,7 +92,7 @@ namespace ManagedDoom
             this.damage = damage;
             this.activeSound = activeSound;
             this.flags = flags;
-            this.raiseState = raiseState;
+            this.crashState = crashState;
         }
 
         public int DoomEdNum
@@ -227,10 +227,10 @@ namespace ManagedDoom
             set => flags = value;
         }
 
-        public MobjState Raisestate
+        public MobjState Crashstate
         {
-            get => raiseState;
-            set => raiseState = value;
+            get => crashState;
+            set => crashState = value;
         }
     }
 }

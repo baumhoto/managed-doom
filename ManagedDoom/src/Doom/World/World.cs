@@ -196,7 +196,8 @@ namespace ManagedDoom
             //* WIP array containing the things that have been added to gamecode and can be spawned
             var addTypeIds = new int[]{ 
                 1, // Player 
-                80 // Yellow Key
+                80, // Yellow Key
+                66 // Imp
                 };
 
             for (var i = 0; i < map.Things.Length; i++)
@@ -206,24 +207,24 @@ namespace ManagedDoom
                 var spawn = true;
 
                 //Do not spawn cool, new monsters if not commercial.
-                if (options.GameMode != GameMode.Commercial)
-                {
-                    switch (mt.Type)
-                    {
-                        case 68: // Arachnotron
-                        case 64: // Archvile
-                        case 88: // Boss Brain
-                        case 89: // Boss Shooter
-                        case 69: // Hell Knight
-                        case 67: // Mancubus
-                        case 71: // Pain Elemental
-                        case 65: // Former Human Commando
-                        case 66: // Revenant
-                        case 84: // Wolf SS
-                            spawn = false;
-                            break;
-                    }
-                }
+                // if (options.GameMode != GameMode.Commercial)
+                // {
+                //     switch (mt.Type)
+                //     {
+                //         case 68: // Arachnotron
+                //         case 64: // Archvile
+                //         case 88: // Boss Brain
+                //         case 89: // Boss Shooter
+                //         case 69: // Hell Knight
+                //         case 67: // Mancubus
+                //         case 71: // Pain Elemental
+                //         case 65: // Former Human Commando
+                //         case 66: // Revenant
+                //         case 84: // Wolf SS
+                //             spawn = false;
+                //             break;
+                //     }
+                // }
 
                 if (!spawn)
                 {

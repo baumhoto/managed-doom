@@ -26,7 +26,7 @@ namespace ManagedDoom
         CKYY,
         GWND,
         PUF2,
-        //  IMPX,
+        IMPX,
         //* STFF,
         // PUF4,
         // FX01,

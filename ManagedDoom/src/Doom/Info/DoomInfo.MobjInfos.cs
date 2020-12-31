@@ -101,7 +101,7 @@ namespace ManagedDoom
                 MobjState.Null // raiseState
             ),
 
-             new MobjInfo( // MobjType.Wand
+             new MobjInfo( // MobjType.Goldenwand
                 -1, // doomEdNum
                 MobjState.GoldwandAtk1_1, // spawnState
                 1000, // spawnHealth
@@ -126,6 +126,32 @@ namespace ManagedDoom
                 MobjFlags.NoBlockMap | MobjFlags.Missile | MobjFlags.DropOff | MobjFlags.NoGravity, // flags
                 MobjState.Null // raiseState
             ),
+            new MobjInfo( // MobjType.Imp
+                66, // doomEdNum
+                MobjState.ImpLook1, // spawnState
+                40, // spawnHealth
+                MobjState.ImpFly1, // seeState
+                Sfx.IMPSIT, //Sfx.POSIT1, // seeSound
+                8, // reactionTime
+                Sfx.IMPAT1, //Sfx.PISTOL, // attackSound
+                MobjState.ImpPain1, // painState
+                200, // painChance
+                Sfx.IMPPAI, //Sfx.POPAIN, // painSound
+                MobjState.ImpMeatK1, // meleeState
+                MobjState.ImpMsAtk1_1, // missileState
+                MobjState.ImpDie1, // deathState
+                MobjState.ImpXDie1, // xdeathState
+                Sfx.IMPDTH, // Sfx.PODTH1, // deathSound
+                10, // speed
+                Fixed.FromInt(16), // radius
+                Fixed.FromInt(36), // height
+                50, // mass
+                0, // damage
+                Sfx.NONE, //Sfx.POSACT, // activeSound
+                MobjFlags.Solid | MobjFlags.Shootable | MobjFlags.CountKill | MobjFlags.NoGravity | MobjFlags.Float, // flags
+                MobjState.ImpCrash1 //* raiseState? has it been replaced with crashstate? 
+            ),
+
 
             //* new MobjInfo( // MobjType.Possessed
             //     3004, // doomEdNum

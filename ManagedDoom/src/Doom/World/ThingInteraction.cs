@@ -38,10 +38,10 @@ namespace ManagedDoom
 		{
 			target.Flags &= ~(MobjFlags.Shootable | MobjFlags.Float | MobjFlags.SkullFly);
 
-			//* if (target.Type != MobjType.Skull)
+			//*if (target.Type != MobjType.Skull)
 			// {
-			// 	target.Flags &= ~MobjFlags.NoGravity;
-			// }
+				target.Flags &= ~MobjFlags.NoGravity;
+			//}
 
 			target.Flags |= MobjFlags.Corpse | MobjFlags.DropOff;
 			target.Height = new Fixed(target.Height.Data >> 2);

@@ -77,6 +77,52 @@ namespace ManagedDoom
             new MobjStateDef(48, Sprite.PUF2, 32770, 3, null, null, MobjState.GwandPuff1_4, 0, 0), // State.Puf23
             new MobjStateDef(49, Sprite.PUF2, 32771, 3, null, null, MobjState.GwandPuff1_5, 0, 0), // State.Puf24
             new MobjStateDef(50, Sprite.PUF2, 32772, 3, null, null, MobjState.Null, 0, 0), // State.Puf24
+            new MobjStateDef(51, Sprite.IMPX, 0, 10, null, ma.Look, MobjState.ImpLook2, 0, 0), // State.ImpLook1
+            new MobjStateDef(52, Sprite.IMPX, 1, 10, null, ma.Look, MobjState.ImpLook3, 0, 0), // State.ImpLook2
+            new MobjStateDef(53, Sprite.IMPX, 2, 10, null, ma.Look, MobjState.ImpLook4, 0, 0), // State.ImpLook3
+            new MobjStateDef(54, Sprite.IMPX, 1, 10, null, ma.Look, MobjState.ImpLook1, 0, 0), // State.ImpLook3
+            new MobjStateDef(55, Sprite.IMPX, 0, 3, null, ma.Chase, MobjState.ImpFly2, 0, 0), // State.ImpFly1
+            new MobjStateDef(56, Sprite.IMPX, 0, 3, null, ma.Chase, MobjState.ImpFly3, 0, 0), // State.ImpFly2
+            new MobjStateDef(57, Sprite.IMPX, 1, 3, null, ma.Chase, MobjState.ImpFly4, 0, 0), // State.ImpFly3
+            new MobjStateDef(58, Sprite.IMPX, 1, 3, null, ma.Chase, MobjState.ImpFly5, 0, 0), // State.ImpFly4
+            new MobjStateDef(59, Sprite.IMPX, 2, 3, null, ma.Chase, MobjState.ImpFly6, 0, 0), // State.ImpFly5
+            new MobjStateDef(60, Sprite.IMPX, 2, 3, null, ma.Chase, MobjState.ImpFly7, 0, 0), // State.ImpFly6
+            new MobjStateDef(61, Sprite.IMPX, 1, 3, null, ma.Chase, MobjState.ImpFly8, 0, 0), // State.ImpFly7
+            new MobjStateDef(62, Sprite.IMPX, 1, 3, null, ma.Chase, MobjState.ImpFly1, 0, 0), // State.ImpFly8
+            new MobjStateDef(63, Sprite.IMPX, 3, 6, null, ma.FaceTarget, MobjState.ImpMeatK2, 0, 0), // State.ImpMeatK1
+            new MobjStateDef(64, Sprite.IMPX, 4, 6, null, ma.FaceTarget, MobjState.ImpMeatK3, 0, 0), // State.ImpMeatK2
+            new MobjStateDef(65, Sprite.IMPX, 5, 6, null, ma.ImpMeAttack, MobjState.ImpFly1, 0, 0), // State.ImpMeatK3 
+            new MobjStateDef(66, Sprite.IMPX, 0, 10, null, ma.FaceTarget, MobjState.ImpMsAtk1_2, 0, 0), // State.ImpMsAtk1_1
+            new MobjStateDef(67, Sprite.IMPX, 1, 6, null, null /* //* implment ma.ImpMsAttack */, MobjState.ImpMsAtk1_3, 0, 0), // State.ImpMsAtk1_2
+            new MobjStateDef(68, Sprite.IMPX, 2, 6, null, null, MobjState.ImpMsAtk1_4, 0, 0), // State.ImpMsAtk1_3
+            new MobjStateDef(69, Sprite.IMPX, 1, 6, null, null, MobjState.ImpMsAtk1_5, 0, 0), // State.ImpMsAtk1_4
+            new MobjStateDef(70, Sprite.IMPX, 0, 6, null, null, MobjState.ImpMsAtk1_6, 0, 0), // State.ImpMsAtk1_5
+            new MobjStateDef(71, Sprite.IMPX, 1, 6, null, null, MobjState.ImpMsAtk1_3, 0, 0), // State.ImpMsAtk1_6
+            new MobjStateDef(72, Sprite.IMPX, 3, 6, null, ma.FaceTarget, MobjState.ImpMsAtk2_2, 0, 0), // State.ImpMsAtk2_1
+            new MobjStateDef(73, Sprite.IMPX, 4, 6, null, ma.FaceTarget, MobjState.ImpMsAtk2_3, 0, 0), // State.ImpMsAtk2_2
+            new MobjStateDef(74, Sprite.IMPX, 5, 6, null, null /* //* implement ma.ImpMsAttack2 */, MobjState.ImpFly1, 0, 0), // State.ImpMsAtk2_2
+            new MobjStateDef(75, Sprite.IMPX, 6, 3, null, null, MobjState.ImpPain2, 0, 0), // State.ImpPain1
+            new MobjStateDef(76, Sprite.IMPX, 6, 3, null, ma.Pain, MobjState.ImpFly1, 0, 0), // State.ImpPain2
+            new MobjStateDef(77, Sprite.IMPX, 6, 4, null, ma.ImpDeath, MobjState.ImpDie2, 0, 0), // State.ImpDie1
+            new MobjStateDef(78, Sprite.IMPX, 7, 5, null, null, MobjState.ImpDie2, 0, 0), // State.ImpDie2
+            new MobjStateDef(79, Sprite.IMPX, 18, 5, null, ma.ImpXDeath1, MobjState.ImpXDie2, 0, 0), // State.ImpXDie1
+            new MobjStateDef(80, Sprite.IMPX, 19, 5, null, null, MobjState.ImpXDie3, 0, 0), // State.ImpXDie2
+            new MobjStateDef(81, Sprite.IMPX, 20, 5, null, null, MobjState.ImpXDie4, 0, 0), // State.ImpXDie3
+            new MobjStateDef(82, Sprite.IMPX, 21, 5, null, ma.ImpXDeath2, MobjState.ImpXDie5, 0, 0), // State.ImpXDie4
+            new MobjStateDef(83, Sprite.IMPX, 22, 5, null, null, MobjState.ImpXDie5, 0, 0), // State.ImpXDie5
+            new MobjStateDef(84, Sprite.IMPX, 8, 7, null, null /* //* implement ma.ImpExplode */, MobjState.ImpCrash2, 0, 0), // State.ImpCrash1
+            new MobjStateDef(85, Sprite.IMPX, 9, 7, null, ma.Scream, MobjState.ImpCrash3, 0, 0), // State.ImpCrash2
+            new MobjStateDef(86, Sprite.IMPX, 10, 7, null, null, MobjState.ImpCrash4, 0, 0), // State.ImpCrash3
+            new MobjStateDef(87, Sprite.IMPX, 11, -1, null, null, MobjState.Null, 0, 0), // State.ImpCrash4
+            new MobjStateDef(88, Sprite.IMPX, 23, 7, null, null, MobjState.ImpXCrash2, 0, 0), // State.ImpXCrash1
+            new MobjStateDef(89, Sprite.IMPX, 24, 7, null, null, MobjState.ImpXCrash3, 0, 0), // State.ImpXCrash2
+            new MobjStateDef(90, Sprite.IMPX, 25, -1, null, null, MobjState.Null, 0, 0), // State.ImpXCrash3
+            new MobjStateDef(91, Sprite.IMPX, 12, 5, null, null, MobjState.ImpChunkA2, 0, 0), // State.ImpChunkA1
+            new MobjStateDef(92, Sprite.IMPX, 13, 700, null, null, MobjState.ImpChunkA3, 0, 0), // State.ImpChunkA2
+            new MobjStateDef(93, Sprite.IMPX, 14, 700, null, null, MobjState.Null, 0, 0), // State.ImpChunkA3
+            new MobjStateDef(94, Sprite.IMPX, 15, 5, null, null, MobjState.ImpChunkB2, 0, 0), // State.ImpChunkB1
+            new MobjStateDef(95, Sprite.IMPX, 16, 700, null, null, MobjState.ImpChunkB3, 0, 0), // State.ImpChunkB2
+            new MobjStateDef(96, Sprite.IMPX, 17, 700, null, null, MobjState.Null, 0, 0), // State.ImpChunkB3
           
 
             // new MobjStateDef(14, Sprite.PISG, 1, 6, pa.FirePistol, null, MobjState.Pistol3, 0, 0), // State.Pistol2

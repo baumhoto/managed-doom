@@ -308,18 +308,22 @@ namespace ManagedDoom
                 var y = pt.Trace.Y + pt.Trace.Dy * frac;
                 var z = currentShooterZ + currentAimSlope * (frac * currentRange);
 
-                // Spawn bullet puffs or blod spots, depending on target type.
-                if ((intercept.Thing.Flags & MobjFlags.NoBlood) != 0)
-                {
+                //* implement if(PuffType == MT_BLASTERPUFF1)
+	            // { // Make blaster big puff
+	            // 	mo = P_SpawnMobj(x, y, z, MT_BLASTERPUFF2);
+	            // 	S_StartSound(mo, sfx_blshit);
+	            // }
+                // else
+                // {
                     SpawnPuff(x, y, z);
-                }
-                else
-                {
-                    SpawnBlood(x, y, z, currentDamage);
-                }
+                // }
 
                 if (currentDamage != 0)
                 {
+                    //* implement if(!(in->d.thing->flags&MF_NOBLOOD) && P_Random() < 192)
+                    // {
+                    //     P_BloodSplatter(x, y, z, in->d.thing);
+                    // }
                     world.ThingInteraction.DamageMobj(thing, currentShooter, currentShooter, currentDamage);
                 }
 

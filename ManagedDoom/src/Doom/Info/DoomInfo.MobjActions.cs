@@ -48,6 +48,21 @@ namespace ManagedDoom
                 world.MonsterBehavior.Fall(actor);
             }
 
+            public void ImpDeath(World world, Mobj actor)
+            {
+                world.MonsterBehavior.ImpDeath(actor);
+            }
+
+            public void ImpXDeath1(World world, Mobj actor)
+            {
+                world.MonsterBehavior.ImpXDeath1(actor);
+            }
+
+            public void ImpXDeath2(World world, Mobj actor)
+            {
+                world.MonsterBehavior.ImpXDeath2(actor);
+            }
+
             public void XScream(World world, Mobj actor)
             {
                 world.MonsterBehavior.XScream(actor);
@@ -173,9 +188,9 @@ namespace ManagedDoom
                 world.MonsterBehavior.CPosRefire(actor);
             }
 
-            public void TroopAttack(World world, Mobj actor)
+            public void ImpMeAttack(World world, Mobj actor)
             {
-                world.MonsterBehavior.TroopAttack(actor);
+                world.MonsterBehavior.ImpMeAttack(actor);
             }
 
             public void SargAttack(World world, Mobj actor)

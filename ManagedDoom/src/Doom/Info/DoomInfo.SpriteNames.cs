@@ -28,6 +28,7 @@ namespace ManagedDoom
             new DoomString("CKYY"),
             new DoomString("GWND"),
             new DoomString("PUF2"),
+            new DoomString("IMPX"),
             //* new DoomString("STFF"), // weapon 1`
             // new DoomString("PUF4"),
             // new DoomString("FX01"),
