@@ -93,7 +93,7 @@ namespace ManagedDoom
             new MobjStateDef(64, Sprite.IMPX, 4, 6, null, ma.FaceTarget, MobjState.ImpMeatK3, 0, 0), // State.ImpMeatK2
             new MobjStateDef(65, Sprite.IMPX, 5, 6, null, ma.ImpMeAttack, MobjState.ImpFly1, 0, 0), // State.ImpMeatK3 
             new MobjStateDef(66, Sprite.IMPX, 0, 10, null, ma.FaceTarget, MobjState.ImpMsAtk1_2, 0, 0), // State.ImpMsAtk1_1
-            new MobjStateDef(67, Sprite.IMPX, 1, 6, null, null /* //* implment ma.ImpMsAttack */, MobjState.ImpMsAtk1_3, 0, 0), // State.ImpMsAtk1_2
+            new MobjStateDef(67, Sprite.IMPX, 1, 6, null, ma.ImpMsAttack, MobjState.ImpMsAtk1_3, 0, 0), // State.ImpMsAtk1_2
             new MobjStateDef(68, Sprite.IMPX, 2, 6, null, null, MobjState.ImpMsAtk1_4, 0, 0), // State.ImpMsAtk1_3
             new MobjStateDef(69, Sprite.IMPX, 1, 6, null, null, MobjState.ImpMsAtk1_5, 0, 0), // State.ImpMsAtk1_4
             new MobjStateDef(70, Sprite.IMPX, 0, 6, null, null, MobjState.ImpMsAtk1_6, 0, 0), // State.ImpMsAtk1_5

@@ -4,15 +4,15 @@
 * compare Player animation states (DoomInfo.States) with Heretic source
 ### Enemy
 #### Imp
-    * Explode logic (MT_IMPCHUNK1, MT_IMPCHUNK2)
-    * Ranged Attack -> Add fireball sprite etc.
-    * Mobj2 Flags and logic needs to be added
-### Weapon
+* Explode logic (MT_IMPCHUNK1, MT_IMPCHUNK2)
+* Ranged Attack -> Add fireball sprite etc.
+* Mobj2 Flags and logic needs to be added
 ### Weapon
 #### Goldenwand
-    * change AmmoType from clip
+* change AmmoType from clip
+* check initial shoot fired when loading level
 ### Pickups
-    * Yellow Key -> check if everthing is there 
+* Yellow Key -> check if everthing is there 
 ### GameLogic
 ### UI
 #### Menu

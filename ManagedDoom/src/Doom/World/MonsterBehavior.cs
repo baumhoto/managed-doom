@@ -909,9 +909,31 @@ namespace ManagedDoom
 
                 return;
             }
+        }
 
-            // Launch a missile.
-            //* world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.Troopshot);
+        public void ImpMsAttack(Mobj actor)
+        {
+            var random = world.Random;
+
+            if(actor.Target == null || random.Next() > 64)
+            {
+                actor.SetState(actor.Info.SeeState);
+                return;
+            }
+            var dest = actor.Target;
+            actor.Flags |= MobjFlags.SkullFly;
+            world.StartSound(actor, actor.Info.SeeSound, SfxType.Voice);
+            FaceTarget(actor);
+
+            actor.MomX = Fixed.FromInt(12) * Fixed.One * Trig.Cos(actor.Angle);
+            actor.MomY = Fixed.FromInt(12) * Fixed.One * Trig.Sin(actor.Angle);
+            var dist = Geometry.AproxDistance(dest.X - actor.X, dest.Y - actor.Y);
+            dist = dist / (Fixed.FromInt(12) * Fixed.One);
+            if(dist < Fixed.One)
+            {
+                dist = Fixed.One;
+            }
+            actor.MomZ = (dest.Z+(dest.Height>>1)-actor.Z) / dist;
         }
 
 
