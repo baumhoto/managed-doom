@@ -25,7 +25,9 @@ namespace ManagedDoom
         GoldenwandPuff,
         Misc6,
         Goldenwand,
-        //Imp,
+        Imp,
+        ImpLeader,
+        ImpBall
         // Possessed,
         // Shotguy,
         // Vile,

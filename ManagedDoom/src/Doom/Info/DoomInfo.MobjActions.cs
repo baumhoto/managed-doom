@@ -197,6 +197,11 @@ namespace ManagedDoom
                 world.MonsterBehavior.ImpMsAttack(actor);
             }
 
+            public void ImpMsAttack2(World world, Mobj actor)
+            {
+                world.MonsterBehavior.ImpMsAttack2(actor);
+            }
+
             public void SargAttack(World world, Mobj actor)
             {
                 world.MonsterBehavior.SargAttack(actor);

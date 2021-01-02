@@ -196,8 +196,9 @@ namespace ManagedDoom
             //* WIP array containing the things that have been added to gamecode and can be spawned
             var addTypeIds = new int[]{ 
                 1, // Player 
+                5, // ImpLeader (Fire Gargoyle)
                 80, // Yellow Key
-                66 // Imp
+                66 // Imp (Gargoyle)
                 };
 
             for (var i = 0; i < map.Things.Length; i++)

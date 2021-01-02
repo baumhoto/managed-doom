@@ -362,22 +362,19 @@ namespace ManagedDoom
         /// </summary>
         private int GetMissileSpeed(MobjType type)
         {
-            if (world.Options.FastMonsters || world.Options.Skill == GameSkill.Nightmare)
-            {
-                switch (type)
-                {
-                    //* case MobjType.Bruisershot:
-                    // case MobjType.Headshot:
-                    // case MobjType.Troopshot:
-                    //     return 20 * Fixed.FracUnit;
-                    default:
-                        return DoomInfo.MobjInfos[(int)type].Speed;
-                }
-            }
-            else
-            {
-                return DoomInfo.MobjInfos[(int)type].Speed;
-            }
+        //* not used?     if (world.Options.FastMonsters || world.Options.Skill == GameSkill.Nightmare)
+        //     {
+        //         switch (type)
+        //         {
+        //             // case MobjType.Bruisershot:
+        //             // case MobjType.Headshot:
+                   
+        //         }
+        //     }
+        //     else
+        //     {
+                    return 22 * Fixed.FracUnit;
+            //}
         }
 
         /// <summary>
@@ -396,10 +393,10 @@ namespace ManagedDoom
             missile.Y += (missile.MomY >> 1);
             missile.Z += (missile.MomZ >> 1);
 
-            // if (!world.ThingMovement.TryMove(missile, missile.X, missile.Y))
-            // {
-            //     world.ThingInteraction.ExplodeMissile(missile);
-            // }
+            if (!world.ThingMovement.TryMove(missile, missile.X, missile.Y))
+            {
+                world.ThingInteraction.ExplodeMissile(missile);
+            }
         }
 
         /// <summary>
@@ -429,7 +426,7 @@ namespace ManagedDoom
             if ((dest.Flags & MobjFlags.Shadow) != 0)
             {
                 var random = world.Random;
-                angle += new Angle((random.Next() - random.Next()) << 20);
+                angle += new Angle((random.Next() - random.Next()) << 21);
             }
 
             var speed = GetMissileSpeed(missile.Type);

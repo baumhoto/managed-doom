@@ -318,24 +318,26 @@ namespace ManagedDoom
                     return true;
                 }
 
-                //* if (currentThing.Target != null &&
-                //         (currentThing.Target.Type == thing.Type ||
-                //         (currentThing.Target.Type == MobjType.Knight && thing.Type == MobjType.Bruiser) ||
-                //         (currentThing.Target.Type == MobjType.Bruiser && thing.Type == MobjType.Knight)))
-                // {
-                //     // Don't hit same species as originator.
-                //     if (thing == currentThing.Target)
-                //     {
-                //         return true;
-                //     }
+                if (currentThing.Target != null &&
+                        (currentThing.Target.Type == thing.Type 
+                        //(||
+                        //(currentThing.Target.Type == MobjType.Knight && thing.Type == MobjType.Bruiser) ||
+                        //(currentThing.Target.Type == MobjType.Bruiser && thing.Type == MobjType.Knight))
+                        ))
+                {
+                    // Don't hit same species as originator.
+                    if (thing == currentThing.Target)
+                    {
+                        return true;
+                    }
 
-                //     if (thing.Type != MobjType.Player && !DoomInfo.DeHackEdConst.MonstersInfight)
-                //     {
-                //         // Explode, but do no damage.
-                //         // Let players missile other players.
-                //         return false;
-                //     }
-                // }
+                    if (thing.Type != MobjType.Player && !DoomInfo.DeHackEdConst.MonstersInfight)
+                    {
+                        // Explode, but do no damage.
+                        // Let players missile other players.
+                        return false;
+                    }
+                }
 
                 if ((thing.Flags & MobjFlags.Shootable) == 0)
                 {

@@ -27,6 +27,7 @@ namespace ManagedDoom
         GWND,
         PUF2,
         IMPX,
+        FX10,
         //* STFF,
         // PUF4,
         // FX01,

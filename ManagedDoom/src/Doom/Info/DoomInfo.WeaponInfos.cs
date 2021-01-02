@@ -38,7 +38,7 @@ namespace ManagedDoom
                 AmmoType.Clip,
                 MobjState.GoldwandUp,
                 MobjState.GoldwandDown,
-                MobjState.GoldwandAtk1_1,
+                MobjState.GoldwandReady,
                 MobjState.GoldwandAtk1_1,
                 MobjState.Null
             ),

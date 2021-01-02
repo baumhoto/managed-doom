@@ -277,20 +277,20 @@ namespace ManagedDoom
 			// We're awake now...
 			target.ReactionTime = 0;
 
-			//* if ((target.Threshold == 0 || target.Type == MobjType.Vile) &&
-			// 	source != null &&
-			// 	source != target &&
-			// 	source.Type != MobjType.Vile)
-			// {
-			// 	// If not intent on another player, chase after this one.
-			// 	target.Target = source;
-			// 	target.Threshold = baseThreshold;
-			// 	if (target.State == DoomInfo.States[(int)target.Info.SpawnState] &&
-			// 		target.Info.SeeState != MobjState.Null)
-			// 	{
-			// 		target.SetState(target.Info.SeeState);
-			// 	}
-			// }
+			if ((target.Threshold == 0 /*|| target.Type == MobjType.Vile*/) &&
+				source != null &&
+				source != target 
+				/*&& source.Type != MobjType.Vile */)
+			{
+				// If not intent on another player, chase after this one.
+				target.Target = source;
+				target.Threshold = baseThreshold;
+				if (target.State == DoomInfo.States[(int)target.Info.SpawnState] &&
+					target.Info.SeeState != MobjState.Null)
+				{
+					target.SetState(target.Info.SeeState);
+				}
+			}
 		}
 
 

@@ -936,6 +936,27 @@ namespace ManagedDoom
             actor.MomZ = (dest.Z+(dest.Height>>1)-actor.Z) / dist;
         }
 
+        // Fireball attack of the imp leader.
+        public void ImpMsAttack2(Mobj actor)
+        {
+            if(actor.Target == null)
+            {
+                return;
+            }
+
+            world.StartSound(actor, actor.Info.AttackSound, SfxType.Weapon);
+            if (CheckMeleeRange(actor))
+            {
+                var damage = ((world.Random.Next() & 7) + 5);
+                world.ThingInteraction.DamageMobj(actor.Target, actor, actor, damage);
+                return;
+            }
+
+            // Launch a missile.
+            world.ThingAllocation.SpawnMissile(actor, actor.Target, MobjType.ImpBall);
+        }
+
+
 
         public void SargAttack(Mobj actor)
         {

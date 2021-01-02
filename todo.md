@@ -5,12 +5,12 @@
 ### Enemy
 #### Imp
 * Explode logic (MT_IMPCHUNK1, MT_IMPCHUNK2)
-* Ranged Attack -> Add fireball sprite etc.
+* Ranged attack = check fireball speed (mobj2flags)
 * Mobj2 Flags and logic needs to be added
 ### Weapon
 #### Goldenwand
 * change AmmoType from clip
-* check initial shoot fired when loading level
+* replace Pistol reference with Goldenwand
 ### Pickups
 * Yellow Key -> check if everthing is there 
 ### GameLogic
