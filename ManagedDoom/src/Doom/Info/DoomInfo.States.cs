@@ -110,7 +110,7 @@ namespace ManagedDoom
             new MobjStateDef(81, Sprite.IMPX, 20, 5, null, null, MobjState.ImpXDie4, 0, 0), // State.ImpXDie3
             new MobjStateDef(82, Sprite.IMPX, 21, 5, null, ma.ImpXDeath2, MobjState.ImpXDie5, 0, 0), // State.ImpXDie4
             new MobjStateDef(83, Sprite.IMPX, 22, 5, null, null, MobjState.ImpXDie5, 0, 0), // State.ImpXDie5
-            new MobjStateDef(84, Sprite.IMPX, 8, 7, null, null /* //* implement ma.ImpExplode */, MobjState.ImpCrash2, 0, 0), // State.ImpCrash1
+            new MobjStateDef(84, Sprite.IMPX, 8, 7, null, ma.ImpExplode, MobjState.ImpCrash2, 0, 0), // State.ImpCrash1
             new MobjStateDef(85, Sprite.IMPX, 9, 7, null, ma.Scream, MobjState.ImpCrash3, 0, 0), // State.ImpCrash2
             new MobjStateDef(86, Sprite.IMPX, 10, 7, null, null, MobjState.ImpCrash4, 0, 0), // State.ImpCrash3
             new MobjStateDef(87, Sprite.IMPX, 11, -1, null, null, MobjState.Null, 0, 0), // State.ImpCrash4
@@ -130,6 +130,19 @@ namespace ManagedDoom
             new MobjStateDef(101, Sprite.FX10, 32772, 5, null, null, MobjState.ImpFxI3, 0, 0), // State.ImpFxI2
             new MobjStateDef(102, Sprite.FX10, 32773, 5, null, null, MobjState.ImpFxI4, 0, 0), // State.ImpFxI3
             new MobjStateDef(103, Sprite.FX10, 32774, 5, null, null, MobjState.Null, 0, 0), // State.ImpFxI4
+            new MobjStateDef(104, Sprite.SPSH, 0, 8, null, null, MobjState.Splash2, 0, 0), // State.Splash1
+            new MobjStateDef(105, Sprite.SPSH, 1, 8, null, null, MobjState.Splash3, 0, 0), // State.Splash2
+            new MobjStateDef(106, Sprite.SPSH, 2, 8, null, null, MobjState.Splash4, 0, 0), // State.Splash3
+            new MobjStateDef(107, Sprite.SPSH, 3, 16, null, null, MobjState.Null, 0, 0), // State.Splash4
+            new MobjStateDef(108, Sprite.SPSH, 3, 10, null, null, MobjState.Null, 0, 0), // State.SplashX 
+            new MobjStateDef(109, Sprite.SPSH, 4, 5, null, null, MobjState.SplashBase2, 0, 0), // State.SplashBase1
+            new MobjStateDef(110, Sprite.SPSH, 5, 5, null, null, MobjState.SplashBase3, 0, 0), // State.SplashBase2
+            new MobjStateDef(111, Sprite.SPSH, 6, 5, null, null, MobjState.SplashBase4, 0, 0), // State.SplashBase3
+            new MobjStateDef(112, Sprite.SPSH, 7, 5, null, null, MobjState.SplashBase5, 0, 0), // State.SplashBase4
+            new MobjStateDef(113, Sprite.SPSH, 8, 5, null, null, MobjState.SplashBase6, 0, 0), // State.SplashBase5
+            new MobjStateDef(114, Sprite.SPSH, 9, 5, null, null, MobjState.SplashBase7, 0, 0), // State.SplashBase6
+            new MobjStateDef(115, Sprite.SPSH, 10, 5, null, null, MobjState.Null, 0, 0), // State.SplashBase7
+
           
 
             // new MobjStateDef(14, Sprite.PISG, 1, 6, pa.FirePistol, null, MobjState.Pistol3, 0, 0), // State.Pistol2

@@ -30,6 +30,7 @@ namespace ManagedDoom
             new DoomString("PUF2"),
             new DoomString("IMPX"),
             new DoomString("FX10"),
+            new DoomString("SPSH"),
             //* new DoomString("STFF"), // weapon 1`
             // new DoomString("PUF4"),
             // new DoomString("FX01"),

@@ -21,13 +21,14 @@ namespace ManagedDoom
 {
     public enum Sprite
     {
-        PUF3,
-        PLAY,
-        CKYY,
-        GWND,
-        PUF2,
-        IMPX,
-        FX10,
+        PUF3, //?
+        PLAY, // Player
+        CKYY,  // yellow key
+        GWND, // Goldenwand
+        PUF2, // Goldenwand Fire
+        IMPX, // Imp, Impleader
+        FX10, // Impleader Fireball  
+        SPSH, // Watersplash
         //* STFF,
         // PUF4,
         // FX01,

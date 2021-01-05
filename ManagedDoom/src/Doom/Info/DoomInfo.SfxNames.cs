@@ -31,7 +31,7 @@ namespace ManagedDoom
             new DoomString("DBOPN"),
             new DoomString("DBCLS"),
             new DoomString("DBLOAD"),
-            new DoomString("PLASMA"),
+            new DoomString("GLOOP"),
             new DoomString("BFG"),
             new DoomString("SAWUP"),
             new DoomString("SAWIDL"),

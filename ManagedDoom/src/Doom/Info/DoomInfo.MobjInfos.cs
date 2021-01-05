@@ -46,6 +46,7 @@ namespace ManagedDoom
                 0, // damage
                 Sfx.NONE, // activeSound
                 MobjFlags.Solid | MobjFlags.Shootable | MobjFlags.DropOff | MobjFlags.PickUp | MobjFlags.NotDeathmatch, // flags
+                MobjFlags2.WindThrust | MobjFlags2.FootClip | MobjFlags2.Silde | MobjFlags2.PassMobj | MobjFlags2.TeleStomp, //flags2
                 MobjState.Null // raiseState
             ),
 
@@ -72,10 +73,11 @@ namespace ManagedDoom
                 0, // damage
                 Sfx.NONE, // activeSound
                 MobjFlags.NoBlockMap | MobjFlags.NoGravity, // flags
+                MobjFlags2.NoTeleport, //flags2
                 MobjState.Null // raiseState
             ),
 
-                new MobjInfo( // MobjType.Misc6
+                new MobjInfo( // MobjType.Misc6 (yellow key)
                 80, // doomEdNum
                 MobjState.Ykyy, // spawnState
                 1000, // spawnHealth
@@ -98,6 +100,7 @@ namespace ManagedDoom
                 0, // damage
                 Sfx.NONE, // activeSound
                 MobjFlags.Special | MobjFlags.NotDeathmatch, // flags
+                MobjFlags2.None, // flags2
                 MobjState.Null // raiseState
             ),
 
@@ -124,6 +127,7 @@ namespace ManagedDoom
                 5, // damage
                 Sfx.NONE, // activeSound
                 MobjFlags.NoBlockMap | MobjFlags.Missile | MobjFlags.DropOff | MobjFlags.NoGravity, // flags
+                MobjFlags2.None,
                 MobjState.Null // raiseState
             ),
 
@@ -150,6 +154,7 @@ namespace ManagedDoom
                 0, // damage
                 Sfx.NONE, //Sfx.POSACT, // activeSound
                 MobjFlags.Solid | MobjFlags.Shootable | MobjFlags.CountKill | MobjFlags.NoGravity | MobjFlags.Float, // flags
+                MobjFlags2.SpawnFloat | MobjFlags2.PassMobj, // flags2
                 MobjState.ImpCrash1 //* raiseState? has it been replaced with crashstate? 
             ),
 
@@ -176,6 +181,7 @@ namespace ManagedDoom
                 0, // damage
                 Sfx.NONE, //Sfx.POSACT, // activeSound
                 MobjFlags.Solid | MobjFlags.Shootable | MobjFlags.CountKill | MobjFlags.NoGravity | MobjFlags.Float, // flags
+                MobjFlags2.SpawnFloat | MobjFlags2.PassMobj, // flags2
                 MobjState.ImpCrash1 //* raiseState? has it been replaced with crashstate? 
             ),
 
@@ -202,11 +208,119 @@ namespace ManagedDoom
                 1, // damage
                 Sfx.NONE, //Sfx.POSACT, // activeSound
                 MobjFlags.NoBlockMap | MobjFlags.Missile | MobjFlags.DropOff | MobjFlags.NoGravity, // flags
-                //* TODO flags2   MF2_WINDTHRUST|MF2_NOTELEPORT		// flags2
+                MobjFlags2.WindThrust | MobjFlags2.NoTeleport,		// flags2
                 MobjState.Null //
             ),
 
 
+            new MobjInfo( // MobjType.ImpChunk1
+                -1, // doomEdNum
+                MobjState.ImpChunkA1, // spawnState
+                1000, // spawnHealth
+                MobjState.Null, // seeState
+                Sfx.NONE, //Sfx.POSIT1, // seeSound
+                8, // reactionTime
+                Sfx.NONE, //Sfx.PISTOL, // attackSound
+                MobjState.Null, // painState
+                0, // painChance
+                Sfx.NONE, //Sfx.POPAIN, // painSound
+                MobjState.Null, // meleeState
+                MobjState.Null, // missileState
+                MobjState.Null, // deathState
+                MobjState.Null, // xdeathState
+                Sfx.NONE, // Sfx.PODTH1, // deathSound
+                0, // speed
+                Fixed.FromInt(20), // radius
+                Fixed.FromInt(16), // height
+                100, // mass
+                0, // damage
+                Sfx.NONE, //Sfx.POSACT, // activeSound
+                MobjFlags.NoBlockMap, // flags 
+                MobjFlags2.None, // flags2
+                MobjState.Null //
+            ),
+
+
+             new MobjInfo( // MobjType.ImpChunk2
+                -1, // doomEdNum
+                MobjState.ImpChunkB1, // spawnState
+                1000, // spawnHealth
+                MobjState.Null, // seeState
+                Sfx.NONE, //Sfx.POSIT1, // seeSound
+                8, // reactionTime
+                Sfx.NONE, //Sfx.PISTOL, // attackSound
+                MobjState.Null, // painState
+                0, // painChance
+                Sfx.NONE, //Sfx.POPAIN, // painSound
+                MobjState.Null, // meleeState
+                MobjState.Null, // missileState
+                MobjState.Null, // deathState
+                MobjState.Null, // xdeathState
+                Sfx.NONE, // Sfx.PODTH1, // deathSound
+                0, // speed
+                Fixed.FromInt(20), // radius
+                Fixed.FromInt(16), // height
+                100, // mass
+                0, // damage
+                Sfx.NONE, //Sfx.POSACT, // activeSound
+                MobjFlags.NoBlockMap, // flags 
+                MobjFlags2.None, // flags2
+                MobjState.Null //
+            ),
+
+            new MobjInfo( // MobjType.Splash
+                -1, // doomEdNum
+                MobjState.Splash1, // spawnState
+                1000, // spawnHealth
+                MobjState.Null, // seeState
+                Sfx.NONE, // seeSound
+                8, // reactionTime
+                Sfx.NONE, // attackSound
+                MobjState.Null, // painState
+                0, // painChance
+                Sfx.NONE, // painSound
+                MobjState.Null, // meleeState
+                MobjState.Null, // missileState
+                MobjState.Null, // deathState
+                MobjState.Null, // xdeathState
+                Sfx.NONE, // deathSound
+                0, // speed
+                Fixed.FromInt(2), // radius
+                Fixed.FromInt(4), // height
+                100, // mass
+                0, // damage
+                Sfx.NONE, // activeSound
+                MobjFlags.NoBlockMap | MobjFlags.Missile | MobjFlags.DropOff, // flags 
+                MobjFlags2.NoTeleport | MobjFlags2.LogRav | MobjFlags2.CanNotPush, // flags2
+                MobjState.Null // crashstate
+            ),
+
+            new MobjInfo( // MobjType.SplashBase
+                -1, // doomEdNum
+                MobjState.SplashBase1, // spawnState
+                1000, // spawnHealth
+                MobjState.Null, // seeState
+                Sfx.NONE, // seeSound
+                8, // reactionTime
+                Sfx.NONE, // attackSound
+                MobjState.Null, // painState
+                0, // painChance
+                Sfx.NONE, // painSound
+                MobjState.Null, // meleeState
+                MobjState.Null, // missileState
+                MobjState.Null, // deathState
+                MobjState.Null, // xdeathState
+                Sfx.NONE, // deathSound
+                0, // speed
+                Fixed.FromInt(20), // radius
+                Fixed.FromInt(16), // height
+                100, // mass
+                0, // damage
+                Sfx.NONE, // activeSound
+                MobjFlags.NoBlockMap, // flags 
+                MobjFlags2.None, // flags2
+                MobjState.Null // crashstate
+            ),
 
 
 

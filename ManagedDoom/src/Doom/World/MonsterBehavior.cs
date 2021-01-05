@@ -752,7 +752,7 @@ namespace ManagedDoom
         public void ImpDeath(Mobj actor)
         {
             actor.Flags &= ~MobjFlags.Solid;
-            //* add and implement actor.Flags2 |= MF2_FOOTCLIP
+            actor.Flags2 |= MobjFlags2.FootClip;
             if (actor.Z >= actor.FloorZ)
             {
                 actor.SetState(actor.Info.Crashstate);
@@ -763,8 +763,8 @@ namespace ManagedDoom
         {
             actor.Flags &= ~MobjFlags.Solid;
             actor.Flags |= MobjFlags.NoGravity;
-            //* add and implement actor.Flags2 |= MF2_FOOTCLIP;
-            actor.State.Number = 666;//* actor->special1??
+            actor.Flags2 |= MobjFlags2.FootClip;
+            actor.Special1 = 666;
         }
 
         public void ImpXDeath2(Mobj actor)
@@ -775,6 +775,25 @@ namespace ManagedDoom
                 actor.SetState(actor.Info.Crashstate);
             }
         }
+
+        public void ImpExplode(Mobj actor)
+        {
+
+            var mo = world.ThingAllocation.SpawnMobj(actor.X, actor.Y, actor.Z, MobjType.ImpChunk1);
+            mo.MomX = Fixed.FromInt((world.Random.Next() - world.Random.Next()) << 10);
+            mo.MomY = Fixed.FromInt((world.Random.Next() - world.Random.Next()) << 10);
+            mo.MomZ = Fixed.FracUnit * Fixed.FromInt(9);
+            var mo2 = world.ThingAllocation.SpawnMobj(actor.X, actor.Y, actor.Z, MobjType.ImpChunk2);
+            mo2.MomX = Fixed.FromInt((world.Random.Next() - world.Random.Next()) << 10);
+            mo2.MomY = Fixed.FromInt((world.Random.Next() - world.Random.Next()) << 10);
+            mo2.MomZ = Fixed.FracUnit * Fixed.FromInt(9);
+
+            if(actor.Special1 == 666)
+            {
+                actor.SetState(MobjState.ImpXCrash1); // extreme death crash
+            }
+        }
+
 
         ////////////////////////////////////////////////////////////
         // Monster attack

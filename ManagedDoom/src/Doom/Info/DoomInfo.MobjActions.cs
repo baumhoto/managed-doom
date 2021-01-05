@@ -63,6 +63,11 @@ namespace ManagedDoom
                 world.MonsterBehavior.ImpXDeath2(actor);
             }
 
+            public void ImpExplode(World world, Mobj actor)
+            {
+                world.MonsterBehavior.ImpExplode(actor);
+            }
+
             public void XScream(World world, Mobj actor)
             {
                 world.MonsterBehavior.XScream(actor);

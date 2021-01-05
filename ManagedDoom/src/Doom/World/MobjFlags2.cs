@@ -23,6 +23,7 @@ namespace ManagedDoom
     [Flags]
     public enum MobjFlags2  //* logic for new flags is still missing
     {
+        None = 0,
         // alternate gravity setting
         LogRav = 1,
 
@@ -38,6 +39,40 @@ namespace ManagedDoom
         // fly mode is active
         Fly = 16,
         
-        //* add additonal flags
+        // if feet are allowed to be clipped
+        FootClip = 32,
+
+        // spawn random float z
+        SpawnFloat = 64,
+
+        // does not teleport
+        NoTeleport = 128,
+        // missle rips through solid targets
+        Rip = 256,
+        // can be pushed my other moving mobjs
+        Pushable = 512,
+        // slides against walls
+        Silde = 0x400,
+        // mobj ist resting on top of another mobj
+        OnMobj = 0x800,
+        // enable z block checking. if on this flag
+        // will allow the mobj to pass over/under other mobjs
+        PassMobj = 0x1000,
+        // can not push other pushable mobjs
+        CanNotPush = 0x2000,
+        // a mobj's feet are now being cut
+        FeetAreClipped = 0x4000,
+        // mobj is a major boss
+        Boss,
+        // does fire damage
+        FireDamage,
+        // does not thrust target when damaging
+        NoDamageThrust,
+        // mobj an stomp another
+        TeleStomp,
+        // use float bobbing z movement
+        FloatBob,
+        // don't generate a vissprite
+        DontDraw
     }
 }

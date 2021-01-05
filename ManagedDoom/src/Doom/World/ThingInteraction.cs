@@ -96,37 +96,37 @@ namespace ManagedDoom
 			}
 
 			target.Tics -= world.Random.Next() & 3;
-			if (target.Tics < 1)
-			{
-				target.Tics = 1;
-			}
+			// if (target.Tics < 1)
+			// {
+			// 	target.Tics = 1;
+			// }
 
-			// Drop stuff.
-			// This determines the kind of object spawned during the death frame of a thing.
-			MobjType item;
-			switch (target.Type)
-			{
-				//* case MobjType.Wolfss:
-				// case MobjType.Possessed:
-				// 	item = MobjType.Clip;
-				// 	break;
+			// // Drop stuff.
+			// // This determines the kind of object spawned during the death frame of a thing.
+			// MobjType item;
+			// switch (target.Type)
+			// {
+			// 	//* case MobjType.Wolfss:
+			// 	// case MobjType.Possessed:
+			// 	// 	item = MobjType.Clip;
+			// 	// 	break;
 
-				// case MobjType.Shotguy:
-				// 	item = MobjType.Shotgun;
-				// 	break;
+			// 	// case MobjType.Shotguy:
+			// 	// 	item = MobjType.Shotgun;
+			// 	// 	break;
 
-				// case MobjType.Chainguy:
-				// 	item = MobjType.Chaingun;
-				// 	break;
+			// 	// case MobjType.Chainguy:
+			// 	// 	item = MobjType.Chaingun;
+			// 	// 	break;
 
-				default:
-					return;
-			}
+			// 	default:
+			// 		return;
+			// }
 
-			var mo = world.ThingAllocation.SpawnMobj(target.X, target.Y, Mobj.OnFloorZ, item);
+			// var mo = world.ThingAllocation.SpawnMobj(target.X, target.Y, Mobj.OnFloorZ, item);
 
-			// Special versions of items.
-			mo.Flags |= MobjFlags.Dropped;
+			// // Special versions of items.
+			// mo.Flags |= MobjFlags.Dropped;
 		}
 
 
@@ -182,7 +182,7 @@ namespace ManagedDoom
 					target.X,
 					target.Y);
 
-				var thrust = new Fixed(damage * (Fixed.FracUnit >> 3) * 100 / target.Info.Mass);
+				var thrust = new Fixed(damage * (Fixed.FracUnit >> 3) * 150 / target.Info.Mass);
 
 				// Make fall forwards sometimes.
 				if (damage < 40 &&
@@ -397,6 +397,31 @@ namespace ManagedDoom
 					bm.IterateThings(bx, by, radiusAttackFunc);
 				}
 			}
+		}
+
+		public FloorType HitFloor(Mobj thing)
+		{
+			if(thing.FloorZ != thing.Subsector.Sector.FloorHeight)
+			{
+				// don't splash if landing on the edge above water
+				return FloorType.Solid;
+			}
+			switch(world.ThingAllocation.GetThingFloorType(thing))
+			{
+				case FloorType.Water:
+					world.ThingAllocation.SpawnMobj(thing.X, thing.Y, Mobj.OnFloorZ, MobjType.SplashBase);
+					var mo = world.ThingAllocation.SpawnMobj(thing.X, thing.Y, Mobj.OnFloorZ, MobjType.Splash);
+					mo.Target = thing;
+					mo.MomX = Fixed.FromInt((world.Random.Next() - world.Random.Next())<<8);
+					mo.MomY = Fixed.FromInt((world.Random.Next() - world.Random.Next())<<8);
+					mo.MomZ = Fixed.FromInt(2) * Fixed.One + (Fixed.FromInt(world.Random.Next()) << 8);
+					world.StartSound(thing, Sfx.GLOOP, SfxType.Misc);
+					return FloorType.Water;
+				case FloorType.Lava:break;
+				case FloorType.Sludge:break;
+			}
+
+			return FloorType.Solid;
 		}
 	}
 }

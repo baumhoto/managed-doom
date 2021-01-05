@@ -29,7 +29,7 @@ namespace ManagedDoom
         DBOPN,
         DBCLS,
         DBLOAD,
-        PLASMA,
+        GLOOP,
         BFG,
         SAWUP,
         SAWIDL,

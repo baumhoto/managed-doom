@@ -529,6 +529,15 @@ namespace ManagedDoom
 
             SetThingPosition(thing);
 
+            if(((thing.Flags2 & MobjFlags2.FootClip) == MobjFlags2.FootClip) && world.ThingAllocation.GetThingFloorType(thing) != FloorType.Solid)
+            {
+                thing.Flags2 |= MobjFlags2.FeetAreClipped;
+            }
+            else if((thing.Flags2 & MobjFlags2.FeetAreClipped) == MobjFlags2.FeetAreClipped)
+            {
+                thing.Flags2 &= ~MobjFlags2.FeetAreClipped;
+            }
+
             // If any special lines were hit, do the effect.
             if ((thing.Flags & (MobjFlags.Teleport | MobjFlags.NoClip)) == 0)
             {
@@ -741,44 +750,45 @@ namespace ManagedDoom
             {
                 // Hit the floor.
 
-                //
-                // The lost soul bounce fix below is based on Chocolate Doom's implementation.
-                //
 
-                var correctLostSoulBounce = world.Options.GameVersion >= GameVersion.Ultimate;
+                //* still needed? if (thing.MomZ < Fixed.Zero)
+                // {
+                //     if (thing.Player != null && thing.MomZ < -gravity * 8)
+                //     {
+                //         // Squat down.
+                //         // Decrease viewheight for a moment after hitting the ground (hard),
+                //         // and utter appropriate sound.
+                //         thing.Player.DeltaViewHeight = (thing.MomZ >> 3);
+                //         world.StartSound(thing, Sfx.OOF, SfxType.Voice);
+                //     }
+                //     thing.MomZ = Fixed.Zero;
+                // }
+                // thing.Z = thing.FloorZ;
 
-                if (correctLostSoulBounce && (thing.Flags & MobjFlags.SkullFly) != 0)
+
+                if ((thing.Flags & MobjFlags.Missile) == MobjFlags.Missile)
                 {
-                    // The skull slammed into something.
-                    thing.MomZ = -thing.MomZ;
-                }
-
-                if (thing.MomZ < Fixed.Zero)
-                {
-                    if (thing.Player != null && thing.MomZ < -gravity * 8)
+                    if((thing.Flags2 & MobjFlags2.FloorBounce) == MobjFlags2.FloorBounce)
                     {
-                        // Squat down.
-                        // Decrease viewheight for a moment after hitting the ground (hard),
-                        // and utter appropriate sound.
-                        thing.Player.DeltaViewHeight = (thing.MomZ >> 3);
-                        world.StartSound(thing, Sfx.OOF, SfxType.Voice);
+                        //* implement P_FloorBounceMissle(mo)
+                        return;
                     }
-                    thing.MomZ = Fixed.Zero;
+                    //* implement else if(thing.Type == MobjType.MT_MNTRFX2)
+                    // { // Minotaur floor fire can go up steps
+                    //      return;
+                    // }
+                    else
+                    {
+                        world.ThingInteraction.ExplodeMissile(thing);
+                        return;
+                    }
+                }
+                if(thing.Z - thing.MomZ > thing.FloorZ)
+                {
+                    // Spawn splashes, etc.
+                    world.ThingInteraction.HitFloor(thing);
                 }
                 thing.Z = thing.FloorZ;
-
-                if (!correctLostSoulBounce &&
-                    (thing.Flags & MobjFlags.SkullFly) != 0)
-                {
-                    thing.MomZ = -thing.MomZ;
-                }
-
-                if ((thing.Flags & MobjFlags.Missile) != 0 &&
-                    (thing.Flags & MobjFlags.NoClip) == 0)
-                {
-                    world.ThingInteraction.ExplodeMissile(thing);
-                    return;
-                }
             }
             else if ((thing.Flags & MobjFlags.NoGravity) == 0)
             {

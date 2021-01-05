@@ -27,7 +27,11 @@ namespace ManagedDoom
         Goldenwand,
         Imp,
         ImpLeader,
-        ImpBall
+        ImpBall,
+        ImpChunk1,
+        ImpChunk2,
+        Splash,
+        SplashBase
         // Possessed,
         // Shotguy,
         // Vile,

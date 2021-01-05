@@ -2353,7 +2353,8 @@ namespace ManagedDoom.SoftwareRendering
             Fixed invScale,
             Fixed textureAlt,
             int upperClip,
-            int lowerClip)
+            int lowerClip,
+            int baseClip = -1)
         {
             foreach (var column in columns)
             {
@@ -2364,6 +2365,11 @@ namespace ManagedDoom.SoftwareRendering
 
                 y1 = Math.Max(y1, upperClip + 1);
                 y2 = Math.Min(y2, lowerClip - 1);
+
+                if(y2 >= baseClip && baseClip != -1)
+                {
+                    y2 = baseClip;
+                }
 
                 if (y1 <= y2)
                 {
@@ -2533,12 +2539,26 @@ namespace ManagedDoom.SoftwareRendering
             visSpriteCount++;
 
             vis.MobjFlags = thing.Flags;
+            vis.Psprite = false;
             vis.Scale = xScale;
             vis.GlobalX = thing.X;
             vis.GlobalY = thing.Y;
             vis.GlobalBottomZ = thing.Z;
             vis.GlobalTopZ = thing.Z + Fixed.FromInt(lump.TopOffset);
-            vis.TextureAlt = vis.GlobalTopZ - viewZ;
+
+            // foot clipping
+            if(((thing.Flags2 & MobjFlags2.FeetAreClipped) == MobjFlags2.FeetAreClipped) 
+                && thing.Z <= thing.Subsector.Sector.FloorHeight)
+            {
+                vis.Footclip = Fixed.FromInt(10);
+            }
+            else
+            {
+                vis.Footclip = Fixed.Zero;
+            }
+
+
+            vis.TextureAlt = vis.GlobalTopZ - viewZ - (vis.Footclip<<Fixed.FracBits);
             vis.X1 = x1 < 0 ? 0 : x1;
             vis.X2 = x2 >= windowWidth ? windowWidth - 1 : x2;
 
@@ -2760,6 +2780,19 @@ namespace ManagedDoom.SoftwareRendering
             else
             {
                 var frac = sprite.StartFrac;
+                Fixed baseclip;
+                var sprtopscreen = centerYFrac - (sprite.TextureAlt * sprite.Scale);
+                if(sprite.Footclip != Fixed.Zero && !sprite.Psprite)
+                {
+                    sprtopscreen = sprtopscreen + (Fixed.FromInt(sprite.Patch.Height<<Fixed.FracBits) * sprite.Scale);
+                    baseclip = (sprtopscreen - (sprite.Footclip << Fixed.FracBits)* sprite.Scale) >> Fixed.FracBits;
+                }
+                else
+                {
+                    baseclip = Fixed.FromInt(-1);
+                }
+
+
                 for (var x = sprite.X1; x <= sprite.X2; x++)
                 {
                     var textureColumn = frac.ToIntFloor();
@@ -2772,7 +2805,8 @@ namespace ManagedDoom.SoftwareRendering
                         Fixed.Abs(sprite.InvScale),
                         sprite.TextureAlt,
                         upperClip[x],
-                        lowerClip[x]);
+                        lowerClip[x],
+                        baseclip.ToIntFloor());
                     frac += sprite.InvScale;
                 }
             }
@@ -3020,6 +3054,10 @@ namespace ManagedDoom.SoftwareRendering
             public byte[] ColorMap;
 
             public MobjFlags MobjFlags;
+            
+            public bool Psprite;
+
+            public Fixed Footclip;
         }
 
         private class VisSpriteComparer : IComparer<VisSprite>

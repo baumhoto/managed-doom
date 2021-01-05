@@ -133,6 +133,9 @@ namespace ManagedDoom
         private int tics; // State tic counter.
         private MobjStateDef state;
         private MobjFlags flags;
+        private MobjFlags2 flags2;
+        private int special1;
+        private int special2;
         private int health;
 
         // Movement direction, movement generation (zig-zagging).
@@ -508,6 +511,24 @@ namespace ManagedDoom
         {
             get => flags;
             set => flags = value;
+        }
+
+        public MobjFlags2 Flags2
+        {
+            get => flags2;
+            set => flags2 = value;
+        }
+
+        public int Special1
+        {
+            get => special1;
+            set => special1 = value;
+        }
+        
+        public int Special2
+        {
+            get => special2;
+            set => special2 = value;
         }
 
         public int Health

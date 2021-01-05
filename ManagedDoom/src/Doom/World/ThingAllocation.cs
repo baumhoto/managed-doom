@@ -17,6 +17,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ManagedDoom
 {
@@ -279,6 +280,7 @@ namespace ManagedDoom
             mobj.Radius = info.Radius;
             mobj.Height = info.Height;
             mobj.Flags = info.Flags;
+            mobj.Flags2 = info.Flags2;
             mobj.Health = info.SpawnHealth;
 
             if (world.Options.Skill != GameSkill.Nightmare)
@@ -720,6 +722,20 @@ namespace ManagedDoom
 
             // Pull it from the que.
             itemQueTail = (itemQueTail + 1) & (itemQueSize - 1);
+        }
+
+
+        public FloorType GetThingFloorType(Mobj thing)
+        {
+            var flatIndex = thing.Subsector.Sector.FloorFlat;
+            var flatName = world.Map.Flats[flatIndex].Name;
+            var result = DoomInfo.TerrainTypes.SingleOrDefault(t => t.Name == flatName)?.Type;
+            if(result.HasValue)
+            {
+                return result.Value;
+            }
+
+            return FloorType.Solid;
         }
     }
 }

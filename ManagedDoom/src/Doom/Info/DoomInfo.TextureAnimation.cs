@@ -24,7 +24,7 @@ namespace ManagedDoom
         public static readonly AnimationDef[] TextureAnimation = new AnimationDef[]
         {
             new AnimationDef(false, "NUKAGE3",  "NUKAGE1",  8),
-            new AnimationDef(false, "FWATER4",  "FWATER1",  8),
+            new AnimationDef(false, "FLTWAWA3",  "FLTWAWA1",  8),
             new AnimationDef(false, "SWATER4",  "SWATER1",  8),
             new AnimationDef(false, "LAVA4",    "LAVA1",    8),
             new AnimationDef(false, "BLOOD3",   "BLOOD1",   8),
@@ -52,4 +52,5 @@ namespace ManagedDoom
             new AnimationDef(true,  "DBRAIN4",  "DBRAIN1",  8)
         };
     }
+
 }

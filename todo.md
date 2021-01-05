@@ -4,9 +4,8 @@
 * compare Player animation states (DoomInfo.States) with Heretic source
 ### Enemy
 #### Imp
-* Explode logic (MT_IMPCHUNK1, MT_IMPCHUNK2)
+* check impchunk velocity 
 * Ranged attack = check fireball speed (mobj2flags)
-* Mobj2 Flags and logic needs to be added
 ### Weapon
 #### Goldenwand
 * change AmmoType from clip
@@ -14,6 +13,11 @@
 ### Pickups
 * Yellow Key -> check if everthing is there 
 ### GameLogic
+#### Mobj2Flags
+* added class Mobj2Flags and started implementing the ones already referenced by mobjinfos
+    * FootClip & FeetAreClipped started
+        * added in trymove and project vissprite
+        * check other usages to continue
 ### UI
 #### Menu
 #### StatusBar
